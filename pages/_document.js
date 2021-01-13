@@ -2,6 +2,7 @@ import Document, { Head, Main, NextScript,Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import Footer from '../components/layouts/Footer.component';
 import Header from '../components/layouts/Header.component';
+import { GlobalStyles } from '../components/utils/GlobalStyles';
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -16,7 +17,8 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head /> 
+        <Head />
+        <GlobalStyles /> 
         <body> 
           <Header />
           <Main />
