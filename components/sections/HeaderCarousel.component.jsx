@@ -20,9 +20,6 @@ const carouselImgs = [
 //     {
 //         img :"https://images.unsplash.com/photo-1505377059067-e285a7bac49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80",
 
-//     }
-// ]
-
 const HeaderCarousel = () => {
   const [carousel, setCarousel] = React.useState(0)
 
@@ -60,10 +57,11 @@ const HeaderCarousel = () => {
     },
   }
 
-  return (
-    <Carousel>
-      <CarouselWrapper>
-        <CarouselLinks>
+
+    return (
+        <Carousel>
+            <CarouselWrapper>
+            <CarouselLinks>
           <p>follow us</p>
           <div className='line'>&nbsp;</div>
           <div className='icons-container'>
@@ -81,35 +79,42 @@ const HeaderCarousel = () => {
             </a>
           </div>
         </CarouselLinks>
-
-        <AnimatePresence>
-          {carouselImgs.map((img, id) => {
-            if (carousel === id) {
-              return (
-                <motion.img
-                  variants={variants}
-                  initial='from'
-                  animate='to'
-                  exit='exit'
-                  key={id}
-                  src={img}
-                  alt={`alt_${id}`}
-                />
-              )
-            }
-          })}
-        </AnimatePresence>
-      </CarouselWrapper>
-      <ButtonFlex>
-        <CarouselTogglers onClick={() => carouselController("decrement")}>
-          <BsChevronLeft size='3rem' />
-        </CarouselTogglers>
-        <CarouselTogglers onClick={() => carouselController("increment")}>
-          <BsChevronRight size='3rem' />
-        </CarouselTogglers>
-      </ButtonFlex>
-    </Carousel>
-  )
+                <AnimatePresence>
+                    {
+                        carouselImgs.map((img,id) =>{
+                            if(carousel === id){
+                                return  <motion.img 
+                                variants={variants}
+                                initial="from"
+                                animate="to"
+                                exit="exit"
+                                key={id}
+                                src={img} 
+                                alt={`alt_${id}`} />
+                            }
+                        })
+                    }
+                    <ContentAnimation>
+                        {
+                            carousel === 0 ?
+                            <>
+                                <h1>Film</h1>
+                                <h2>Production</h2>
+                            </> : "Haattt"
+                        }
+                    </ContentAnimation>
+                </AnimatePresence>
+            </CarouselWrapper>
+            <ButtonFlex>
+                <CarouselTogglers onClick={() => carouselController('decrement')}>
+                    <BsChevronLeft size="3rem"/>
+                </CarouselTogglers>
+                <CarouselTogglers onClick={() => carouselController('increment')}>
+                    <BsChevronRight size="3rem"/>
+                </CarouselTogglers>
+            </ButtonFlex>
+        </Carousel>
+    )
 }
 
 export default HeaderCarousel
@@ -144,25 +149,21 @@ const CarouselTogglers = styled(Button)`
   margin: 0 2rem;
 `
 const ButtonFlex = styled.div`
-  display: flex;
-  opacity: 0;
-  transition: opacity 0.4s;
-  justify-content: space-between;
-  align-content: center;
-  position: absolute;
-  z-index: 9999;
-  width: 100%;
-  top: 50%;
+display: flex;
+opacity:0;
+justify-content : space-between;
+align-content:center;
+position:absolute;
+width: 100%;
+top: 50%;
 `
 
-const Carousel = styled.section`
-  width: 100%;
-  height: 100vh;
-  background-color: black;
-  position: relative;
-  &:hover ${ButtonFlex} {
-    opacity: 1;
-}
+const ContentAnimation = styled.div`
+position:absolute;
+top:50%;
+left : 50%;
+transform : translate(-50%,-50%);
+color : var(--baseBg);
 `
 
 const CarouselLinks = styled.div`
@@ -183,7 +184,6 @@ const CarouselLinks = styled.div`
     text-transform: uppercase;
   }
   .line {
-    /* border: 1px solid #ffffff; */
     background-color: #ffffff;
     height: 1px;
     width: 44px;
@@ -211,4 +211,13 @@ const CarouselLinks = styled.div`
       margin-bottom: 10px;
     }
   }
+`
+const Carousel = styled.section`
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  &:hover ${ButtonFlex} {
+    opacity: 1;
+}
 `
