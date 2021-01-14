@@ -1,19 +1,11 @@
 import styled from 'styled-components'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
 const Header = () => {
-
-    useEffect(() => {
-        window.addEventListener('scrollY',eve => {
-            console.log(eve);
-        })
-    })
-   
     return (
         <LayoutHeader>
            <Logo>
-             <img src="/logo_alt.png" src="log_alt" />
+             <img src="/logo_alt.png" alt="log_alt" />
            </Logo>
            <Navbar>
                <Link href="/">
@@ -23,7 +15,7 @@ const Header = () => {
                    Pages
                </Link>
                <Link href="/production">
-                   Production
+                   Production 
                </Link>
                <Link href="/blog">
                    Blog

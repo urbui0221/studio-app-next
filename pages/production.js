@@ -1,8 +1,14 @@
+import Layout from "../components/layouts/Layout.component"
+import { useRouter } from 'next/router'
+
 const production = () => {
+
+    const Router = useRouter();
+
     return (
-        <div>
-            Prodcution
-        </div>
+       <Layout route="production">
+
+       </Layout>
     )
 }
 
