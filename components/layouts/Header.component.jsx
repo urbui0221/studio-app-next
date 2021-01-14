@@ -1,7 +1,14 @@
 import styled from 'styled-components'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 const Header = () => {
+
+    useEffect(() => {
+        window.addEventListener('scrollY',eve => {
+            console.log(eve);
+        })
+    })
    
     return (
         <LayoutHeader>
