@@ -5,15 +5,53 @@ import Button from '../ui/Button.component'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const carouselImgs = [
-    "https://images.unsplash.com/photo-1505377059067-e285a7bac49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80",
+    "https://images.unsplash.com/photo-1542296375-b4c0e4a878fd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "https://images.unsplash.com/photo-1602342629825-3caac6e02785?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
     "https://images.unsplash.com/photo-1510582029005-689cfc56b48c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
 ]
 
+const durTime = 0.3;
+const Carouselvariants = {
+    from : {
+        opacity : 0
+    },
+    to : {
+        opacity : 1,
+        transition : {
+            duration : durTime
+        } 
+    },
+    exit : {
+        opacity : 0,
+        transition : {
+            duration : durTime
+        } 
+    }
+}
+
+const HirebtnVariants = {
+    from : {
+        opacity : 0
+    },
+    to : {
+        opacity : 1,
+        transition : {
+            duration : durTime
+        } 
+    },
+    exit : {
+        opacity : 0,
+        transition : {
+            duration : durTime
+        } 
+    }
+}
 
 const HeaderCarousel = () => {
 
     const [carousel,setCarousel] = React.useState(0); 
+    const [btnshow,setShow] = React.useState(true);
+    const [showControllers,setControls] = React.useState(true);
 
     const carouselController = type => {
         return type === 'increment' ? 
@@ -22,39 +60,31 @@ const HeaderCarousel = () => {
     }
 
     React.useEffect(_ => {
-        setInterval(() =>{
+        /*setInterval(() =>{
             setCarousel(carousel === 2 ? 0 : carousel + 1) 
-        },10000)
+        },10000)*/
     },[setCarousel])
 
-    const durTime = 0.3;
-    const variants = {
-        from : {
-            opacity : 0
-        },
-        to : {
-            opacity : 1,
-            transition : {
-                duration : durTime
-            } 
-        },
-        exit : {
-            opacity : 0,
-            transition : {
-                duration : durTime
-            } 
+    React.useEffect(_ => {
+        if(btnshow){
+            setTimeout(() => {
+                setControls(false)
+            },5000)
         }
-    }
+        setShow(true)
+    },[setShow])
 
     return (
-        <Carousel>
+        <Carousel 
+        onMouseEnter={() => setControls(true)} 
+        onMouseLeave ={() => setControls(false)}>
             <CarouselWrapper>
                 <AnimatePresence>
                     {
                         carouselImgs.map((img,id) =>{
                             if(carousel === id){
                                 return  <motion.img 
-                                variants={variants}
+                                variants={Carouselvariants}
                                 initial="from"
                                 animate="to"
                                 exit="exit"
@@ -67,21 +97,67 @@ const HeaderCarousel = () => {
                     <ContentAnimation>
                         {
                             carousel === 0 ?
-                            <>
-                                <h1>Film</h1>
-                                <h2>Production</h2>
-                            </> : "Haattt"
+                          <>
+                                <div className="head-wrapper">
+                                    <h1>
+                                        <span>&nbsp; &nbsp;Film</span><br />
+                                        <span>+ Video</span>
+                                    </h1>
+                                </div>
+                                <h2>Productions</h2>
+                          </>: carousel === 1 ?
+                          <>
+                            <h4>We are a create film studio</h4>
+                            <h3>We are nine studio</h3>
+                          </>
+                           :<>
+                            <h4>
+                                Let's make
+                            </h4>
+                            <h3>Great things togather</h3>
+                            <p>
+                            Let’s make GREAT THING TOGETHER! We are a creative film and photo production company based in Berlin. Working with a network of diverse professionals, we believe in the importance of strong visual communication. HIRE US NOW FOLLOW US.
+                            </p>
+                           </>
                         }
+                       <center style={{ position : "relative" }}>
+                           <AnimatePresence>
+                           {
+                            (carousel === 0 || carousel === 2) && btnshow && <HireButton 
+                            variants={HirebtnVariants}
+                            initial={"from"}
+                            animate={"to"}
+                            exit="exit"
+                            bgcolor="var(--primary)">HIRE US NOW</HireButton>
+                           }
+                           </AnimatePresence>
+                       </center>
                     </ContentAnimation>
                 </AnimatePresence>
             </CarouselWrapper>
             <ButtonFlex>
-                <CarouselTogglers onClick={() => carouselController('decrement')}>
-                    <BsChevronLeft size="3rem"/>
-                </CarouselTogglers>
-                <CarouselTogglers onClick={() => carouselController('increment')}>
-                    <BsChevronRight size="3rem"/>
-                </CarouselTogglers>
+                <AnimatePresence>
+                   {
+                       showControllers && <>
+                       <CarouselTogglers
+                        variants={HirebtnVariants}
+                        initial={"from"}
+                        animate={"to"}
+                        exit="exit" 
+                        onClick={() => carouselController('decrement')}>
+                        <BsChevronLeft size="3rem" color="var(--secondary)" strokeWidth="0.7"/>
+                        </CarouselTogglers>
+                        <CarouselTogglers
+                        variants={HirebtnVariants}
+                        initial={"from"}
+                        animate={"to"}
+                        exit="exit" 
+                        onClick={() => carouselController('increment')}>
+                        <BsChevronRight size="3rem" color="var(--secondary)" strokeWidth="0.7"/>
+                    </CarouselTogglers>
+                       </>
+                   }
+                </AnimatePresence>
             </ButtonFlex>
         </Carousel>
     )
@@ -112,6 +188,16 @@ img {
     object-fit:cover;
 }
 `
+const HireButton = styled(Button)`
+margin : 0 auto;
+margin-top : 7rem;
+position : absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding : 1.5rem 3rem;
+`
+
 const CarouselTogglers = styled(Button)`
 display: flex;
 justify-content: center;
@@ -136,4 +222,38 @@ top:50%;
 left : 50%;
 transform : translate(-50%,-50%);
 color : var(--baseBg);
+h2{
+    color : var(--baseBg);
+    line-height: 1;
+    width: max-content;
+    text-align: center;
+}
+h3{
+    color : var(--baseBg);
+    text-transform : uppercase;
+    margin-top : 5rem;
+    text-align: center;
+}
+h4{
+    color : var(--baseBg);
+    font-family : var(--head);
+    font-weight : 400;
+    font-style: italic;
+    text-align:center;
+}
+P{
+    font-size : 1.3rem;
+    margin-top : 5rem;
+    text-align: center;
+}
+.head-wrapper{
+    display: flex;
+    position: relative;
+    text-transform : uppercase;
+    h1,h2{
+        color : var(--baseBg);
+        line-height: 1;
+        margin-left : 4rem;
+    }
+}
 `
