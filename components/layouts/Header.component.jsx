@@ -13,7 +13,7 @@ const Header = () => {
     return (
         <LayoutHeader>
            <Logo>
-             <img src="/logo_alt.png" src="log_alt" />
+             <img src="./images/logo_alt.png" src="log_alt" />
            </Logo>
            <Navbar>
                <Link href="/">
