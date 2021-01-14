@@ -1,21 +1,126 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+* {
+	padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  
+}
+*, :active, :focus, :hover {
+    outline: 0!important;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Lato';
+}
+
+body {
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: #696969;
+  font-size: 15px;
+}
+
+ul, ol {
+  list-style: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: #696969;
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+a:hover {
+	text-decoration: none;
+	color: #da0e2b;
+}
+a:focus {
+	text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+blockquote {
+  font-size: 20px;
+  font-style: italic;
+  color: #ababab;
+  font-weight: 400;
+  padding: 20px 60px;
+  margin: 0;
+border: none;
+}
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+iframe {
+border: none;
+width: 100%;
+}
+button, input, select, textarea {
+  font-size: 15px;
+  color: #404040;
+  background-color: #f4f4f4;
+  font-family: Lato;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"], textarea {
+  border: 1px solid #f1eeea;
+  border-radius: 3px;
+  color: #666;
+  padding: 7px 15px;
+  outline: 0;
+  width: 100%;
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"] {
+  height: 40px;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: Montserrat,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: #333;
+margin-top: 0;
+}
+h1, .h1 {
+font-size:56px;
+}
+h2, .h2 {
+  font-size: 40px;
+}
+h3, .h3 {
+  font-size: 34px;
+}
+h4, .h4 {
+  font-size: 24px;
+}
+h5, .h5 {
+  font-size: 18px;
+}
+h6, .h6 {
+  font-size: 14px;
 }
 
 `

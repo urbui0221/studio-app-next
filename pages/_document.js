@@ -1,8 +1,9 @@
 import Document, { Head, Main, NextScript,Html } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import Footer from '../components/layouts/Footer.component';
-import Header from '../components/layouts/Header.component';
+import Header from '../components/layouts/Header';
 import { GlobalStyles } from '../components/utils/GlobalStyles';
+import {Helmet} from "react-helmet";
 
 export default class MyDocument extends Document {
   static getInitialProps({ renderPage }) {
@@ -18,6 +19,7 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head />
+        
         <GlobalStyles /> 
         <body> 
           <Header />

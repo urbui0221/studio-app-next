@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import "../styles/globals.css"
 import { GlobalStyles } from '../components/utils/GlobalStyles'
 
 export default function App({ Component, pageProps }) {
