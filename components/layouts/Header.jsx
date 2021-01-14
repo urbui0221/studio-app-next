@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react"
 import styled, { keyframes } from "styled-components"
-
+import TopSearchContainer from "./TopSearchContainer";
 const Header = () => {
+  const pageDropdownRef = useRef(null);
 
   const [hasScrolled, setHasScrolled] = useState(false)
   const [topSearch, setTopSearch] = useState(false)
@@ -36,7 +37,7 @@ const Header = () => {
   const handleSearchClick = () => { setTopSearch(p => !p) }
   const handleHamburgerClick = () => { setMobileNav(p => !p) }
 
-  const handleScroll = (event) => {
+  const handleScroll = () => {
     const scrollTop = window.pageYOffset
     if (scrollTop > 1) {
       setHasScrolled(true)
@@ -48,8 +49,15 @@ const Header = () => {
 
 
   useEffect(() => {
+
+    // pageDropdownRef.current.style.maxHeight = pagesDropdown ? `${pageDropdownRef.current.scrollHeight}px` : '0px'
+    pageDropdownRef.current.style.maxHeight = pagesDropdown ? `577px` : '0px'
+    
     window.addEventListener('scroll', handleScroll);
-  }, [handleScroll])
+    return () => {
+    window.removeEventListener('scroll', handleScroll);
+    }
+  }, [handleScroll, pagesDropdown, pageDropdownRef])
 
   return (
     <HeaderContainer>
@@ -62,7 +70,7 @@ const Header = () => {
             <li className={`${pagesDropdown ? 'dropdown expand' : 'dropdown'}`}>
               <a href="#" onClick={handleMobilePagesClick}>Pages</a>
               <i className="sub-menu-toggle fa fa-angle-down" onClick={handleMobilePagesClick}></i>
-              <ul className="sub-menu" style={{ display: `${pagesDropdown ? 'block' : 'none'}` }}>
+              <ul ref={pageDropdownRef} className="sub-menu submenu-animate">
 
                 <DropDowns arr={About} title={'About'} url={"#"} active={aboutDropdown} onClick={handleMobileAboutClick} />
                 <DropDowns arr={OurTeam} title={'Our Team'} url={"#"} active={ourTeamDropdown} onClick={handleMobileOurTeamClick} />
@@ -74,7 +82,6 @@ const Header = () => {
             {/* <DropDowns arr={Pages} title={'Pages'} active={pagesDropdown} onClick={handleMobilePagesClick} /> */}
 
             <DropDowns arr={ProductionList} title={'Production'} url={"#"} active={productionDropdown} onClick={handleMobileProductionClick} />
-
             <DropDowns arr={BlogsList} title={'Blogs'} url={"#"} active={blogDropdown} onClick={handleMobileBlogClick} />
             <li>
               <a href="contact-us.html">Contact Us</a>
@@ -82,19 +89,8 @@ const Header = () => {
           </ul>
         </div>
       </div>
-      <TopSearchContainer topSearch={topSearch}>
-        <div className="top-search">
-          <div className="container">
-            <div className="row">
-              <div className="col-sm-12">
-                <form>
-                  <input type="search" className="top-search-input" name="s" placeholder="What are you looking for?" />
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </TopSearchContainer>
+      
+      <TopSearchContainer topSearch={topSearch} setTopSearch={setTopSearch} />
 
       <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : "header-overlay"} header-desktop header-1`}>
         <div className='container-fluid'>
@@ -296,6 +292,7 @@ const translateYReverse = keyframes`
 `;
 
 const HeaderContainer = styled.div`
+position: relative;
 .header {
     width: 100%;
 	  margin-top: 0;
@@ -771,57 +768,7 @@ header.header-mobile .header-right .open-search {
 
 `
 
-const TopSearchContainer = styled.div`
 
-.top-search {
-    width: 100%;
-    background-color: #da0e2b;
-    color: #fff;
-    transition: all 1s linear;
-    animation: ${props => props.topSearch ? translateY : translateYReverse} 0.2s linear;
-    display: ${props => props.topSearch ? 'block' : 'none'};
-}
-
-.animate-translateY {
-  transform: translateY(0);
-}
-
-.top-search form {
-    padding-left: 30px;
-    position: relative;
-}
-.top-search form:before {
-    content: '\f4a5';
-    font-family: Ionicons;
-    font-size: 18px;
-    font-weight: 700;
-    position: absolute;
-    left: 0;
-    height: 40px;
-    line-height: 40px;
-}
-.top-search form input[type="search"] {
-    border: none;
-    background: none;
-    color: #fff;
-    font-size: 16px;
-    height: 40px;
-    line-height: 40px;
-    padding: 0;
-}
-.top-search form input[type="search"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-	color: #fff;
-}
-.top-search form input[type="search"]::-moz-placeholder { /* Firefox 19+ */
-	color: #fff;
-}
-.top-search form input[type="search"]:-ms-input-placeholder { /* IE 10+ */
-	color: #fff;
-}
-.top-search form input[type="search"]:-moz-placeholder { /* Firefox 18- */
-	color: #fff;
-}
-`
 
 export default Header
 

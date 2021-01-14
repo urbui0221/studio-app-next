@@ -4,9 +4,6 @@ export const GlobalStyles = createGlobalStyle`
 :root{
   --head: 'Merriweather', serif; 
   --display: 'Montserrat', sans-serif;
-
-  //
-  
   --baseBg : #FFFFFF;
 }
 html{
