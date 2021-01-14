@@ -101,7 +101,7 @@ const Header = () => {
           <div className='row'>
             <div className='col-md-3 p-0'>
               <div className='header-left'>
-                <a href='./' id='branding_logo'>
+                <a href='/' id='branding_logo'>
                   <img
                     className='logo'
                     src='images/logo.png'

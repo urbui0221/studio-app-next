@@ -11,13 +11,6 @@ const carouselImgs = [
 ]
 
 
-const swiperCarousel = [
-    {
-        img :"https://images.unsplash.com/photo-1505377059067-e285a7bac49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80",
-        
-    }
-]
-
 const HeaderCarousel = () => {
 
     const [carousel,setCarousel] = React.useState(0); 
@@ -71,6 +64,15 @@ const HeaderCarousel = () => {
                             }
                         })
                     }
+                    <ContentAnimation>
+                        {
+                            carousel === 0 ?
+                            <>
+                                <h1>Film</h1>
+                                <h2>Production</h2>
+                            </> : "Haattt"
+                        }
+                    </ContentAnimation>
                 </AnimatePresence>
             </CarouselWrapper>
             <ButtonFlex>
@@ -126,4 +128,12 @@ align-content:center;
 position:absolute;
 width: 100%;
 top: 50%;
+`
+
+const ContentAnimation = styled.div`
+position:absolute;
+top:50%;
+left : 50%;
+transform : translate(-50%,-50%);
+color : var(--baseBg);
 `

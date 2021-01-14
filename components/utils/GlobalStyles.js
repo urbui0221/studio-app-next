@@ -4,9 +4,6 @@ export const GlobalStyles = createGlobalStyle`
 :root{
   --head: 'Merriweather', serif; 
   --display: 'Montserrat', sans-serif;
-
-  //
-  
   --baseBg : #FFFFFF;
 }
 html{
@@ -16,11 +13,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Lato';
 }
 
 body {
-  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-family: var(--display);
   font-weight: 400;
   font-style: normal;
   line-height: 1.8;
