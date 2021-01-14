@@ -1,6 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+:root{
+  --head: 'Merriweather', serif; 
+  --display: 'Montserrat', sans-serif;
+
+  //
+  
+  --baseBg : #FFFFFF;
+}
 html{
   font-size : 62.5%;
 }
@@ -24,9 +32,7 @@ body {
 ul, ol {
   list-style: none;
 }
-position :relative;
-width: 100vw;
-height: 100vh;
+
 a {
 	color: #696969;
     text-decoration: none;

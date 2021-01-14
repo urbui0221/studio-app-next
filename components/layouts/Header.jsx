@@ -68,8 +68,6 @@ const Header = () => {
                 <DropDowns arr={OurTeam} title={'Our Team'} url={"#"} active={ourTeamDropdown} onClick={handleMobileOurTeamClick} />
                 <DropDowns arr={OurServicesList} title={'Our Services'} url={"#"} active={ourServicesDropdown} onClick={handleMobileOurServicesClick} />
                 <DropDowns arr={GalleryList} title={'Gallery'} url={"#"} active={galleryDropdown} onClick={handleMobileGalleryClick} />
-
-
                 <li><a href="404.html">404</a></li>
               </ul>
             </li>
@@ -106,7 +104,7 @@ const Header = () => {
                 <a href='./' id='branding_logo'>
                   <img
                     className='logo'
-                    src='images/logo_alt.png'
+                    src='images/logo.png'
                     alt='Logo'
                     title='Nine Studio'
                   />
