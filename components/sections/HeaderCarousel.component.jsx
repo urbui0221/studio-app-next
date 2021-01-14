@@ -2,11 +2,20 @@ import React from 'react'
 import styled from 'styled-components'
 import { BsChevronLeft,BsChevronRight } from 'react-icons/bs'
 import Button from '../ui/Button.component'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const carouselImgs = [
-    'https://images.unsplash.com/photo-1600353832120-30aa75d1cf85?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    "https://images.unsplash.com/photo-1505377059067-e285a7bac49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80",
     "https://images.unsplash.com/photo-1602342629825-3caac6e02785?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-    "https://images.unsplash.com/photo-1590895178913-3d3472310a47?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80"
+    "https://images.unsplash.com/photo-1510582029005-689cfc56b48c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+]
+
+
+const swiperCarousel = [
+    {
+        img :"https://images.unsplash.com/photo-1505377059067-e285a7bac49b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1955&q=80",
+        
+    }
 ]
 
 const HeaderCarousel = () => {
@@ -22,29 +31,54 @@ const HeaderCarousel = () => {
     React.useEffect(_ => {
         setInterval(() =>{
             setCarousel(carousel === 2 ? 0 : carousel + 1) 
-        },5000)
+        },10000)
     },[setCarousel])
+
+    const durTime = 0.3;
+    const variants = {
+        from : {
+            opacity : 0
+        },
+        to : {
+            opacity : 1,
+            transition : {
+                duration : durTime
+            } 
+        },
+        exit : {
+            opacity : 0,
+            transition : {
+                duration : durTime
+            } 
+        }
+    }
 
     return (
         <Carousel>
             <CarouselWrapper>
-              {
-                  carouselImgs.map((img,id) =>{
-                     if(carousel === id){
-                        return  <img 
-                        key={id}
-                        src={img} 
-                        alt={`alt_${id}`} />
-                     }
-                  })
-              }
+                <AnimatePresence>
+                    {
+                        carouselImgs.map((img,id) =>{
+                            if(carousel === id){
+                                return  <motion.img 
+                                variants={variants}
+                                initial="from"
+                                animate="to"
+                                exit="exit"
+                                key={id}
+                                src={img} 
+                                alt={`alt_${id}`} />
+                            }
+                        })
+                    }
+                </AnimatePresence>
             </CarouselWrapper>
             <ButtonFlex>
                 <CarouselTogglers onClick={() => carouselController('decrement')}>
-                    <BsChevronLeft size="5rem"/>
+                    <BsChevronLeft size="3rem"/>
                 </CarouselTogglers>
                 <CarouselTogglers onClick={() => carouselController('increment')}>
-                    <BsChevronRight size="5rem"/>
+                    <BsChevronRight size="3rem"/>
                 </CarouselTogglers>
             </ButtonFlex>
         </Carousel>
@@ -57,7 +91,7 @@ export default HeaderCarousel
 const Carousel = styled.section`
 width : 100%;
 height : 100vh;
-background-color :pink;
+background-color :black;
 position: relative;
 `
 const CarouselWrapper = styled.div`
