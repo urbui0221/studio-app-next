@@ -1,6 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+:root{
+  --head: 'Merriweather', serif; 
+  --display: 'Montserrat', sans-serif;
+
+  //
+  
+  --baseBg : #FFFFFF;
+}
 html{
   font-size : 62.5%;
 }
@@ -12,8 +20,13 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 position :relative;
-width: 100vw;
+width: 100%;
 height: 100vh;
+overflow-x:hidden;
+font-family: var(--display);
+font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 a {
   color: inherit;
   text-decoration: none;
