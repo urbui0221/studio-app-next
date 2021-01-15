@@ -200,7 +200,7 @@ const CarouselLinks = styled.div`
   transform: translateY(-50%);
   z-index: 9997;
   p {
-      font-size: 11px;
+      font-size: 1.3rem;
       font-weight: 600;
       letter-spacing: 0.5px;
     color: #ffffff;
