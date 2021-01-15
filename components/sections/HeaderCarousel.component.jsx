@@ -196,7 +196,7 @@ const CarouselLinks = styled.div`
   flex-direction: column;
   align-items: center;
   left: 1rem;
-  top: 59%;
+  top: 57%;
   transform: translateY(-50%);
   z-index: 9997;
   p {

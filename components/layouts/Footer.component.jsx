@@ -88,7 +88,7 @@ export default Footer
 
 const LayoutFooter = styled.footer`
 .footer {
-    font-family: 'Lato';
+    font-family: var(--display);
 	display: block;
     width: 100%;
     padding-top: 80px;
