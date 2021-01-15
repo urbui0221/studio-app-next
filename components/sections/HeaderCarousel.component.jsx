@@ -196,7 +196,7 @@ const CarouselLinks = styled.div`
   flex-direction: column;
   align-items: center;
   left: 1rem;
-  top: 50%;
+  top: 59%;
   transform: translateY(-50%);
   z-index: 9997;
   p {
@@ -263,6 +263,7 @@ padding : 1.5rem 3rem;
 `
 
 const CarouselTogglers = styled(Button)`
+z-index: 9999;
 display: flex;
 justify-content: center;
 align-items: center;
