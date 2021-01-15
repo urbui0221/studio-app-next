@@ -1,109 +1,106 @@
-import React from "react"
-import styled from "styled-components"
-
+import React, { useState, useEffect, useRef } from "react"
+import styled, { keyframes } from "styled-components"
+import TopSearchContainer from "./TopSearchContainer";
 const Header = () => {
+  const pageDropdownRef = useRef(null);
+
+  const [hasScrolled, setHasScrolled] = useState(false)
+  const [topSearch, setTopSearch] = useState(false)
+  const [mobileNav, setMobileNav] = useState(false)
+  const [homeDropdown, setHomeDropdown] = useState(false)
+  const [productionDropdown, setProductionDropdown] = useState(false)
+  const [blogDropdown, setBlogDropdown] = useState(false)
+  const [pagesDropdown, setPagesDropdown] = useState(false)
+
+  const [aboutDropdown, setAboutDropdown] = useState(false)
+  const [ourTeamDropdown, setOurTeamDropdown] = useState(false)
+  const [ourServicesDropdown, setOurServicesDropdown] = useState(false)
+  const [galleryDropdown, setGalleryDropdown] = useState(false)
+
+  const handleMobileHomeClick = () => { setHomeDropdown(p => !p) }
+  const handleMobileProductionClick = () => { setProductionDropdown(p => !p) }
+  const handleMobileBlogClick = () => { setBlogDropdown(p => !p) }
+  const handleMobileAboutClick = () => { setAboutDropdown(p => !p) }
+  const handleMobileOurTeamClick = () => { setOurTeamDropdown(p => !p) }
+  const handleMobileOurServicesClick = () => { setOurServicesDropdown(p => !p) }
+  const handleMobileGalleryClick = () => { setGalleryDropdown(p => !p) }
+  const handleMobilePagesClick = () => {
+    if (aboutDropdown || ourTeamDropdown || ourServicesDropdown || galleryDropdown) {
+      setAboutDropdown(false)
+      setOurTeamDropdown(false)
+      setOurServicesDropdown(false)
+      setGalleryDropdown(false)
+    }
+    setPagesDropdown(p => !p)
+  }
+
+  const handleSearchClick = () => { setTopSearch(p => !p) }
+  const handleHamburgerClick = () => { setMobileNav(p => !p) }
+
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset
+    if (scrollTop > 1) {
+      setHasScrolled(true)
+    } else {
+      setHasScrolled(false)
+    }
+  }
+
+
+
+  useEffect(() => {
+
+    // pageDropdownRef.current.style.maxHeight = pagesDropdown ? `${pageDropdownRef.current.scrollHeight}px` : '0px'
+    pageDropdownRef.current.style.maxHeight = pagesDropdown ? `577px` : '0px'
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+    window.removeEventListener('scroll', handleScroll);
+    }
+  }, [handleScroll, pagesDropdown, pageDropdownRef])
+
   return (
     <HeaderContainer>
-    <div id="menu-slideout" class="slideout-menu hidden-md-up">
-			<div class="mobile-menu">
-				<ul id="mobile-menu" class="menu">
-					<li class="dropdown">
-						<a href="#">Home</a>
-						<i class="sub-menu-toggle fa fa-angle-down"></i>
-						<ul class="sub-menu">
-							<li><a href="./">Home Production</a></li>
-							<li><a href="index-film-making.html">Home Film Making</a></li>
-							<li><a href="index-studio.html">Home Studio</a></li>
-							<li><a href="index-director.html">Home Director</a></li>
-							<li class="active"><a href="index-agency.html">Home Agency</a></li>
-							<li><a href="index-blogger.html">Home Blogger</a></li>
-							<li><a href="index-showcase.html">Home Showcase</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#">Pages</a>
-						<i class="sub-menu-toggle fa fa-angle-down"></i>
-						<ul class="sub-menu">
-							<li class="dropdown">
-								<a href="#">About</a>
-								<i class="sub-menu-toggle fa fa-angle-down"></i>
-								<ul class="sub-menu">
-									<li><a href="about-1.html">About 01</a></li>
-									<li><a href="about-2.html">About 02</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#">Our Team</a>
-								<i class="sub-menu-toggle fa fa-angle-down"></i>
-								<ul class="sub-menu">
-									<li><a href="our-team-1.html">Our Team 01</a></li>
-									<li><a href="our-team-2.html">Our Team 02</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#">Our Services</a>
-								<i class="sub-menu-toggle fa fa-angle-down"></i>
-								<ul class="sub-menu">
-									<li><a href="our-services-1.html">Our Services 01</a></li>
-									<li><a href="our-services-2.html">Our Services 02</a></li>
-								</ul>
-							</li>
-							<li class="dropdown">
-								<a href="#">Gallery</a>
-								<i class="sub-menu-toggle fa fa-angle-down"></i>
-								<ul class="sub-menu">
-									<li><a href="gallery-1.html">Gallery 01</a></li>
-									<li><a href="gallery-2.html">Gallery 02</a></li>
-								</ul>
-							</li>
-							<li><a href="404.html">404</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#">Productions</a>
-						<i class="sub-menu-toggle fa fa-angle-down"></i>
-						<ul class="sub-menu">
-							<li><a href="our-projects-list.html">Productions List</a></li>
-							<li><a href="our-projects-grid.html">Productions Grid</a></li>
-						</ul>
-					</li>
-					<li class="dropdown">
-						<a href="#">Blog</a>
-						<i class="sub-menu-toggle fa fa-angle-down"></i>
-						<ul class="sub-menu">
-							<li><a href="blog-list-1.html">Blog List 01</a></li>
-							<li><a href="blog-list-2.html">Blog List 02</a></li>
-							<li><a href="blog-list-3.html">Blog List 03</a></li>
-							<li><a href="blog-masonry.html">Blog Masonry</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="contact-us.html">Contact Us</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="top-search">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<form>
-							<input type="search" class="top-search-input" name="s" placeholder="What are you looking for?" />
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div id="menu-slideout" className={`${mobileNav ? 'slideout-menu.open' : 'slideout-menu'} hidden-md-up`}>
+        <div className="mobile-menu">
+          <ul id="mobile-menu" className="menu">
+
+            <DropDowns arr={Home} title={'Home'} url={"#"} active={homeDropdown} onClick={handleMobileHomeClick} />
+
+            <li className={`${pagesDropdown ? 'dropdown expand' : 'dropdown'}`}>
+              <a href="#" onClick={handleMobilePagesClick}>Pages</a>
+              <i className="sub-menu-toggle fa fa-angle-down" onClick={handleMobilePagesClick}></i>
+              <ul ref={pageDropdownRef} className="sub-menu submenu-animate">
+
+                <DropDowns arr={About} title={'About'} url={"#"} active={aboutDropdown} onClick={handleMobileAboutClick} />
+                <DropDowns arr={OurTeam} title={'Our Team'} url={"#"} active={ourTeamDropdown} onClick={handleMobileOurTeamClick} />
+                <DropDowns arr={OurServicesList} title={'Our Services'} url={"#"} active={ourServicesDropdown} onClick={handleMobileOurServicesClick} />
+                <DropDowns arr={GalleryList} title={'Gallery'} url={"#"} active={galleryDropdown} onClick={handleMobileGalleryClick} />
+                <li><a href="404.html">404</a></li>
+              </ul>
+            </li>
+            {/* <DropDowns arr={Pages} title={'Pages'} active={pagesDropdown} onClick={handleMobilePagesClick} /> */}
+
+            <DropDowns arr={ProductionList} title={'Production'} url={"#"} active={productionDropdown} onClick={handleMobileProductionClick} />
+            <DropDowns arr={BlogsList} title={'Blogs'} url={"#"} active={blogDropdown} onClick={handleMobileBlogClick} />
+            <li>
+              <a href="contact-us.html">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       
-    <header id='header' className='header header-desktop header-1'>
+      <TopSearchContainer topSearch={topSearch} setTopSearch={setTopSearch} />
+
+      <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : "header-overlay"} header-desktop header-1`}>
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-3 p-0'>
               <div className='header-left'>
-                <a href='./' id='branding_logo'>
+                <a href='/' id='branding_logo'>
                   <img
                     className='logo'
-                    src='images/logo_alt.png'
+                    src='images/logo.png'
                     alt='Logo'
                     title='Nine Studio'
                   />
@@ -124,7 +121,7 @@ const Header = () => {
                       <a href='#'>Home</a>
                       <ul className='sub-menu'>
 
-                      {Home.map((item, index) => (
+                        {Home.map((item, index) => (
                           <li key={index}>
                             <a href={item.url}>{item.name}</a>
                           </li>
@@ -138,41 +135,41 @@ const Header = () => {
                         <li className='dropdown'>
                           <a href='#'>About</a>
                           <ul className='sub-menu'>
-                          {About.map((item, index) => (
-                          <li key={index}>
-                            <a href={item.url}>{item.name}</a>
-                          </li>
-                        ))}
+                            {About.map((item, index) => (
+                              <li key={index}>
+                                <a href={item.url}>{item.name}</a>
+                              </li>
+                            ))}
                           </ul>
                         </li>
                         <li className='dropdown'>
                           <a href='#'>Our Team</a>
                           <ul className='sub-menu'>
-                          {OurTeam.map((item, index) => (
-                          <li key={index}>
-                            <a href={item.url}>{item.name}</a>
-                          </li>
-                        ))}
+                            {OurTeam.map((item, index) => (
+                              <li key={index}>
+                                <a href={item.url}>{item.name}</a>
+                              </li>
+                            ))}
                           </ul>
                         </li>
                         <li className='dropdown'>
                           <a href='#'>Our Services</a>
                           <ul className='sub-menu'>
-                          {OurServicesList.map((item, index) => (
-                          <li key={index}>
-                            <a href={item.url}>{item.name}</a>
-                          </li>
-                        ))}
+                            {OurServicesList.map((item, index) => (
+                              <li key={index}>
+                                <a href={item.url}>{item.name}</a>
+                              </li>
+                            ))}
                           </ul>
                         </li>
                         <li className='dropdown'>
                           <a href='#'>Gallery</a>
                           <ul className='sub-menu'>
-                          {GalleryList.map((item, index) => (
-                            <li key={index}>
-                              <a href={item.url}>{item.name}</a>
-                            </li>
-                          ))}
+                            {GalleryList.map((item, index) => (
+                              <li key={index}>
+                                <a href={item.url}>{item.name}</a>
+                              </li>
+                            ))}
                           </ul>
                         </li>
                         <li>
@@ -205,7 +202,7 @@ const Header = () => {
                     </li>
                   </ul>
                 </nav>
-                <div id='open-search' className='open-search top-search-btn'>
+                <div id='open-search' className='open-search top-search-btn' onClick={handleSearchClick}>
                   <i className='ion-ios-search-strong'></i>
                 </div>
               </div>
@@ -213,51 +210,92 @@ const Header = () => {
           </div>
         </div>
       </header>
-    <header className='header header-mobile'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-xs-2'>
-                <div className='header-left'>
-                  <div id='open-left'>
-                    <i className='ion-navicon'></i>
-                  </div>
+      <header className='header header-mobile'>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-xs-2'>
+              <div className='header-left'>
+                <div id='open-left'>
+                  <i onClick={handleHamburgerClick} className='ion-navicon'></i>
                 </div>
               </div>
-              <div className='col-xs-8'>
-                <div className='header-center'>
-                  <a href='./' id='logo-2'>
-                    <img
-                      className='logo-image'
-                      src='images/logo_alt.png'
-                      alt='Nine Studio Logo'
-                    />
-                  </a>
-                </div>
+            </div>
+            <div className='col-xs-8'>
+              <div className='header-center'>
+                <a href='./' id='logo-2'>
+                  <img
+                    className='logo-image'
+                    src='images/logo_alt.png'
+                    alt='Nine Studio Logo'
+                  />
+                </a>
               </div>
-              <div className='col-xs-2'>
-                <div className='header-right'>
-                  <div
-                    id='open-search-2'
-                    className='open-search top-search-btn'
-                  >
-                    <i className='ion-ios-search-strong'></i>
-                  </div>
+            </div>
+            <div className='col-xs-2'>
+              <div className='header-right'>
+                <div
+                  id='open-search-2'
+                  className='open-search top-search-btn'
+                  onClick={handleSearchClick}
+                >
+                  <i className='ion-ios-search-strong'></i>
                 </div>
               </div>
             </div>
           </div>
-        </header>
-    
-        </HeaderContainer>
+        </div>
+      </header>
+
+    </HeaderContainer>
   )
 }
 
+const DropDowns = ({ arr, title, url, active, onClick }) => {
+  // individual states for active single menu item
+  const contentRef = useRef(null)
+  useEffect(() => {
+    contentRef.current.style.maxHeight = active ? `${contentRef.current.scrollHeight}px` : '0px'
+  }, [contentRef, active])
+
+  return (
+    <li className={`${active ? 'dropdown expand' : 'dropdown'}`} onClick={onClick}>
+      <a href={url}>{title}</a>
+      <i className="sub-menu-toggle fa fa-angle-down"></i>
+      <ul ref={contentRef} className="sub-menu submenu-animate">
+        {arr.map((item, index) => (
+          <li key={index}>
+            <a href={item.url}>{item.name}</a>
+          </li>
+        ))}
+      </ul>
+    </li>
+  )
+}
+
+const translateY = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+`;
+const translateYReverse = keyframes`
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+`;
 
 const HeaderContainer = styled.div`
-
+position: relative;
 .header {
     width: 100%;
-	margin-top: 0;
+	  margin-top: 0;
     margin-bottom: 0;
     position: relative;
     z-index: 99;
@@ -433,9 +471,13 @@ header.header-mobile .header-right .open-search {
     font-size: 12px;
     font-family: Ionicons;
 }
+.submenu-animate{
+  overflow: hidden;
+  transition: max-height 0.6s ease;
+}
 .header .menu-primary .sub-menu {
     font-size: 15px;
-	position: absolute;
+	  position: absolute;
     top: 110%;
     left: 0;
     visibility: hidden;
@@ -685,8 +727,8 @@ header.header-mobile .header-right .open-search {
     margin: 0;
 }
 .mobile-menu > ul.menu li .sub-menu {
-    display: none;
-    border-top: 1px solid #ddd;
+    /* display: none; */
+    /* border-top: 1px solid #ddd; */
     background-color: #eee;
     padding-left: 0;
     font-weight: 400;
@@ -724,8 +766,9 @@ header.header-mobile .header-right .open-search {
 }
 
 
-
 `
+
+
 
 export default Header
 
@@ -758,14 +801,34 @@ const ProductionList = [
   },
 ]
 
-const GalleryList = [
+const Home = [
   {
-    name: "Gallery 01",
-    url: "gallery-1.html",
+    name: 'Home Production',
+    url: 'index-film-making.html'
   },
   {
-    name: "Gallery 02",
-    url: "gallery-2.html",
+    name: 'Home Film Making',
+    url: 'index-film-making.html'
+  },
+  {
+    name: 'Home Studio',
+    url: 'index-studio.html'
+  },
+  {
+    name: 'Home Director',
+    url: 'index-director.html'
+  },
+  {
+    name: 'Home Agency',
+    url: 'index-agency.html'
+  },
+  {
+    name: 'Home Blogger',
+    url: 'index-blogger.html'
+  },
+  {
+    name: 'Home Showcase',
+    url: 'index-showcase.html'
   },
 ]
 
@@ -779,6 +842,7 @@ const OurServicesList = [
     url: "Our-Services-2.html",
   },
 ]
+
 
 const OurTeam = [
   {
@@ -801,33 +865,32 @@ const About = [
   },
 ]
 
-const Home = [
-    {
-        name: 'Home Production',
-        url: 'index-film-making.html'
-    },
-    {
-        name: 'Home Film Making',
-        url: 'index-film-making.html'
-    },
-    {
-        name: 'Home Studio',
-        url: 'index-studio.html'
-    },
-    {
-        name: 'Home Director',
-        url: 'index-director.html'
-    },
-    {
-        name: 'Home Agency',
-        url: 'index-agency.html'
-    },
-    {
-        name: 'Home Blogger',
-        url: 'index-blogger.html'
-    },
-    {
-        name: 'Home Showcase',
-        url: 'index-showcase.html'
-    },
+const GalleryList = [
+  {
+    name: "Gallery 01",
+    url: "gallery-1.html",
+  },
+  {
+    name: "Gallery 02",
+    url: "gallery-2.html",
+  },
+]
+
+const Pages = [
+  {
+    name: 'About',
+    arr: About
+  },
+  {
+    name: 'Our Team',
+    arr: OurTeam,
+  },
+  {
+    name: 'Our Services',
+    arr: OurServicesList
+  },
+  {
+    name: 'Gallery',
+    arr: GalleryList
+  }
 ]
