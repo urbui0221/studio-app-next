@@ -48,11 +48,6 @@ const TopSearchContainerStyles = styled.div`
     /* animation: ${props => props.topSearch ? translateY : translateYReverse} 0.2s linear; */
     display: ${props => props.topSearch ? 'block' : 'none'};
 }
-
-.animate-translateY {
-  transform: translateY(0);
-}
-
 .top-search form {
     padding-left: 30px;
     position: relative;
