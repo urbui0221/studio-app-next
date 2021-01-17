@@ -31,7 +31,7 @@ export default OurFilms
 const OurFilmsData = [
     {
         alternate: false,
-        img: 'images/projects/project_7.jpg',
+        img: '/images/projects/project_7.jpg',
         title: 'The Secret Scripture',
         url: 'film-detail.html',
         description: `In our new film The Secret Scripture, based on the novel by Sebastian Barry, the six-time Oscar nominated director returns to themes familiar to him: politics, religion, family and truth. Vanessa Redgrave stars as Rose McNulty, a woman`,
@@ -52,7 +52,7 @@ const OurFilmsData = [
     },
     {
         alternate: true,
-        img: 'images/projects/project_8.jpg',
+        img: '/images/projects/project_8.jpg',
         title: 'Kicks',
         url: 'film-detail.html',
         description: ` The Tribeca Film Festival kicked off on April 14 with the opening night premiere of Justin Tipping’s Kicks, an ambitious coming-of-age film set in an inner city enclave in Northern California. Though it’s Tipping’s feature debut, he’s far`,
@@ -68,7 +68,7 @@ const OurFilmsData = [
     },
     {
         alternate: false,
-        img: 'images/projects/project_9.jpg',
+        img: '/images/projects/project_9.jpg',
         title: 'Raising Bertie Up',
         url: 'film-detail.html',
         description: `Raising Bertie follows three young men over the course of five years as they grow into adulthood in Bertie County, a rural African-American-led community in North Carolina. Director Margaret Byrne had originally set out to make`,
@@ -87,7 +87,7 @@ const OurFilmsData = [
 const Container = styled.div`
 background-image: url('images/background/film_bg.jpg');
 .ourfilm-description {
-    font-family: 'Lato';
+    font-family: var(--font3);
 }
 .section-title {
     font-size: 34px;

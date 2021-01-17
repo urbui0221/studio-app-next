@@ -2,12 +2,19 @@ import React from "react"
 import styled from "styled-components"
 import AwardsIconBox from "../ui/AwardsIconBox"
 import Subtitle from "../ui/Subtitle"
+import Image from 'next/image';
 
 const Awards = () => {
   return (
     <Container>
       <div className='section section-bg-7 section-cover pt-10 pb-10'>
         <div className='container'>
+          <Image 
+          className="image"
+          quality={100}
+          src="/images/background/bg_7.png" 
+          layout="fill" 
+          alt="img" />
           <div className='row'>
             <div className='col-md-4 col-sm-12'>
               <Subtitle text={'Awards'} />
@@ -69,11 +76,9 @@ const AwardsData = [
 ]
 
 const Container = styled.div`
-background-image: url('/images/background/bg_7.png');
-background-position: center;
-
+position: relative;
 .gray {
-  font-family: 'Lato';
+  font-family: var(--font3);
 }
 .section-title.small {
 	font-size: 24px;

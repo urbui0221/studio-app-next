@@ -65,7 +65,7 @@ const Info = styled.div`
   .title {
     font-size: 24px;
     font-weight: 400;
-    font-family: Merriweather;
+    font-family: var(--head);
     color: #333;
     display: block;
     position: relative;
@@ -96,6 +96,9 @@ const Info = styled.div`
         color: #da0e2b;
       }
     }
+  }
+  .excerpt{
+    font-family: var(--font3)
   }
   .meta {
     margin-top: 20px;
@@ -161,7 +164,6 @@ const Info = styled.div`
   .excerpt {
     display: block;
     margin-top: 20px;
-    font-family: "Lato";
   }
   
 `

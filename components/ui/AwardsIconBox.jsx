@@ -46,7 +46,7 @@ const Container = styled.div`
     letter-spacing: .05em;
     font-size: 14px;
     font-weight: 700;
-	font-family: Montserrat,Helvetica,Arial,sans-serif;
+	font-family: var(--display);
 	display: inline-block;
 	text-transform: uppercase;
 }
