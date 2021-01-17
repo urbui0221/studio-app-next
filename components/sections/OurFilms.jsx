@@ -85,7 +85,7 @@ const OurFilmsData = [
 ]
 
 const Container = styled.div`
-background-image: url('images/delete_film_bg.jpg');
+background-image: url('images/background/film_bg.jpg');
 .ourfilm-description {
     font-family: 'Lato';
 }

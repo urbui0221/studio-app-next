@@ -5,6 +5,7 @@ import Newsletter from '../components/sections/Newsletter'
 import Partners from '../components/sections/Partners'
 import SectionFeatures from '../components/sections/SectionFeatures'
 import SectionWorkWithEstablished from '../components/sections/SectionWorkWithEstablished'
+import OurFilms from "../components/sections/OurFilms"
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <SectionWorkWithEstablished />  
       <SectionFeatures />
       <Awards />
+      <OurFilms />
       <Partners />
       <Newsletter />
     </Layout>
