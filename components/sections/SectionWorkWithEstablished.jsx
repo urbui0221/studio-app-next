@@ -11,7 +11,7 @@ const SectionWorkWithEstablished = () => {
               <div className="film-single-testimonial">
                 <div className="item">
                   <div className="photo">
-                    <img src="images/avatar/avatar_100x100.jpg" alt="user" />
+                    <img src="./images/avatar/avatar_1.png" alt="user" />
                   </div>
                   <div className="text">
                     We work with established agencies, labels and organizations, as well as young talents and startups.
