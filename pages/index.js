@@ -5,6 +5,7 @@ import Newsletter from '../components/sections/Newsletter'
 import Partners from '../components/sections/Partners'
 import SectionFeatures from '../components/sections/SectionFeatures'
 import SectionWorkWithEstablished from '../components/sections/SectionWorkWithEstablished'
+
 export default function Home() {
   return (
     <Layout route="Home">

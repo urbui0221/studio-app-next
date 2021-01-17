@@ -28,22 +28,22 @@ const Partners = () => {
                     <div className="mw-560">
                         <div className="logo-carousel" data-auto-play="true" data-desktop="4" data-laptop="3" data-tablet="2" data-mobile="1">
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_5.jpg" alt="" />
                             </div>
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_6.jpg" alt="" />
                             </div>
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_7.jpg" alt="" />
                             </div>
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_8.jpg" alt="" />
                             </div>
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_9.jpg" alt="" />
                             </div>
                             <div className="logo-item">
-                                <img src="images/logo/logo_120x80.jpg" alt="" />
+                                <img src="images/logo/logo_10.jpg" alt="" />
                             </div>
                         </div>
                     </div>

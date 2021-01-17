@@ -32,16 +32,16 @@ const Awards = () => {
                 data-mobile='2'
               >
                 <div className='logo-item'>
-                  <img src='images/logo/logo_130x88.jpg' alt='' />
+                  <img src='images/logo/logo_1alt.png' alt='' />
                 </div>
                 <div className='logo-item'>
-                  <img src='images/logo/logo_130x88.jpg' alt='' />
+                  <img src='images/logo/logo_2alt.png' alt='' />
                 </div>
                 <div className='logo-item'>
-                  <img src='images/logo/logo_130x88.jpg' alt='' />
+                  <img src='images/logo/logo_3alt.png' alt='' />
                 </div>
                 <div className='logo-item'>
-                  <img src='images/logo/logo_130x88.jpg' alt='' />
+                  <img src='images/logo/logo_4alt.png' alt='' />
                 </div>
               </div>
               <div className='row'>
@@ -69,6 +69,9 @@ const AwardsData = [
 ]
 
 const Container = styled.div`
+background-image: url('/images/background/bg_7.png');
+background-position: center;
+
 .gray {
   font-family: 'Lato';
 }
@@ -103,10 +106,7 @@ const Container = styled.div`
 	background-repeat: no-repeat;
 	background-size: cover;
 }
-.section-bg-7 {
-	background-image: url('../images/background/bg_1920x495.jpg');
-	background-position: center;
-}
+
 .logo-carousel {
   display: flex;
   align-items: center;
