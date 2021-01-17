@@ -251,7 +251,6 @@ const Header = () => {
 }
 
 const DropDowns = ({ arr, title, url, active, onClick }) => {
-  // individual states for active single menu item
   const contentRef = useRef(null)
   useEffect(() => {
     contentRef.current.style.maxHeight = active ? `${contentRef.current.scrollHeight}px` : '0px'
@@ -874,23 +873,4 @@ const GalleryList = [
     name: "Gallery 02",
     url: "gallery-2.html",
   },
-]
-
-const Pages = [
-  {
-    name: 'About',
-    arr: About
-  },
-  {
-    name: 'Our Team',
-    arr: OurTeam,
-  },
-  {
-    name: 'Our Services',
-    arr: OurServicesList
-  },
-  {
-    name: 'Gallery',
-    arr: GalleryList
-  }
 ]

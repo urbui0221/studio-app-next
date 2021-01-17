@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import FooterWidgetTitle from "../ui/FooterWidgetTitle"
+import FooterColumnLinks from "../ui/FooterColumnLinks"
+import CopyrightLayout from "../ui/CopyrightFooter"
 const Footer = () => (
    <LayoutFooter>
-   <footer className="footer">
+   <footer className="footer pb-8">
    <div className="container">
        <div className="row">
            <div className="col-md-4">
-               <a href="./" id="footer_logo">
+               <a href="/" id="footer_logo">
                    <img className="footer-logo-image" src="images/logo_footer.png" alt="Nine Studio" />
                </a>
                <div className="footer-social">
@@ -17,33 +19,12 @@ const Footer = () => (
                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Instagram" href="#"><i className="fa fa-instagram"></i></a>
                </div>
            </div>
-           <div className="col-md-2">
+           {FooterColLinks.map((item, index) => (
+               <FooterColumnLinks key={index} {...item} />
+           ))}
+           <div className="col-md-4 mb-3">
                <div className="widget">
-                   <h3 className="widget-title">Our Services</h3>
-                   <ul>
-                       <li><a href="#">Equipment Hire</a></li>
-                       <li><a href="#">Filmming Services</a></li>
-                       <li><a href="#">Studio Hire</a></li>
-                       <li><a href="#">Dressing</a></li>
-                       <li><a href="#">Flexibe Office Space</a></li>
-                   </ul>
-               </div>
-           </div>
-           <div className="col-md-2">
-               <div className="widget">
-                   <h3 className="widget-title">Quick Links</h3>
-                   <ul>
-                       <li><a href="#">My Account</a></li>
-                       <li><a href="#">View Order</a></li>
-                       <li><a href="#">About Us</a></li>
-                       <li><a href="#">Promotions</a></li>
-                       <li><a href="#">Contact Us</a></li>
-                   </ul>
-               </div>
-           </div>
-           <div className="col-md-4">
-               <div className="widget">
-                   <h3 className="widget-title">Conect With Us</h3>
+                   <FooterWidgetTitle title={'Conect With Us'} />
                    <div className="textwidget">
                        <p>A: 14 L.E Goulburn St, Berlin 2000Wm</p>
                        <p>P: (+88) 1990 6886</p>
@@ -60,31 +41,67 @@ const Footer = () => (
        </div>
    </div>
 </footer>
-<div className="copyright">
-   <div className="container">
-       <div className="row">
-           <div className="copyright-container">
-               <div className="col-md-6 p-0">
-                   <div className="copyright-left">
-                       Copyright © 2017 <a href="#">NineStudio</a> - All Rights Reserved.
-                   </div>
-               </div>
-               <div className="col-md-6 p-0">
-                   <div className="copyright-right">
-                       <ul>
-                           <li><a href="#">Privacy Policy</a></li>
-                           <li><a href="#">Term And Conditions</a></li>
-                       </ul>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
-</div>   
+<CopyrightLayout />
+   
    </LayoutFooter>
 )
 
 export default Footer
+
+const FooterColLinks = [
+    {
+        title: 'Our Services',
+        arr: [
+            {
+                linkName: 'Equipment Hire',
+                url: '/'
+            },
+            {
+                linkName: 'Filmming Services',
+                url: '/'
+            },
+            {
+                linkName: 'Studio Hire',
+                url: '/'
+            },
+            {
+                linkName: 'Dressing',
+                url: '/'
+            },
+            {
+                linkName: 'Flexibe Office Space',
+                url: '/'
+            },
+        ]
+    },
+    {
+        title: 'Quick Links',
+        arr: [
+            {
+                linkName: 'My Account',
+                url: '/'
+            },
+            {
+                linkName: 'View Order',
+                url: '/'
+            },
+            {
+                linkName: 'About Us',
+                url: '/'
+            },
+            {
+                linkName: 'Promotions',
+                url: '/'
+            },
+            {
+                linkName: 'Contact Us',
+                url: '/'
+            },
+        ]
+    }
+   
+]
+
 
 const LayoutFooter = styled.footer`
 .footer {
@@ -122,7 +139,7 @@ const LayoutFooter = styled.footer`
     text-align: center;
     border: 2px solid #585858;
     border-radius: 24px;
-    margin-right: 6px;
+    margin-right: 9px;
     font-size: 16px;
     color: #ababab;
 }
@@ -137,56 +154,7 @@ const LayoutFooter = styled.footer`
 .footer .footer-social .tooltip-inner {
     background-color: #da0e2b;
 }
-.footer .widget .widget-title {
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    color: #fff;
-    font-family: Merriweather;
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 0;
-    position: relative;
-}
-.footer .widget .widget-title:after {
-    content: '';
-    width: 30px;
-    height: 1px;
-    background-color: #da0e2b;
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    -webkit-transition: all .5s;
-    -moz-transition: all .5s;
-    -ms-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
-.footer .widget ul {
-    list-style: none;
-    padding: 0;
-}
-.footer .widget ul li {
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-.footer .widget ul li a {
-    position: relative;
-    color: #ababab;
-}
-.footer .widget ul li a:hover {
-    padding-left: 15px;
-    color: #da0e2b;
-}
-.footer .widget ul li a:hover:before {
-    position: absolute;
-    content: '\f462';
-    font-family: 'Ionicons';
-    left: 0;
-    top: 0;
-    color: #da0e2b;
-    line-height: 18px;
-}
+
 .footer .textwidget p {
     padding: 0;
     margin: 0 0 15px 0;
@@ -221,68 +189,4 @@ const LayoutFooter = styled.footer`
     -o-transition: all .5s;
     transition: all .5s;
 }
-.copyright {
-    display: block;
-    width: 100%;
-    position: relative;
-	background: #333;
-}
-.copyright .copyright-container {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    border-top: 2px solid #2d2d2d;
-	float: left;
-    width: 100%;
-}
-.copyright .copyright-left {
-    font-size: 14px;
-    color: #696969;
-    font-family: Lato;
-    font-style: italic;
-    line-height: 25px;
-}
-.copyright .copyright-left a {
-    color: #fff;
-}
-.copyright .copyright-left a:hover {
-    color: #da0e2b;
-}
-.copyright .copyright-right {
-    text-align: right;
-}
-.copyright .copyright-right ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-.copyright .copyright-right ul li {
-    display: inline-block;
-    margin-left: 20px;
-}
-.copyright .copyright-right ul li a {
-    text-transform: uppercase;
-    font-family: Montserrat;
-    color: #696969;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-}
-.copyright .copyright-right ul li a:hover {
-    color: #da0e2b;
-}
-.copyright.style-2 .copyright-container {
-    border-top: 0;
-}
-.copyright.style-2 .copyright-left {
-    line-height: 55px;
-}
-.copyright.style-2 .copyright-right ul li a {
-    line-height: 55px;
-}
-@media (min-width: 769px) {
-	.copyright.style-2 .copyright-container {
-		padding: 120px 100px;
-	}
-}
-
 `

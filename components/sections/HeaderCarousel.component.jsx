@@ -203,9 +203,9 @@ const CarouselLinks = styled.div`
       font-size: 1.3rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-    color: #ffffff;
-    transform: rotate(270deg);
-    text-transform: uppercase;
+        color: #ffffff;
+        transform: rotate(270deg);
+        text-transform: uppercase;
   }
   .line {
     background-color: #ffffff;
