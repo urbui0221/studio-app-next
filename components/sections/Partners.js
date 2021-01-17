@@ -19,18 +19,12 @@ const Partners = () => {
                     <Subtitle className="mb-4" text={'Friends &amp; Partners'} />
                     <div className="film-links-cloud">
                         <ul>
-                            <li><a href="#" target="_blank">O Young Kwon</a></li>
-                            <li><a href="#" target="_blank">Alexander Vexler</a></li>
-                            <li><a href="#" target="_blank">Burak Ekin</a></li>
-                            <li><a href="#" target="_blank">Christian Koerber</a></li>
-                            <li><a href="#" target="_blank">Cristopher Civitillo</a></li>
-                            <li><a href="#" target="_blank">David Rasche</a></li>
-                            <li><a href="#" target="_blank">Fabian Hellgardt</a></li>
-                            <li><a href="#" target="_blank">Fabian Hübner</a></li>
-                            <li><a href="#" target="_blank">Joni Zaza</a></li>
+                            {PartnersData.map((partner, index) => (
+                                <li key={index}><a href={partner.url} target="_blank">{partner.name}</a></li>
+                            ))}
                         </ul>
                     </div>
-                    <h3 className="sub-title primary-color mb-4"> Clients &amp; publications</h3>
+                    <Subtitle text={' Clients &amp; publications'} className="mb-4" />
                     <div className="mw-560">
                         <div className="logo-carousel" data-auto-play="true" data-desktop="4" data-laptop="3" data-tablet="2" data-mobile="1">
                             <div className="logo-item">
@@ -60,6 +54,45 @@ const Partners = () => {
         </Container>
     )
 }
+
+const PartnersData = [
+    {
+        name: 'O Young Kwon',
+        url:'/'
+    },
+    {
+        name: 'Alexander Vexler',
+        url:'/'
+    },
+    {
+        name: 'Burak Ekin',
+        url:'/'
+    },
+    {
+        name: 'Christian Koerber',
+        url:'/'
+    },
+    {
+        name: 'Cristopher Civitillo',
+        url:'/'
+    },
+    {
+        name: 'David Rasche',
+        url:'/'
+    },
+    {
+        name: 'Fabian Hellgardt',
+        url:'/'
+    },
+    {
+        name: 'Fabian Hübner',
+        url:'/'
+    },
+    {
+        name: 'Joni Zaza',
+        url:'/'
+    },
+]
 
 const floating = keyframes`
 from {-webkit-transform:translate(0, 0px);}
@@ -96,6 +129,9 @@ const Container = styled.div`
 
 .logo-carousel {
 	margin-bottom: 30px;
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
 }
 .logo-carousel .logo-item img {
 	display: block;
