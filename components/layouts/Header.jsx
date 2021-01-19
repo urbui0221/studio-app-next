@@ -98,14 +98,14 @@ const Header = () => {
           <div className='row'>
             <div className='col-md-3 p-0'>
               <div className='header-left'>
-                <a href='/' id='branding_logo'>
+                <Link href='/' id='branding_logo' prefetch={false}>
                   <img
                     className='logo'
                     src='images/logo_alt.png'
                     alt='Logo'
                     title='Nine Studio'
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div className='col-md-9 p-0'>
@@ -113,13 +113,13 @@ const Header = () => {
                 <nav id='menu' className='menu menu-primary'>
                   <ul>
                     <li className='dropdown active'>
-                      <Link href='/' prefetch={false}>Home</Link>
+                      <Link href='/'>Home</Link>
                     </li>
                     <li className='dropdown'>
                       <a href='#'>Pages</a>
                       <ul className='sub-menu'>
                         <li className='dropdown'>
-                          <Link href='/about' prefetch={false}>About</Link>
+                          <Link href='/about'>About</Link>
                         </li>
                         <li className='dropdown'>
                           <a href='#'>Our Team</a>
