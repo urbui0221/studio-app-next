@@ -22,7 +22,7 @@ const Footer = () => (
            {FooterColLinks.map((item, index) => (
                <FooterColumnLinks key={index} {...item} />
            ))}
-           <div className="col-md-4 mb-3">
+           <div className="col-md-3 mb-4">
                <div className="widget">
                    <FooterWidgetTitle title={'Conect With Us'} />
                    <div className="textwidget">
@@ -53,23 +53,15 @@ const FooterColLinks = [
         title: 'Our Services',
         arr: [
             {
-                linkName: 'Equipment Hire',
+                linkName: 'Video Editing',
                 url: '/'
             },
             {
-                linkName: 'Filmming Services',
+                linkName: 'Image Editing',
                 url: '/'
             },
             {
-                linkName: 'Studio Hire',
-                url: '/'
-            },
-            {
-                linkName: 'Dressing',
-                url: '/'
-            },
-            {
-                linkName: 'Flexibe Office Space',
+                linkName: '3D Product Visualization',
                 url: '/'
             },
         ]
@@ -82,19 +74,15 @@ const FooterColLinks = [
                 url: '/'
             },
             {
-                linkName: 'View Order',
-                url: '/'
-            },
-            {
-                linkName: 'About Us',
-                url: '/'
-            },
-            {
-                linkName: 'Promotions',
+                linkName: 'Pricing',
                 url: '/'
             },
             {
                 linkName: 'Contact Us',
+                url: '/'
+            },
+            {
+                linkName: 'FAQs',
                 url: '/'
             },
         ]

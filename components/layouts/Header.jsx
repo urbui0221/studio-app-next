@@ -38,8 +38,8 @@ const Header = () => {
   const handleHamburgerClick = () => { setMobileNav(p => !p) }
 
   const handleScroll = () => {
-    const scrollTop = window.pageYOffset
-    if (scrollTop > 1) {
+    const scrollTop = window.scrollY
+    if (scrollTop !== 0) {
       setHasScrolled(true)
     } else {
       setHasScrolled(false)
@@ -92,7 +92,7 @@ const Header = () => {
       
       <TopSearchContainer topSearch={topSearch} setTopSearch={setTopSearch} />
 
-      <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : "header-overlay"} header-desktop header-1`}>
+      <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : ""} header-desktop header-1`}>
         <div className='container-fluid'>
           <div className='row'>
             <div className='col-md-3 p-0'>
@@ -100,12 +100,6 @@ const Header = () => {
                 <a href='/' id='branding_logo'>
                   <img
                     className='logo'
-                    src='images/logo.png'
-                    alt='Logo'
-                    title='Nine Studio'
-                  />
-                  <img
-                    className='logo-alt'
                     src='images/logo_alt.png'
                     alt='Logo'
                     title='Nine Studio'
@@ -271,25 +265,6 @@ const DropDowns = ({ arr, title, url, active, onClick }) => {
   )
 }
 
-const translateY = keyframes`
-  from {
-    transform: translateY(-100%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-`;
-const translateYReverse = keyframes`
-  from {
-    transform: translateY(0);
-  }
-
-  to {
-    transform: translateY(-100%);
-  }
-`;
-
 const HeaderContainer = styled.div`
 position: relative;
 .header {
@@ -328,11 +303,7 @@ position: relative;
 .header.header-3 .logo {
     margin-top: 20px;
 }
-.header.header-1 .logo-alt,
-.header.header-3 .logo-alt {
-    display: none;
-	margin-top: 22px;
-}
+
 .header.header-1 .header-right .open-search,
 .header.header-3 .header-right .open-search {
     display: inline-block;
@@ -349,12 +320,7 @@ position: relative;
 .header.header-overlay.scrolling-menu .header-right .open-search {
     color: #333;
 }
-.header.scrolling-menu .logo {
-    display: none;
-}
-.header.scrolling-menu .logo-alt {
-    display: inline-block;
-}
+
 .header.header-2 {
 	position: absolute;
     z-index: 999;
@@ -726,8 +692,6 @@ header.header-mobile .header-right .open-search {
     margin: 0;
 }
 .mobile-menu > ul.menu li .sub-menu {
-    /* display: none; */
-    /* border-top: 1px solid #ddd; */
     background-color: #eee;
     padding-left: 0;
     font-weight: 400;
