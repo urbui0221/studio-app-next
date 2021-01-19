@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
 import styled, { keyframes } from "styled-components"
 import TopSearchContainer from "./TopSearchContainer";
@@ -112,22 +113,13 @@ const Header = () => {
                 <nav id='menu' className='menu menu-primary'>
                   <ul>
                     <li className='dropdown active'>
-                      <a href='#'>Home</a>
-                      <ul className='sub-menu'>
-
-                        {Home.map((item, index) => (
-                          <li key={index}>
-                            <a href={item.url}>{item.name}</a>
-                          </li>
-                        ))}
-
-                      </ul>
+                      <Link href='/' prefetch={false}>Home</Link>
                     </li>
                     <li className='dropdown'>
                       <a href='#'>Pages</a>
                       <ul className='sub-menu'>
                         <li className='dropdown'>
-                          <a href='/about'>About</a>
+                          <Link href='/about' prefetch={false}>About</Link>
                         </li>
                         <li className='dropdown'>
                           <a href='#'>Our Team</a>
