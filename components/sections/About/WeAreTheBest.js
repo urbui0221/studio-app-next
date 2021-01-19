@@ -74,7 +74,7 @@ const ServicesData = [
   },
   {
     number: "03",
-    title: "Workshops &amp; Private Tuition",
+    title: "Workshops & Private Tuition",
     content:
       "Dultrices posuereaccusamus, eius quia molestias nihil accusamus, eius quia molestias nihil temporibus nam praesentium",
   },
