@@ -252,7 +252,6 @@ const DropDowns = ({ arr, title, url, active, onClick }) => {
 
 const HeaderContainer = styled.div`
 position: relative;
-background-color: red;
 .header {
     width: 100%; 
 	  margin-top: 0;
