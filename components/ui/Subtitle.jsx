@@ -3,9 +3,7 @@ import styled from "styled-components"
 
 const Subtitle = ({text, className}) => {
     return (
-        <Container className={className} dangerouslySetInnerHTML={{__html: text}}>
-           
-        </Container>
+        <Container className={className} dangerouslySetInnerHTML={{__html: text}} />
     )
 }
 
