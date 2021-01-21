@@ -1,21 +1,22 @@
 import React from "react"
 import styled from "styled-components"
+import Link from "next/link"
 
-const AboutCover = () => {
+const AboutCover = ({background, big_style, title, route}) => {
   return (
-    <Container>
-      <div className='section page-title big-style'>
+    <Container background={background}>
+      <div className={`section page-title ${big_style ? 'big-style': ''}`}>
         <div className='container'>
           <div className='row'>
             <div className='col-sm-12'>
               <div className='text-center-sm'>
-                <h1 className='title'>About Us</h1>
+                <h1 className='title'>{title}</h1>
                 <div className='breadcrumbs'>
                   <ul>
                     <li>
-                      <a href='./'>Home</a>
+                      <Link href='./'>Home</Link>
                     </li>
-                    <li>About 02</li>
+                    <li>{route}</li>
                   </ul>
                 </div>
               </div>
@@ -28,7 +29,8 @@ const AboutCover = () => {
 }
 
 const Container = styled.div`
-  background-image: url("/images/background/bg_12.jpg");
+
+  background-image: url(${props => props.background});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;

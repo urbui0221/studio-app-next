@@ -1,12 +1,12 @@
 import Layout from '../components/layouts/Layout.component'
-import Awards from '../components/sections/Awards'
-import HeaderCarousel from '../components/sections/HeaderCarousel.component'
-import Newsletter from '../components/sections/Newsletter'
-import Partners from '../components/sections/Partners'
-import SectionFeatures from '../components/sections/SectionFeatures'
-import SectionWorkWithEstablished from '../components/sections/SectionWorkWithEstablished'
-import OurFilms from "../components/sections/OurFilms"
-import MeetOurTeam from '../components/sections/MeetOurTeam'
+import Awards from '../components/sections/Home/Awards'
+import HeaderCarousel from '../components/sections/Home/HeaderCarousel.component'
+import Newsletter from '../components/sections/Home/Newsletter'
+import Partners from '../components/sections/Home/Partners'
+import SectionFeatures from '../components/sections/Home/SectionFeatures'
+import SectionWorkWithEstablished from '../components/sections/Home/SectionWorkWithEstablished'
+import OurFilms from "../components/sections/Home/OurFilms"
+import MeetOurTeam from '../components/sections/Home/MeetOurTeam'
 
 export default function Home() {
   return (

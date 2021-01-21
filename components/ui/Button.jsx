@@ -1,8 +1,8 @@
 import React from "react"
 import styled from 'styled-components'
-const Button = ({title}) => {
+const Button = ({title,color, backgroundColor, padding}) => {
   return (
-      <Container href="#" target="_self">
+      <Container color={color} backgroundColor={backgroundColor} padding={padding} href="#" target="_self">
       {title}
   </Container>
   )
@@ -10,8 +10,8 @@ const Button = ({title}) => {
 
 const Container = styled.a`
   display: inline-block;
-  background-color: transparent;
-  color: #da0e2b;
+  background-color: ${props => props.backgroundColor ? props.backgroundColor : 'transparent'};
+  color: ${props => props.color ? props.color : 'var(--primary)'};
   font-size: 14px;
   font-family: Montserrat;
   font-weight: 400;
@@ -19,11 +19,11 @@ const Container = styled.a`
   letter-spacing: 0.05em;
   line-height: 46px;
   height: 48px;
-  border: 1px solid #da0e2b;
-  padding: 0 40px;
+  border: 1px solid var(--primary);
+  padding: ${props => props.padding ? props.padding : '0 40px'};
   :hover {
-    background-color: #da0e2b;
-    color: #fff;
+    background-color: ${props => props.color ? props.color : 'var(--primary)'};
+    color: ${props => props.backgroundColor ? props.backgroundColor : '#ffffff'};
   }
 `
 

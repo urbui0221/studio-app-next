@@ -1,13 +1,13 @@
 import React from 'react'
 import Layout from '../components/layouts/Layout.component'
-import AboutCover from '../components/sections/About/Cover'
 import WeAreTheBest from '../components/sections/About/WeAreTheBest'
+import Cover from '../components/sections/Cover'
 
 const About = () => {
     
     return (
       <Layout route="About">
-           <AboutCover />
+           <Cover background="/images/background/bg_12.jpg" big_style={true} title={'About Us'} route={'About 02'} />
            <WeAreTheBest />
       </Layout>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BsChevronLeft,BsChevronRight } from 'react-icons/bs'
-import Button from '../ui/Button.component'
+import Button from '../../ui/Button.component'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const carouselImgs = [

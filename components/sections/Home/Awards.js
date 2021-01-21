@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import AwardsIconBox from "../ui/AwardsIconBox"
-import Subtitle from "../ui/Subtitle"
+import AwardsIconBox from "../../ui/AwardsIconBox"
+import Subtitle from "../../ui/Subtitle"
 import Image from 'next/image';
 
 const Awards = () => {

@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import IconBoxesLayout from "../ui/IconBoxes"
+import IconBoxesLayout from "../../ui/IconBoxes"
 
 const SectionFeatures = () => {
   return (

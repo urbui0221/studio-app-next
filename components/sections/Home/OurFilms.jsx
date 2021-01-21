@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Film from '../ui/Film'
-import Subtitle from '../ui/Subtitle'
+import Film from '../../ui/Film'
+import Subtitle from '../../ui/Subtitle'
 const OurFilms = () => {
     return (
         <Container>

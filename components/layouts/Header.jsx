@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
-import styled, { keyframes } from "styled-components"
+import styled from "styled-components"
 import TopSearchContainer from "./TopSearchContainer";
 const Header = () => {
   const pageDropdownRef = useRef(null);
@@ -112,72 +112,30 @@ const Header = () => {
               <div className='header-right'>
                 <nav id='menu' className='menu menu-primary'>
                   <ul>
-                    <li className='dropdown active'>
+                    <li className='active'>
                       <Link href='/'>Home</Link>
                     </li>
-                    <li className='dropdown'>
-                      <a href='#'>Pages</a>
-                      <ul className='sub-menu'>
-                        <li className='dropdown'>
-                          <Link href='/about'>About</Link>
-                        </li>
-                        <li className='dropdown'>
-                          <a href='#'>Our Team</a>
-                          <ul className='sub-menu'>
-                            {OurTeam.map((item, index) => (
-                              <li key={index}>
-                                <a href={item.url}>{item.name}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                        <li className='dropdown'>
-                          <a href='#'>Our Services</a>
-                          <ul className='sub-menu'>
-                            {OurServicesList.map((item, index) => (
-                              <li key={index}>
-                                <a href={item.url}>{item.name}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                        <li className='dropdown'>
-                          <a href='#'>Gallery</a>
-                          <ul className='sub-menu'>
-                            {GalleryList.map((item, index) => (
-                              <li key={index}>
-                                <a href={item.url}>{item.name}</a>
-                              </li>
-                            ))}
-                          </ul>
-                        </li>
-                        <li>
-                          <a href='404.html'>404</a>
-                        </li>
-                      </ul>
+                    <li>
+                      <Link href='/about'>About</Link>
+                    </li>
+                    <li>
+                      <Link href='/pricing'>Pricing</Link>
                     </li>
                     <li className='dropdown'>
-                      <a href='#'>Productions</a>
+                      <Link href='/services'>Services</Link>
                       <ul className='sub-menu'>
-                        {ProductionList.map((item, index) => (
+                        {OurServicesList.map((blog, index) => (
                           <li key={index}>
-                            <a href={item.url}>{item.name}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                    <li className='dropdown'>
-                      <a href='#'>Blog</a>
-                      <ul className='sub-menu'>
-                        {BlogsList.map((blog, index) => (
-                          <li key={index}>
-                            <a href={blog.url}>{blog.name}</a>
+                            <Link href={blog.url}>{blog.name}</Link>
                           </li>
                         ))}
                       </ul>
                     </li>
                     <li>
-                      <a href='contact-us.html'>Contact Us</a>
+                      <Link href='/contact-us'>Contact Us</Link>
+                    </li>
+                    <li>
+                      <Link href='/blog'>Blog</Link>
                     </li>
                   </ul>
                 </nav>
@@ -421,6 +379,7 @@ header.header-mobile .header-right .open-search {
     font-size: 12px;
     font-family: Ionicons;
 }
+
 .submenu-animate{
   overflow: hidden;
   transition: max-height 0.6s ease;
@@ -782,12 +741,16 @@ const Home = [
 
 const OurServicesList = [
   {
-    name: "Our Services 01",
-    url: "Our-Services-1.html",
+    name: "Video Editing",
+    url: "/video-editing",
   },
   {
-    name: "Our Services 02",
-    url: "Our-Services-2.html",
+    name: "3D Product Visualization",
+    url: "/3d-product-visualization",
+  },
+  {
+    name: "Image Editing",
+    url: "/image-editing",
   },
 ]
 
