@@ -18,7 +18,7 @@ const WeAreTheBest = () => {
               <div className='text-center-xs'>
                 <div className='mt-5'></div>
                 <h2 className='section-title fz-40'>We Are The Best</h2>
-                <p>
+                <p className="p">
                   We are a creative film and photo production company hungry for
                   quality in aesthetics. To create modern recognizable stuff we
                   are working with a strong network of experienced
@@ -84,6 +84,10 @@ const Container = styled.div`
   background-image: url("../images/background/bg_13.png");
   background-position: center;
   background-repeat: no-repeat;
+
+  .p {
+    font-family: var(--font3);
+  }
 
   .section-title {
     font-size: 34px;

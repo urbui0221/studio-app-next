@@ -44,6 +44,7 @@ const Container = styled.div`
     color: #333;
   }
   .item .content {
+    font-family: var(--font3);
     margin-top: 10px;
     display: block;
   }
