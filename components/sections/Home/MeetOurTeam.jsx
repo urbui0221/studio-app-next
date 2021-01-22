@@ -1,9 +1,30 @@
-import React,{ useState } from 'react'
+import React,{ useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Subtitle from '../../ui/Subtitle'
+import { motion } from 'framer-motion';
+import Carousel from 'react-multi-carousel';
+import "react-multi-carousel/lib/styles.css";
 
-const MeetOurTeam = () => {
-    const [hoverShow ,setHover] = useState(false);
+const MeetOurTeam = ({team}) => {
+
+    const responsive = {
+        desktop: {
+          breakpoint: { max: 3000, min: 1200 },
+          items: 3,
+          slidesToSlide: 3 // optional, default to 1.
+        },
+        tablet: {
+          breakpoint: { max: 1200, min: 995 },
+          items: 2,
+          slidesToSlide: 2 // optional, default to 1.
+        },
+        mobile: {
+          breakpoint: { max: 995, min: 0 },
+          items: 1,
+          slidesToSlide: 1 // optional, default to 1.
+        }
+      };
+
     return (
         <Container>
         <div className="section section-bg-5 section-cover pt-11 pb-11">
@@ -17,32 +38,26 @@ const MeetOurTeam = () => {
                     </div>
                 </div>
             </div>
-            <TeamMember className="row" 
-            onMouseOver={() => setHover(true)} 
-            onMouseOut={() => setHover(false)}>
-                <div className="team-item">
-					<div className="thumb">
-						<a href="team-detail.html">
-						    <img src="images/team/team_270x290.jpg" alt="" />
-						</a>
-					</div>
-					<div className="info">
-                        <div className="name">
-							<a href="team-detail.html">John Anderson</a>
-						</div>
-                        {
-                            hoverShow ? 
-                            <div className="socials">
-								<a href="#">Facebook</a> &nbsp;
-								<a href="#">Twitter</a> &nbsp;
-								<a href="#">Youtube</a>
-							</div>
-                            : <div className="tagline">Designer</div>
-                            
-                        }
-					</div>
-				</div>
-            </TeamMember>
+            <Carousel 
+                    swipeable={false}
+                    draggable={true}
+                    showDots={true}
+                    responsive={responsive}
+                    arrows={false}
+                    centerMode={true}
+                    partialVisible={false}
+                    keyBoardControl={true}
+                    ssr={true}
+                    responsive={responsive}>
+                            {
+                                team.map(mem => {
+                                    return <Members
+                                    key = {mem.name}
+                                    {...mem}
+                                    />
+                                })
+                            }
+            </Carousel>
         </div>
         </div>   
         </Container>
@@ -51,10 +66,67 @@ const MeetOurTeam = () => {
 
 export default MeetOurTeam
 
+const Members = ({image,name,occupation}) => {
+    const [hoverShow ,setHover] = useState(false);
+    return(
+        <TeamMember className="row" 
+        onMouseOver={() => setHover(true)} 
+        onMouseOut={() => setHover(false)}>
+            <div className="team-item">
+                <div className="thumb">
+                    <div className="img-wrapper">
+                        <img src={image} alt="" />
+                    </div>
+                </div>
+                <div className="info">
+                    <div className="name">
+                        <a href="team-detail.html">{name}</a>
+                    </div>
+                    {
+                        hoverShow ? 
+                        <div className="socials">
+                            <a href="#">Facebook</a> &nbsp;
+                            <a href="#">Twitter</a> &nbsp;
+                            <a href="#">Youtube</a>
+                        </div>
+                        : <div className="tagline">{occupation}</div>
+                        
+                    }
+                </div>
+            </div>
+        </TeamMember>
+    )
+}
+
+
 
 const Container = styled.div`
 text-align : center;
 background-color : #f6f7f7;
+.react-multi-carousel-list  {
+    margin : 0 auto;
+    .react-multi-carousel-dot-list {
+       // bottom: -3rem;
+        z-index : 5000;
+        .react-multi-carousel-dot {
+            button{
+                outline: none;
+                border: none;
+            }
+
+            & button{
+                background-color : var(--tertiary); 
+                opacity : 0.5;
+            }
+
+            &--active button{
+                background-color : var(--tertiary); 
+                opacity : 1;
+            }
+        }
+    }
+}
+
 .ourfilm-description {
     font-family: var(--font3);
 }
@@ -68,19 +140,44 @@ background-color : #f6f7f7;
     text-transform: none;
 }
 `
+
 const TeamMember = styled.div`
 width : max-content;
 background-color: white;
-.info{
+.team-item{
+    .thumb{
+        .img-wrapper{
+            position: relative;
+            overflow: hidden;;
+            width : 270px;
+            height: 300px;
+            img{
+                position: absolute;
+                top: 0;
+                left : 0;
+                width : 100%;
+                height: 100%;
+                object-fit : cover;
+                transition : 0.5s all;
+                &:hover{
+                    transform : scale(1.1);
+                }
+            }
+        }
+    }
+    .info{
     padding : 2.5rem 1rem;
-    font-family : var(--head);
+    font-family : var(--display);
     .name{
         font-size : 2rem;
         color : var(--baseCol);
+        font-weight : 800;
     }
     .socials,.tagline{
         font-size : 1.2rem;
         opacity : 0.5;
     }
 }
+}
+
 `

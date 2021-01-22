@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
   --secondary : #a5a5a5;
   --primary : #da0e2b;
   --baseCol : #000;
+  --tertiary : #869791;
 }
 html{
   font-size : 62.5%;
