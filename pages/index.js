@@ -7,8 +7,10 @@ import SectionFeatures from '../components/sections/Home/SectionFeatures'
 import SectionWorkWithEstablished from '../components/sections/Home/SectionWorkWithEstablished'
 import OurFilms from "../components/sections/Home/OurFilms"
 import MeetOurTeam from '../components/sections/Home/MeetOurTeam'
+import absoluteUrl from 'next-absolute-url'
 
-export default function Home() {
+export default function Home({ resp }) {
+  console.log(resp);
   return (
     <Layout route="Home">
       <HeaderCarousel />
@@ -16,10 +18,17 @@ export default function Home() {
       <SectionFeatures />
       <Awards />
       <OurFilms />
-      <MeetOurTeam />
+      <MeetOurTeam team={resp}/>
       <Partners />
       <Newsletter />
     </Layout>
   )
 }
  
+export async function getServerSideProps({ req, res }){
+  const { origin } = absoluteUrl(req, "localhost:5000");
+  const resp = await (await fetch(`${origin}/api/team`)).json();
+  return {
+      props : { resp }
+  }
+}
