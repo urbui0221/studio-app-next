@@ -20,10 +20,5 @@ export default(req, res) => {
             occupation : "designer",
             image : '/images/team/img-4.jpg'
         },
-        {
-            name : "Lucy Gomes",
-            occupation : "designer",
-            image : '/images/team/img-5.jpg'
-        }
     ])
 }

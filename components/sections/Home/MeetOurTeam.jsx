@@ -1,7 +1,6 @@
-import React,{ useEffect, useRef, useState } from 'react'
+import React,{ useState } from 'react'
 import styled from 'styled-components'
 import Subtitle from '../../ui/Subtitle'
-import { motion } from 'framer-motion';
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 
@@ -38,7 +37,7 @@ const MeetOurTeam = ({team}) => {
                     </div>
                 </div>
             </div>
-            <Carousel 
+            {/*<Carousel 
                     swipeable={false}
                     draggable={true}
                     showDots={true}
@@ -57,7 +56,17 @@ const MeetOurTeam = ({team}) => {
                                     />
                                 })
                             }
-            </Carousel>
+                        </Carousel> */}
+            <Swipe>
+                {
+                    team.map(mem => {
+                        return <Members
+                        key = {mem.name}
+                        {...mem}
+                        />
+                    })
+                }
+            </Swipe>
         </div>
         </div>   
         </Container>
@@ -144,6 +153,9 @@ background-color : #f6f7f7;
 const TeamMember = styled.div`
 width : max-content;
 background-color: white;
+&:not(:first-child){
+    margin-left : 4rem;
+}
 .team-item{
     .thumb{
         .img-wrapper{
@@ -180,4 +192,7 @@ background-color: white;
 }
 }
 
+`
+const Swipe = styled.div`
+display : flex;
 `

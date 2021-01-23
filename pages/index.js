@@ -8,12 +8,14 @@ import SectionWorkWithEstablished from '../components/sections/Home/SectionWorkW
 import OurFilms from "../components/sections/Home/OurFilms"
 import MeetOurTeam from '../components/sections/Home/MeetOurTeam'
 import absoluteUrl from 'next-absolute-url'
+import CarouselHead from '../components/sections/Home/CarouselHead'
 
 export default function Home({ resp }) {
   console.log(resp);
   return (
     <Layout route="Home">
-      <HeaderCarousel />
+      { /*<HeaderCarousel /> */}
+      <CarouselHead />
       <SectionWorkWithEstablished />  
       <SectionFeatures />
       <Awards />

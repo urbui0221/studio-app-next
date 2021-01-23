@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   --primary : #da0e2b;
   --baseCol : #000;
   --tertiary : #869791;
+  --tertiary2 : #333333;
 }
 html{
   font-size : 62.5%;
@@ -20,7 +21,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  overflow-x: hidden;
+  overflow-x : hidden;
 }
 
 body {
