@@ -14,7 +14,7 @@ const AboutCover = ({background, big_style, title, route}) => {
                 <div className='breadcrumbs'>
                   <ul>
                     <li>
-                      <Link href='./'>Home</Link>
+                      <Link href='/'>Home</Link>
                     </li>
                     <li>{route}</li>
                   </ul>

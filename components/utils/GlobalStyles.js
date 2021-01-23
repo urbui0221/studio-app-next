@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
   --baseBg : #FFFFFF;
   --secondary : #a5a5a5;
   --primary : #da0e2b;
-  --baseCol : #000;
+  --baseCol : #000000;
 }
 html{
   font-size : 62.5%;
@@ -34,6 +34,7 @@ body {
 
 ul, ol {
   list-style: none;
+  padding: 0;
 }
 
 a {
@@ -47,7 +48,7 @@ a {
 }
 a:hover {
 	text-decoration: none;
-	color: #da0e2b;
+	color: var(--primary);
 }
 a:focus {
 	text-decoration: none;

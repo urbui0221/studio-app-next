@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Button from "../../ui/Button"
+import SectionTitle from "../../ui/SectionTitle"
 import ServiceList from "./ServiceList"
 
 const WeAreTheBest = () => {
@@ -17,7 +18,7 @@ const WeAreTheBest = () => {
             <div className='col-md-4 col-sm-12'>
               <div className='text-center-xs'>
                 <div className='mt-5'></div>
-                <h2 className='section-title fz-40'>We Are The Best</h2>
+                <SectionTitle text={'We Are The Best'} className="fz40" />
                 <p className="p">
                   We are a creative film and photo production company hungry for
                   quality in aesthetics. To create modern recognizable stuff we

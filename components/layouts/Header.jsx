@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-import TopSearchContainer from "./TopSearchContainer";
 const Header = () => {
   const pageDropdownRef = useRef(null);
 
@@ -91,7 +90,6 @@ const Header = () => {
         </div>
       </div>
       
-      <TopSearchContainer topSearch={topSearch} setTopSearch={setTopSearch} />
 
       <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : ""} header-desktop header-1`}>
         <div className='container-fluid'>
@@ -132,16 +130,14 @@ const Header = () => {
                       </ul>
                     </li>
                     <li>
-                      <Link href='/contact-us'>Contact Us</Link>
+                      <Link href='/contact'>Contact Us</Link>
                     </li>
                     <li>
                       <Link href='/blog'>Blog</Link>
                     </li>
                   </ul>
                 </nav>
-                <div id='open-search' className='open-search top-search-btn' onClick={handleSearchClick}>
-                  <i className='ion-ios-search-strong'></i>
-                </div>
+
               </div>
             </div>
           </div>
@@ -166,17 +162,6 @@ const Header = () => {
                     alt='Nine Studio Logo'
                   />
                 </a>
-              </div>
-            </div>
-            <div className='col-xs-2'>
-              <div className='header-right'>
-                <div
-                  id='open-search-2'
-                  className='open-search top-search-btn'
-                  onClick={handleSearchClick}
-                >
-                  <i className='ion-ios-search-strong'></i>
-                </div>
               </div>
             </div>
           </div>
