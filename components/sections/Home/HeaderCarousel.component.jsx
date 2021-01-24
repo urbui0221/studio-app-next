@@ -80,21 +80,21 @@ const HeaderCarousel = () => {
         onMouseLeave ={() => setControls(false)}>
             <CarouselWrapper>
             <CarouselLinks>
-            <p>follow us</p>
-            <div className='line'>&nbsp;</div>
-            <div className='icons-container'>
-              <a href='#'>
-                <i className='fa fa-facebook'></i>
-              </a>
-              <a href='#'>
-                <i className='fa fa-twitter'></i>
-              </a>
-              <a href='#'>
-                <i className='fa fa-instagram'></i>
-              </a>
-              <a href='#'>
-                <i className='fa fa-pinterest'></i>
-              </a>
+                <p>follow us</p>
+                <div className='line'>&nbsp;</div>
+                <div className='icons-container'>
+                <a href='#'>
+                    <i className='fa fa-facebook'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-twitter'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-instagram'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-pinterest'></i>
+                </a>
             </div>
           </CarouselLinks>
                 <AnimatePresence>

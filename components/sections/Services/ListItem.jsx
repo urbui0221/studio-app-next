@@ -101,7 +101,7 @@ const Container = styled.div`
     left: -85px;
   }
   .film-our-services.type-image .col-text .text .content {
-    font-family: Lato;
+    font-family: var(--font3);
     font-size: 15px;
     color: #696969;
     line-height: 1.7;

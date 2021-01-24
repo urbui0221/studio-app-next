@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
-const Header = () => {
+const Header = (props) => {
   const pageDropdownRef = useRef(null);
 
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -120,11 +120,14 @@ const Header = () => {
                       <Link href='/pricing'>Pricing</Link>
                     </li>
                     <li className='dropdown'>
-                      <Link href='/services'>Services</Link>
+                      <Link href='/#'>Services</Link>
                       <ul className='sub-menu'>
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
-                            <Link href={blog.url}>{blog.name}</Link>
+                            <Link href={{
+                              pathname : '/services/[id]',
+                              query: { id : blog.id } 
+                            }}>{blog.name}</Link>
                           </li>
                         ))}
                       </ul>
@@ -171,6 +174,7 @@ const Header = () => {
     </HeaderContainer>
   )
 }
+
 
 const DropDowns = ({ arr, title, url, active, onClick }) => {
   const contentRef = useRef(null)
@@ -728,15 +732,15 @@ const Home = [
 const OurServicesList = [
   {
     name: "Video Editing",
-    url: "/video-editing",
+    id: "video-editing",
   },
   {
     name: "3D Product Visualization",
-    url: "/3d-product-visualization",
+    id: "3d-product-visualization",
   },
   {
     name: "Image Editing",
-    url: "/image-editing",
+    id: "image-editing",
   },
 ]
 

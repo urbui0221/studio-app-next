@@ -2,15 +2,19 @@ import "../styles/globals.css"
 import Footer from '../components/layouts/Footer.component'
 import Header from '../components/layouts/Header'
 import { GlobalStyles } from '../components/utils/GlobalStyles'
-import 'swiper/swiper.scss';
+import { useRouter } from 'next/router'
 
-export default function App({ Component, pageProps }) {
+
+export default function App({ Component, pageProps}) {
+  const Router = useRouter();
+  console.log(Router.pathname);
   return (
     <>
       <GlobalStyles />
-      <Header />
+      {Router.pathname !== '/404' && <Header />}
       <Component {...pageProps} />
-      <Footer />
+      {Router.pathname !== '/404' && <Footer />}
     </>
   )
 }
+
