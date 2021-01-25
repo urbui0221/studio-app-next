@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Subtitle from '../../ui/Subtitle'
 import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
+import Image from 'next/image'
 
 const MeetOurTeam = ({team}) => {
 
@@ -84,7 +85,13 @@ const Members = ({image,name,occupation}) => {
             <div className="team-item">
                 <div className="thumb">
                     <div className="img-wrapper">
-                        <img src={image} alt="" />
+                        <Image
+                        className="img"
+                        quality={100}
+                        priority 
+                        src={image} 
+                        layout={"fill"} 
+                        alt={name} />
                     </div>
                 </div>
                 <div className="info">
@@ -163,12 +170,7 @@ background-color: white;
             overflow: hidden;;
             width : 270px;
             height: 300px;
-            img{
-                position: absolute;
-                top: 0;
-                left : 0;
-                width : 100%;
-                height: 100%;
+            .img{
                 object-fit : cover;
                 transition : 0.5s all;
                 &:hover{

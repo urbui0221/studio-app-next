@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 
 export default () => {
+    const [ scrollState,setHasScrolled ] = useState(false);
 
-    const isSSR = typeof window === "undefined";
-
-    const [ scrollState,setScroll ] = useState(0);
-
-    useEffect(_ => {
-        window.addEventListener('scrolly',eve => {
-            console.log(eve);
-        })
-    })
-
+    const handleScroll = () => {
+        const scrollTop = window.scrollY
+        if (scrollTop !== 0) {
+          setHasScrolled(true)
+        } else {
+          setHasScrolled(false)
+        }
+      }
+    
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+      return _ => window.removeEventListener('scroll', handleScroll);
+    },[handleScroll])
+    
     return scrollState;
 }
