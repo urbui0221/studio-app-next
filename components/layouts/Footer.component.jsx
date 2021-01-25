@@ -10,7 +10,7 @@ const Footer = () => (
        <div className="row">
            <div className="col-md-4">
                <a href="/" id="footer_logo">
-                   <img className="footer-logo-image" src="images/logo_footer.png" alt="Nine Studio" />
+                   <img className="footer-logo-image" src="/images/logo_footer.png" alt="Nine Studio" />
                </a>
                <div className="footer-social">
                    <a data-toggle="tooltip" data-placement="top" title="" data-original-title="Facebook" href="#"><i className="fa fa-facebook"></i></a>

@@ -6,6 +6,7 @@ const ListItem = ({
   alternate,
   iconClassName,
   iconContainerClasses,
+  iconContainerId,
   title,
   description,
 }) => {
@@ -22,7 +23,7 @@ const ListItem = ({
               <div
                 className={`icon ${
                   iconContainerClasses ? iconContainerClasses : ""
-                }`}
+                }`} id={iconContainerId}
               >
                 <i className={iconClassName}></i>
               </div>
@@ -47,6 +48,11 @@ const ListItem = ({
 }
 
 const Container = styled.div`
+#color---white {
+  i{
+    color: #ffffff;
+  }
+}
   .film-our-services.type-icon .col-icon {
     z-index: 97;
   }
