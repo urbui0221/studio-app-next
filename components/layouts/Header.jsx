@@ -99,7 +99,7 @@ const Header = (props) => {
                 <Link href='/' id='branding_logo' prefetch={false}>
                   <img
                     className='logo'
-                    src='images/logo_alt.png'
+                    src='/images/logo_alt.png'
                     alt='Logo'
                     title='Nine Studio'
                   />
@@ -161,7 +161,7 @@ const Header = (props) => {
                 <a href='./' id='logo-2'>
                   <img
                     className='logo-image'
-                    src='images/logo_alt.png'
+                    src='/images/logo_alt.png'
                     alt='Nine Studio Logo'
                   />
                 </a>

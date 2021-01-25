@@ -15,6 +15,7 @@ export default (req,res) => {
             alternate: true,
             title: " Workshops &amp; Private Tuition",
             iconContainerClasses: 'primary-color',
+            iconContainerId: 'color---white',
             iconClassName: 'ns-seats',
             description: `In addition to the production of films and video
               campaigns, Nine Studio also offers a variety of
