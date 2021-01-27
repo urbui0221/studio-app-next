@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Link from 'next/link';
+import Image from "next/image";
 
 const ListItem = ({ alternate, title, description, src }) => {
   return (
@@ -13,7 +14,7 @@ const ListItem = ({ alternate, title, description, src }) => {
         <Link href='/services'>
           <div className='row'>
             <div className='col-md-6 col-image'>
-              <img src={src} alt='' />
+              <Image src={src} alt='' width="570" height="282" layout="responsive" />
             </div>
             <div className='col-md-6 col-text'>
               <div className='text'>
