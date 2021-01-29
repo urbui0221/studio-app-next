@@ -133,7 +133,7 @@ const HeaderSlider = styled.div`
 width : 100%;
 height : calc(100vh - 101px);
 display : flex;
-max-width : 1800px;
+max-width: 95%;
 margin : 0 auto;
 position : relative;
 .content{

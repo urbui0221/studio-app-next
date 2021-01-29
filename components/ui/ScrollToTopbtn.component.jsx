@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react'
 import styled from 'styled-components'
+import useWindowScroll from '../../custom/hooks/useWindowScroll';
 
 const durTime = 0.3;
 const scrollBtnVariants = {
@@ -24,22 +25,27 @@ const scrollBtnVariants = {
     }
 }
 
-
 const ScrollToTopbtn = () => {
     const scrollToTop = _ => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    const hasScrolled = useWindowScroll();
     return (
-        <AnimatePresence>
-            <Scroller 
-            variants={scrollBtnVariants}
-            initial="from"
-            animate="to"
-            exit="exit"
-            onClick={scrollToTop}>
-                <i className="ion-android-arrow-up"></i>
-            </Scroller>
-        </AnimatePresence>
+      <>
+      {
+            hasScrolled && 
+            <AnimatePresence>
+                <Scroller 
+                variants={scrollBtnVariants}
+                initial="from"
+                animate="to"
+                exit="exit"
+                onClick={scrollToTop}>
+                    <i className="ion-android-arrow-up"></i>
+                </Scroller>
+            </AnimatePresence>
+      }
+      </>
     )
 }
 
