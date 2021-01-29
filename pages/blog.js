@@ -6,7 +6,7 @@ const Blog = () => {
     return (
         <>
         <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Blog'} route={'Blog Masonry'} />
-        {/*  <BlogContainer />             */}
+         <BlogContainer />             
         </>
     )
 }
