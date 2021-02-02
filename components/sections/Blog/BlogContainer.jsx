@@ -4,96 +4,134 @@ import Blog from "./Blog"
 import useMediaQuery from "use-media-query-hook"
 
 const BlogContainer = () => {
-  
   const isMedium = useMediaQuery("(max-width: 991px)")
 
-  // const [col1, setCol1] = useState([])
-  // const [col2, setCol2] = useState([])
-  // const [col3, setCol3] = useState([])
-  // const [data, setData] = useState(Data)
+  let [xcol1, xsetCol1] = useState([])
+  const [xcol2, xsetCol2] = useState([])
+  const [xcol3, xsetCol3] = useState([])
 
-  //   if(data.length % 3 === 0) { // 3N
-  //     for(let i = 0; i< data.length; i += 3) {
-  //         setCol1(col1.concat(data[i]))
-  //         setCol2(col2.concat(data[i+1]))
-  //         setCol3(col3.concat(data[i+2]))
-  //     }
-  // } else if(data.length % 3 === 1) { // 3N+1
-  //     for(let i = 0; i < data.length; i += 3) {
+  const [xmdcol1, xsetmdCol1] = useState([])
+  const [xmdcol2, xsetmdCol2] = useState([])
 
-  //         setCol1(col1.concat(data[i]))
-  //         if(!(data[i+1] === undefined)) {
-  //              setCol2(col2.concat(data[i+1]))
-  //         }
-  //         if(!(data[i+2] === undefined)) {
-  //             setCol3(col3.concat(data[i+2]))
-  //         }
+  const [xdata, xsetData] = useState(Data)
+
+  // console.log(xdata)
+  // console.log(xcol1)
+  // console.log(xcol2)
+  // console.log(xcol3)
+  // console.log(xmdcol1)
+  // console.log(xmdcol2)
+
+  useEffect(() => {
+    let col1=[]; let col2=[]; let col3=[]; let mdcol1=[]; let mdcol2=[];
+    if (xdata.length % 3 === 0) {
+      // 3N
+      for (let i = 0; i < xdata.length; i += 3) {
+        col1.push(xdata[i])
+        col2.push(xdata[i + 1])
+        col3.push(xdata[i + 2])
+      }
+    } else if (xdata.length % 3 === 1) {
+      // 3N+1
+      for (let i = 0; i < xdata.length; i += 3) {
+        col1.push(xdata[i])
+        if (!(xdata[i + 1] === undefined)) {
+          col2.push(xdata[i + 1])
+        }
+        if (!(xdata[i + 2] === undefined)) {
+          col3.push(xdata[i + 2])
+        }
+      }
+    }  else if (xdata.length % 3 === 2) {
+       // 3N+2
+      for (let i = 0; i < xdata.length; i += 3) {
+        col1.push(xdata[i])
+        col2.push(xdata[i + 1])
+        if (!(xdata[i + 2] === undefined)) {
+          col3.push(xdata[i + 2])
+        }
+      }
+    }
+    xsetCol1(col1)
+    xsetCol2(col2)
+    xsetCol3(col3)
+
+    if (xdata.length % 2 === 0) {
+      for (let i = 0; i < xdata.length; i += 2) {
+        mdcol1.push(xdata[i])
+        mdcol2.push(xdata[i + 1])
+      }
+    } else {
+      for (let i = 0; i < xdata.length; i += 2) {
+       
+        if (!(xdata[i + 1] === undefined)) {
+          mdcol1.push(xdata[i])
+          if (!(xdata[i + 1] === undefined)) {
+            mdcol2.push(xdata[i + 1])
+          }
+        }
+      }
+    }
+    xsetmdCol2(mdcol2)
+    xsetmdCol1(mdcol1)
+    
+    console.log("col1",xcol1);
+    console.log("col2",xcol2);
+    console.log("col3",xcol3);
+    console.log("mdcol1", xmdcol1);
+    console.log("mdcol2", xmdcol2);
+  }, [isMedium])
+
+  // const data = Data
+  // const col1 = []
+  // const col2 = []
+  // const col3 = []
+
+  // const mdcol1 = []
+  // const mdcol2 = []
+
+  // if (data.length % 3 === 0) {
+  //   // 3N
+  //   for (let i = 0; i < data.length; i += 3) {
+  //     col1.push(data[i])
+  //     col2.push(data[i + 1])
+  //     col3.push(data[i + 2])
+  //   }
+  // } else if (data.length % 3 === 1) {
+  //   // 3N+1
+  //   for (let i = 0; i < data.length; i += 3) {
+  //     col1.push(data[i])
+  //     if (!(data[i + 1] === undefined)) {
+  //       col2.push(data[i + 1])
   //     }
-  // }else if(data.length % 3 === 2) { // 3N+2
-  //     for(let i = 0; i< data.length; i += 3) {
-  //         setCol1(col1.concat(data[i]))
-  //          setCol2(col2.concat(data[i+1]))
-  //         if(!(data[i+2] === undefined)) {
-  //             setCol3(col3.concat(data[i+2]))
-  //         }
+  //     if (!(data[i + 2] === undefined)) {
+  //       col3.push(data[i + 2])
   //     }
+  //   }
+  // } else if (data.length % 3 === 2) {
+  //   // 3N+2
+  //   for (let i = 0; i < data.length; i += 3) {
+  //     col1.push(data[i])
+  //     col2.push(data[i + 1])
+  //     if (!(data[i + 2] === undefined)) {
+  //       col3.push(data[i + 2])
+  //     }
+  //   }
   // }
 
-  const data = Data
-  const col1 = []
-  const col2 = []
-  const col3 = []
-
-  const mdcol1 = []
-  const mdcol2 = []
-
-  if (data.length % 3 === 0) {
-    // 3N
-    for (let i = 0; i < data.length; i += 3) {
-      col1.push(data[i])
-      col2.push(data[i + 1])
-      col3.push(data[i + 2])
-    }
-  } else if (data.length % 3 === 1) {
-    // 3N+1
-    for (let i = 0; i < data.length; i += 3) {
-      col1.push(data[i])
-      if (!(data[i + 1] === undefined)) {
-        col2.push(data[i + 1])
-      }
-      if (!(data[i + 2] === undefined)) {
-        col3.push(data[i + 2])
-      }
-    }
-  } else if (data.length % 3 === 2) {
-    // 3N+2
-    for (let i = 0; i < data.length; i += 3) {
-      col1.push(data[i])
-      col2.push(data[i + 1])
-      if (!(data[i + 2] === undefined)) {
-        col3.push(data[i + 2])
-      }
-    }
-  }
-
-  if (data.length % 2 === 0) {
-    for (let i = 0; i < data.length; i += 2) {
-      mdcol1.push(data[i])
-      mdcol2.push(data[i + 1])
-    }
-  } else {
-    for (let i = 0; i < data.length; i += 2) {
-      mdcol1.push(data[i])
-      if (!(data[i + 1] === undefined)) {
-        mdcol2.push(data[i + 1])
-      }
-    }
-  }
-  // console.log(mdcol1);
-  // console.log(mdcol2);
-  //   console.log("col1", col1);
-  //   console.log("col2", col2);
-  //   console.log("col3", col3);
+  // if (data.length % 2 === 0) {
+  //   for (let i = 0; i < data.length; i += 2) {
+  //     mdcol1.push(data[i])
+  //     mdcol2.push(data[i + 1])
+  //   }
+  // } else {
+  //   for (let i = 0; i < data.length; i += 2) {
+  //     mdcol1.push(data[i])
+  //     if (!(data[i + 1] === undefined)) {
+  //       mdcol2.push(data[i + 1])
+  //     }
+  //   }
+  // }
 
   return (
     <Container>
@@ -102,19 +140,19 @@ const BlogContainer = () => {
           {!isMedium && (
             <>
               <div className='col-md-4'>
-                {col1.map((blog, index) => (
+                {xcol1.map((blog, index) => (
                   <Blog {...blog} key={index} />
                 ))}
               </div>
 
               <div className='col-md-4'>
-                {col2.map((blog, index) => (
+                {xcol2.map((blog, index) => (
                   <Blog {...blog} key={index} />
                 ))}
               </div>
 
               <div className='col-md-4'>
-                {col3.map((blog, index) => (
+                {xcol3.map((blog, index) => (
                   <Blog {...blog} key={index} />
                 ))}
               </div>
@@ -124,13 +162,13 @@ const BlogContainer = () => {
           {isMedium && (
             <>
               <div className='col-sm-6'>
-                {mdcol1.map((blog, index) => (
+                {xmdcol1.map((blog, index) => (
                   <Blog {...blog} key={index} />
                 ))}
               </div>
 
               <div className='col-sm-6'>
-                {mdcol2.map((blog, index) => (
+                {xmdcol2.map((blog, index) => (
                   <Blog {...blog} key={index} />
                 ))}
               </div>
@@ -262,7 +300,7 @@ const Data = [
     likes: "0",
   },
   {
-    img: "/images/blog/blog10.jpg",
+    img: "/images/blog/blog11sm.jpg",
     url: "/",
     alt: "Image-1",
     tag: "Uncategorized",
@@ -273,7 +311,7 @@ const Data = [
     likes: "0",
   },
   {
-    img: "/images/blog/blog10.jpg",
+    img: "/images/blog/blog9.jpg",
     url: "/",
     alt: "Image-1",
     tag: "Uncategorized",
