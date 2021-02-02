@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
+import Button from "../ui/Button.component";
 const Header = (props) => {
   const pageDropdownRef = useRef(null);
 
@@ -138,6 +139,13 @@ const Header = (props) => {
                     <li>
                       <Link href='/blog'>Blog</Link>
                     </li>
+                    <li className="last-link">
+                      <Link href="/trials">
+                       <Button bgcolor={'var(--primary)'} p={'1rem 1.5rem'}>
+                          Trials
+                       </Button>
+                      </Link>
+                    </li>
                   </ul>
                 </nav>
 
@@ -174,7 +182,6 @@ const Header = (props) => {
     </HeaderContainer>
   )
 }
-
 
 const DropDowns = ({ arr, title, url, active, onClick }) => {
   const contentRef = useRef(null)
@@ -571,6 +578,18 @@ header.header-mobile .header-right .open-search {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
+
+.last-link{
+  a{
+    color : var(--white);
+    button{
+      background-color : red;
+      outline: none;
+      border : none;
+    }
+  }
+}
+
 .slideout-menu.open {
     display: block;
 }

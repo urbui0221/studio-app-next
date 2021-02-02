@@ -23,4 +23,5 @@ cursor: pointer;
 font-family: var(--display);
 color : ${props => props.color || 'var(--baseBg)'};
 font-size : 1.4rem;
+padding : ${props => props.p || '0'};
 `
