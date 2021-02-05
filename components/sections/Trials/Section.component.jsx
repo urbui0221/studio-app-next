@@ -28,33 +28,28 @@ text-align: center;
 font-family : var(--font3);
 width: 100%;
 background-color : ${props => props.bgColor || "#fff"};
-position: relative;
+display :flex;
+flex-direction: column;
 h1{
     font-size : 5rem;
     font-weight : 800;
 }
 p{
     margin-top : 1.5rem;
+    max-width: 80rem;
+    margin: 0 auto;
 }
 ${ props => props.bgColor === '#D0D0D0' && css`
     &::before{
-        top: 0;
         background-image: url(/images/try/wave-top.svg);
-        left: 0;
-        right: 0;
         height: 8rem;
         content: '';
-        position: absolute;
         background-size: 100% 100%;
     }
     &::after{
-        bottom: 0;
         background-image: url(/images/try/wave-bottom.svg);
-        left: 0;
-        right: 0;
         height: 8rem;
         content: '';
-        position: absolute;
         background-size: 100% 100%;
     }
 }
