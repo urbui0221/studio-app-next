@@ -125,9 +125,11 @@ const Header = (props) => {
                       <ul className='sub-menu'>
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
-                            <Link href={{
+                            <Link 
+                            as={`/${blog.id}`}
+                            href={{
                               pathname : '/services/[id]',
-                              query: { id : blog.id } 
+                              query: { id : blog.id }
                             }}>{blog.name}</Link>
                           </li>
                         ))}
