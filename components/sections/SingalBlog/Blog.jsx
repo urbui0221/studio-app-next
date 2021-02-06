@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Link from "next/link"
 
-const SingalBlog = () => {
+const SingalBlog = ({ BlogData }) => {
   return (
     <Container>
       <div className='section pt-12 pb-12'>
@@ -117,44 +117,6 @@ const SingalBlog = () => {
 }
 
 export default SingalBlog
-
-const BlogData = {
-  image: "/images/blog/blog_detail.jpg",
-  altImageText: "blog--image--text",
-  title: `The Story of Ferguson through the Eyes of the People Who Livedit`,
-  description: `By the time we wrapped our last shooting day, we had
-    collected over 300 hours of footage. Lungs shouted for
-    justice and moments later filled with teargas. A father
-    baked cookies during a moment of peace. A police chief and a
-    mayor cited lack of data. Our creative team quickly realized
-    we had several possible movies on our hands, but our goal
-    was singular; we wanted to communicate the story of Ferguson
-    through the eyes of the people who lived it. As we looked
-    for inspiration we came to understand our obstacle more
-    clearly. We were entering a landscape where audiences were
-    used to a particular type of journey. In historical moments
-    like the one we are living through, we look for guidance in
-    stories. One could argue that it is therapeutic to watch a
-    person or group pursue a goal, and through some climactic
-    moment succeed or fail, providing us with a lesson learned,
-    and a sense of resolution.`,
-    tags: [
-        {id: '1', name: 'film', url: '/film'},
-        {id: '2', name: 'event', url: '/event'},
-        {id: '3', name: 'festival', url: '/festival'},
-    ],
-  author: {
-    name: "Jonathan Doe",
-    description: `Typi non habent claritatem insitam; est usus legentis in
-        iis qui facit eorum claritatem. Indemon strunt lectores
-        legere me lius quod ii legunt saepius. Claritas est
-        etiam processus dynamicus.`,
-  },
-  previous: `Communication Is Where a Film Lives and Dies”: Director
-    Zoe Lister-Jones`,
-  after: `The Story of Ferguson through the Eyes of the People Who
-    Lived it`,
-}
 
 const Container = styled.div`
   .blog-description {

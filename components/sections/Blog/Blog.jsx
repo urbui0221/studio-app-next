@@ -1,10 +1,10 @@
-import React from "react";
+import Link from "next/link";
 import styled from "styled-components";
 
-const Blog = ({img, url, alt, tag, tagUrl, date, description, views, likes }) => {
+const Blog = ({img, url, alt, tag, tagUrl, date, description, views, likes,link }) => {
 
   return (
-    <>
+    <Link href={link}>
       <div className='blog-item masonry-item style-2'>
         <div className='blog-item-inner'>
           <div className='blog-thumbnail'>
@@ -35,7 +35,7 @@ const Blog = ({img, url, alt, tag, tagUrl, date, description, views, likes }) =>
           </div>
         </div>
       </div>
-    </>
+    </Link>
   )
 }
 

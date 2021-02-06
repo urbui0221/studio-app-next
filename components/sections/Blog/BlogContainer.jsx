@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Blog from "./Blog"
 import useMediaQuery from "use-media-query-hook"
 
-const BlogContainer = () => {
+const BlogContainer = ({state}) => {
   const isMedium = useMediaQuery("(max-width: 991px)")
 
   let [xcol1, xsetCol1] = useState([])
@@ -13,7 +13,9 @@ const BlogContainer = () => {
   const [xmdcol1, xsetmdCol1] = useState([])
   const [xmdcol2, xsetmdCol2] = useState([])
 
-  const [xdata, xsetData] = useState(Data)
+  const [xdata, xsetData] = useState(state);
+
+  console.log(state)
 
   // console.log(xdata)
   // console.log(xcol1)
@@ -26,7 +28,7 @@ const BlogContainer = () => {
     let col1=[]; let col2=[]; let col3=[]; let mdcol1=[]; let mdcol2=[];
     if (xdata.length % 3 === 0) {
       // 3N
-      for (let i = 0; i < xdata.length; i += 3) {
+      for (let i = 0; i < xdata?.length; i += 3) {
         col1.push(xdata[i])
         col2.push(xdata[i + 1])
         col3.push(xdata[i + 2])
@@ -141,19 +143,19 @@ const BlogContainer = () => {
             <>
               <div className='col-md-4'>
                 {xcol1.map((blog, index) => (
-                  <Blog {...blog} key={index} />
+                  <Blog {...blog.cardData} key={index} link={{ pathname : '/blog/[blogid]', query : { blogid : blog.id  }} }/>
                 ))}
               </div>
 
               <div className='col-md-4'>
                 {xcol2.map((blog, index) => (
-                  <Blog {...blog} key={index} />
+                  <Blog {...blog.cardData} key={index} link={{ pathname : '/blog/[blogid]', query : { blogid : blog.id  }} }/>
                 ))}
               </div>
 
               <div className='col-md-4'>
                 {xcol3.map((blog, index) => (
-                  <Blog {...blog} key={index} />
+                  <Blog {...blog.cardData} key={index} link={{ pathname : '/blog/[blogid]', query : { blogid : blog.id } }} />
                 ))}
               </div>
             </>
@@ -163,13 +165,13 @@ const BlogContainer = () => {
             <>
               <div className='col-sm-6'>
                 {xmdcol1.map((blog, index) => (
-                  <Blog {...blog} key={index} />
+                  <Blog {...blog.cardData} key={index} link={{ pathname : '/blog/[blogid]', query : { blogid : blog.id } }} />
                 ))}
               </div>
 
               <div className='col-sm-6'>
                 {xmdcol2.map((blog, index) => (
-                  <Blog {...blog} key={index} />
+                  <Blog {...blog.cardData} key={index} link={{ pathname : '/blog/[blogid]', query : { blogid : blog.id } }} />
                 ))}
               </div>
             </>
@@ -194,6 +196,7 @@ const Data = [
       "The Story of Ferguson through the Eyes of the People Who Lived it",
     views: "151",
     likes: "2",
+    id : 1
   },
   {
     img: "/images/blog/blog2.jpg",
@@ -206,6 +209,7 @@ const Data = [
       "“Communication Is Where a Film Lives and Dies”: Director Zoe Lister-Jones",
     views: "141",
     likes: "0",
+    id : 2
   },
   {
     img: "/images/blog/blog3sm.jpg",
@@ -218,6 +222,7 @@ const Data = [
       "Profound Communication Only Happens When There Is Persistence",
     views: "112",
     likes: "1",
+    id : 3
   },
   {
     img: "/images/blog/blog4.jpg",
@@ -230,6 +235,7 @@ const Data = [
       "Tell Them We Are Rising: The Story of Black Colleges and Universities",
     views: "84",
     likes: "0",
+    id : 4
   },
   {
     img: "/images/blog/blog5.jpg",
@@ -241,6 +247,7 @@ const Data = [
     description: "“The Challenge Is Balancing Tone”: Director Mark Pellington",
     views: "96",
     likes: "1",
+    id : 5
   },
   {
     img: "/images/blog/blog6.jpg",
@@ -253,6 +260,7 @@ const Data = [
       "“We Are Living through a Divisive Time”: Director Barbara Kopple",
     views: "146",
     likes: "2",
+    id : 6
   },
   {
     img: "/images/blog/blog7.jpg",
@@ -264,6 +272,7 @@ const Data = [
     description: "I Stopped Talking and Started Making the True Great Film",
     views: "253",
     likes: "6",
+    id : 7
   },
   {
     img: "/images/blog/blog8.jpg",
@@ -275,6 +284,7 @@ const Data = [
     description: "“We Don’t Use Words to Tell a Story”: Directors Lily Baldwin",
     views: "81",
     likes: "1",
+    id : 8
   },
   {
     img: "/images/blog/blog9smm.jpg",
@@ -287,6 +297,7 @@ const Data = [
       "“Communicating with Respect and Openness”: Director José María Cabral",
     views: "65",
     likes: "2",
+    id : 9
   },
   {
     img: "/images/blog/blog10.jpg",
@@ -298,6 +309,7 @@ const Data = [
     description: "I Want the Viewer to Feel Totally Immersed in My World",
     views: "76",
     likes: "0",
+    id : 10
   },
   {
     img: "/images/blog/blog11sm.jpg",
@@ -309,6 +321,7 @@ const Data = [
     description: "I Want the Viewer to Feel Totally Immersed in My World",
     views: "76",
     likes: "0",
+    id : 11
   },
   {
     img: "/images/blog/blog9.jpg",
@@ -320,6 +333,7 @@ const Data = [
     description: "I Want the Viewer to Feel Totally Immersed in My World",
     views: "76",
     likes: "0",
+    id : 12
   },
 ]
 
