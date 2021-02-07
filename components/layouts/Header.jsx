@@ -128,8 +128,8 @@ const Header = (props) => {
                             <Link 
                             as={`/${blog.id}`}
                             href={{
-                              pathname : '/services/[id]',
-                              query: { id : blog.id }
+                              pathname : '/[service]',
+                              query: { service : blog.id }
                             }}>{blog.name}</Link>
                           </li>
                         ))}
