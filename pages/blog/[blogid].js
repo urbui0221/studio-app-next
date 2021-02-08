@@ -19,13 +19,13 @@ const Blog = ({ query }) => {
         return <div>Loading...</div>
     }
 
-    const routeData = data?.filter(blog => blog.id.toString() === query.blogid);
-    console.log(routeData[0].pageData);
+    const routeData = data?.find(blog => blog.id.toString() === query.blogid);
+    console.log(routeData.pageData);
 
     return (
         <>
             <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Blog'} route={'Blog'} />
-            <SingalBlog BlogData={routeData[0].pageData}/>
+            <SingalBlog BlogData={routeData.pageData}/>
         </>
     )
 }

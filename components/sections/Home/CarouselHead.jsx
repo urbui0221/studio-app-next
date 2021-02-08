@@ -65,9 +65,9 @@ const carouselImgs = [
       onMouseLeave ={() => setControls(false)}>
           <div className="content">
             <div className="content-items">
-                <h1>
+                {/*<h1>
                     { slide < 10 ? "0" + (slide + 1) : (slide + 1) }&nbsp;<sup><span>/0{carouselImgs.length}</span></sup>
-                </h1>
+                </h1> */}
                 <p> We are a <span className="white">creative film</span> and <span className="white">video</span> production company based in Berlin &amp; Hamburg</p>
                 <AnimatePresence>
                            {

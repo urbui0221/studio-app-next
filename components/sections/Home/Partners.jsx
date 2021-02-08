@@ -1,8 +1,27 @@
 import React from 'react'
+import Carousel from 'react-multi-carousel'
 import styled, {keyframes} from 'styled-components'
 import Subtitle from '../../ui/Subtitle'
 
 const Partners = () => {
+    const responsive = {
+        superLargeDesktop: {
+          breakpoint: { max: 4000, min: 3000 },
+          items: 4
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 4
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 3
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 2
+        }
+      };
     return (
         <Container>
         <div className="section pt-10 pb-12">
@@ -26,7 +45,14 @@ const Partners = () => {
                     </div>
                     <Subtitle text={' Clients &amp; publications'} className="mb-4" />
                     <div className="mw-560">
-                        <div className="logo-carousel" data-auto-play="true" data-desktop="4" data-laptop="3" data-tablet="2" data-mobile="1">
+                        <Carousel
+                         swipeable={true}
+                         draggable={true}
+                         showDots={false}
+                         arrows={false}
+                         partialVisible={false}
+                         ssr={true}  
+                        responsive={responsive}>
                             <div className="logo-item">
                                 <img src="images/logo/logo_5.jpg" alt="" />
                             </div>
@@ -45,7 +71,7 @@ const Partners = () => {
                             <div className="logo-item">
                                 <img src="images/logo/logo_10.jpg" alt="" />
                             </div>
-                        </div>
+                        </Carousel>
                     </div>
                 </div>
             </div>
@@ -143,11 +169,11 @@ const Container = styled.div`
     -o-transition: all .5s;
     transition: all .5s;
 }
-.logo-carousel .logo-item:hover img {
+.logo-item:hover img {
     opacity: 1;
 }
-.logo-carousel.no-opacity .logo-item img {
-	opacity: 1;
+.logo-item img {
+	opacity: 0.2;
 }
 .logo-carousel.no-opacity .logo-item:hover img {
     transform: scale(1.1);

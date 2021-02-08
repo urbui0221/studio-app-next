@@ -2,11 +2,15 @@ import React from "react"
 import styled from "styled-components"
 import Button from "../../ui/Button"
 import SectionTitle from "../../ui/SectionTitle"
+import BottomCarousel from "./BottomCarousel"
+import MeetOurTeam from "./MeetOurTeam"
 import ServiceList from "./ServiceList"
+import TopCarousel from "./TopCarousel.component"
 
-const WeAreTheBest = () => {
+const WeAreTheBest = ({team}) => {
   return (
     <Container>
+      <TopCarousel />
       <div className='section pb-18'>
         <div className='container-fluid'>
           <div className='row'>
@@ -56,6 +60,8 @@ const WeAreTheBest = () => {
           </div>
         </div>
       </div>
+      <MeetOurTeam team={team}/>
+      <BottomCarousel />
     </Container>
   )
 }
