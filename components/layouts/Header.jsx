@@ -2,8 +2,15 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import Button from "../ui/Button.component";
+import { useRouter } from 'next/router'
 const Header = (props) => {
   const pageDropdownRef = useRef(null);
+
+  const router = useRouter();
+
+  const checkPath = path => path === router.pathname ? 'active' : '';
+
+  console.log(router.pathname);
 
   const [hasScrolled, setHasScrolled] = useState(false)
   const [topSearch, setTopSearch] = useState(false)
@@ -111,17 +118,17 @@ const Header = (props) => {
               <div className='header-right'>
                 <nav id='menu' className='menu menu-primary'>
                   <ul>
-                    <li className='active'>
+                    <li className={checkPath('/')}>
                       <Link href='/'>Home</Link>
                     </li>
-                    <li>
+                    <li className={checkPath('/about')}>
                       <Link href='/about'>About</Link>
                     </li>
-                    <li>
+                    <li className={checkPath('/pricing')}>
                       <Link href='/pricing'>Pricing</Link>
                     </li>
-                    <li className='dropdown'>
-                      <Link href='/#'>Services</Link>
+                    <li className={`dropdown ${checkPath('/[service]')}`}>
+                      <Link href='#'>Services</Link>
                       <ul className='sub-menu'>
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
@@ -135,10 +142,10 @@ const Header = (props) => {
                         ))}
                       </ul>
                     </li>
-                    <li>
+                    <li className={checkPath('/contact')} >
                       <Link href='/contact'>Contact Us</Link>
                     </li>
-                    <li>
+                    <li className={checkPath('/blog')}>
                       <Link href='/blog'>Blog</Link>
                     </li>
                     <li className="last-link">
