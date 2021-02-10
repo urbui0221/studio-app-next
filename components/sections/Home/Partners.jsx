@@ -130,7 +130,7 @@ const Container = styled.div`
 .sub-title {
     font-size: 14px;
     letter-spacing: .1em;
-    font-family: Montserrat;
+    font-family: var(--display);
     font-weight: 400;
     line-height: 1.2;
     text-transform: uppercase;
@@ -201,10 +201,10 @@ const Container = styled.div`
     color: #696969;
 }
 .film-links-cloud ul li a:hover {
-    color: #333;
+    color: var(--tertiary2);
 }
 .film-links-cloud.dark ul li a:hover {
-    color: #fff;
+    color: var(--baseBg);
 }
 .film-links-cloud ul li a:before {
     content: "\f111";

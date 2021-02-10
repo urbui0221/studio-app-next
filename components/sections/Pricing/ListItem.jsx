@@ -101,10 +101,10 @@ const Container = styled.div`
   }
 
   .film-our-services.type-icon .col-text .text .title {
-    font-family: Merriweather;
+    font-family: var(--head);
     font-weight: 400;
     font-size: 24px;
-    color: #333;
+    color: var(--tertiary2);
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -145,7 +145,7 @@ const Container = styled.div`
   }
 
   .film-our-services.type-icon .col-icon .icon.black-color {
-    background-color: #333;
+    background-color: var(--tertiary2);
     color: var(--primary);
   }
 

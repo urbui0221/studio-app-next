@@ -92,9 +92,9 @@ background-image: url('images/background/film_bg.jpg');
 }
 .section-title {
     font-size: 34px;
-    color: #333;
+    color: var(--tertiary2);
     line-height: 1.4em;
-    font-family: Merriweather;
+    font-family: var(--head);
     font-weight: 400;
     font-style: normal;
     text-transform: none;

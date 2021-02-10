@@ -35,8 +35,8 @@ const Container = styled.div`
 .footer-newsletter.style-1 .footer-newsletter-left {
     font-size: 34px;
     font-weight: 400;
-    font-family: Merriweather;
-    color: #333;
+    font-family: var(--head);
+    color: var(--tertiary2);
     line-height: 46px;
     text-transform: capitalize;
     margin-bottom: 30px;
@@ -57,9 +57,9 @@ const Container = styled.div`
 .footer-newsletter.style-1 .footer-newsletter-right .form input[type="email"] {
     display: inline-block;
     background-color: transparent;
-    color: #333;
+    color: var(--tertiary2);
     font-size: 14px;
-    font-family: Montserrat;
+    font-family: var(--display);
     border: 0;
 }
 .footer-newsletter.style-1 .footer-newsletter-right .form input[type="submit"] {
@@ -68,12 +68,12 @@ const Container = styled.div`
     line-height: 40px;
     text-align: center;
     padding: 0 25px;
-    background-color: #da0e2b;
+    background-color: var(--primary);
     font-size: 14px;
-    font-family: Montserrat;
+    font-family: var(--display);
     font-weight: 400;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--baseBg);
     border: 0;
     position: absolute;
     top: 4px;
@@ -85,8 +85,8 @@ const Container = styled.div`
     transition: all .5s;
 }
 .footer-newsletter.style-1 .footer-newsletter-right .form input[type="submit"]:hover {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--tertiary2);
+    color: var(--baseBg);
 }
 .footer-newsletter.style-1 .footer-newsletter-right p {
     color: #ababab;

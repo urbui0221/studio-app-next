@@ -67,12 +67,12 @@ const Container = styled.div`
     width: 80%;
     max-width: 750px;
     margin: 0 auto;
-    font-family: Merriweather;
+    font-family: var(--head);
     font-size: 24px;
     font-style: italic;
     letter-spacing: 0;
     line-height: 2;
-    color: #333;
+    color: var(--tertiary);
 }
 .film-single-testimonial .item .sign {
     margin-top: 55px;
@@ -85,7 +85,7 @@ const Container = styled.div`
     display: inline-block;
     margin: 0 10px;
     text-align: left;
-    font-family: Montserrat;
+    font-family: var(--display);
 }
 .film-single-testimonial .item .info .author .name, 
 .film-single-testimonial .item .info .author .tagline {

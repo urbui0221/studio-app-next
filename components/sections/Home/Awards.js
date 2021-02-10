@@ -86,9 +86,9 @@ position: relative;
 }
 .section-title {  
 	font-size: 34px;
-  color: #333333;
+  color: var(--tertiary2);
   line-height: 1.4em;
-  font-family: Merriweather;
+  font-family: var(--head);
   font-weight: 400;
   font-style: normal;
   text-transform: none;
@@ -96,7 +96,7 @@ position: relative;
 .sub-title {
   font-size: 14px;
   letter-spacing: .1em;
-  font-family: Montserrat;
+  font-family: var(--display);
   font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;

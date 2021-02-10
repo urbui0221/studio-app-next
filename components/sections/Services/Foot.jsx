@@ -28,9 +28,9 @@ const Foot = () => {
 const Container = styled.div`
 .section-title {
     font-size: 34px;
-    color: #333333;
+    color: var(--tertiary2);
     line-height: 1.4em;
-    font-family: Merriweather;
+    font-family: var(--head);
     font-weight: 400;
     font-style: normal;
     text-transform: none;

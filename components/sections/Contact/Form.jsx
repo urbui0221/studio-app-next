@@ -127,9 +127,9 @@ const Container = styled.div`
     letter-spacing: .05em;
     font-size: 14px;
     font-weight: 700;
-    color: #333;
+    color: var(--tertiary2);
     text-transform: uppercase;
-	font-family: Montserrat,Helvetica,Arial,sans-serif;
+	font-family: var(--display);
 }
 .contact-info .icon-boxes .icon-boxes-content {
     font-family: var(--font3);
@@ -153,19 +153,19 @@ const Container = styled.div`
     color: #696969;
 }
 .film-social li:hover > a {
-    background-color: #da0e2b;
-	color: #fff;
+    background-color: var(--primary);
+	color: var(--baseBg);
 }
 .film-social .tooltip.top .tooltip-arrow {
-    border-top-color: #da0e2b;
+    border-top-color: var(--primary);
 }
 .film-social .tooltip-inner {
-    background-color: #da0e2b;
+    background-color: var(--primary);
 }
 
 .section-title {
 	font-size: 34px;
-    color: #333333;
+    color: var(--tertiary2);
     line-height: 1.4em;
     font-family: var(--head);
     font-weight: 400;
@@ -184,7 +184,7 @@ const Container = styled.div`
 
 .button {
     background-color: var(--primary);
-    color: #fff;
+    color: var(--baseBg);
     padding: 0 20px;
     display: inline-block;
     font-size: 14px;
