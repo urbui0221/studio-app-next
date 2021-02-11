@@ -3,6 +3,7 @@ import styled from "styled-components"
 import IconBoxesLayout from "../../ui/IconBoxes"
 
 const SectionFeatures = () => {
+
   return (
     <FeaturesContainer>
       <div className='section pb-8'>

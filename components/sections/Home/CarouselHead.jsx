@@ -1,6 +1,6 @@
 import { AnimatePresence,motion } from 'framer-motion';
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useState,useRef,useEffect } from 'react'
 import { BsChevronLeft,BsChevronRight } from 'react-icons/bs'
 import styled from 'styled-components';
 import Button from '../../ui/Button.component'
@@ -9,13 +9,19 @@ const CarouselHead = () => {
     const [slide,setSlide] = useState(0);
     const [showControllers,setControls] = useState(true);
 
+    let contentItemRef = useRef(null);
+
     const carouselController = type => {
         return type === 'increment' ? 
         setSlide(slide === 2 ? 0 : slide + 1) 
         :  setSlide(slide === 0 ? 2 : slide - 1) 
     }
 
+    useEffect(() => {
+        console.log(contentItemRef.firstElementChild)
+        //                <p> We are a <span className="white">creative film</span> and <span className="white">video</span> production company based in Berlin &amp; Hamburg</p>
 
+    },[])
       const durTime = 0.3;
 
       const HirebtnVariants = {
@@ -64,7 +70,7 @@ const carouselImgs = [
       onMouseEnter={() => setControls(true)} 
       onMouseLeave ={() => setControls(false)}>
           <div className="content">
-            <div className="content-items">
+            <div className="content-items" ref={el => contentItemRef = el}>
                 {/*<h1>
                     { slide < 10 ? "0" + (slide + 1) : (slide + 1) }&nbsp;<sup><span>/0{carouselImgs.length}</span></sup>
                 </h1> */}
