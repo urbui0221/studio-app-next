@@ -63,7 +63,7 @@ export default Trials
 
 const FeatureWrapper = styled.div`
 margin-top: 2rem;
-padding: 0 20rem;
+
 `
 
 const AccordionData = [
