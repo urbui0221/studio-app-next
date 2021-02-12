@@ -81,7 +81,7 @@ const SingalBlog = ({ BlogData }) => {
                 <div className='entry-author'>
                   <div className='row'>
                     <div className='col-md-2'>
-                      <img alt='' src='/images/avatar/default.png' />
+                    {!BlogData.author.img ? <img alt='' src='/images/avatar/default.png' /> : <img alt='' src={BlogData.author.img} /> }
                     </div>
                     <div className='col-md-10'>
                       <div className='mt-1'></div>
