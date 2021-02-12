@@ -26,8 +26,8 @@ const Container = styled.div`
     left: 0;
     font-size: 24px;
     font-weight: 700;
-    font-family: Montserrat;
-    color: #da0e2b;
+    font-family: var(--display);
+    color: var(--primary);
     opacity: 0.5;
     -ms-transform: rotate(-90deg);
     -webkit-transform: rotate(-90deg);
@@ -40,8 +40,8 @@ const Container = styled.div`
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;
-    font-family: Montserrat;
-    color: #333;
+    font-family: var(--display);
+    color: var(--tertiary2);
   }
   .item .content {
     font-family: var(--font3);

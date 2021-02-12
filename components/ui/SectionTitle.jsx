@@ -9,7 +9,7 @@ const SectionTitle = ({text, className}) => {
 
 const Container = styled.h2`
     font-size: 34px;
-    color: #333333;
+    color: var(--tertiary2);
     line-height: 1.4em;
     font-family: var(--head);
     font-weight: 400;

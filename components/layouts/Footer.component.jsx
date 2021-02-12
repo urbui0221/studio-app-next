@@ -8,7 +8,7 @@ const Footer = () => (
    <footer className="footer pb-8">
    <div className="container">
        <div className="row">
-           <div className="col-md-4">
+           <div className="col-md-3">
                <a href="/" id="footer_logo">
                    <img className="footer-logo-image" src="/images/logo_footer.png" alt="Nine Studio" />
                </a>
@@ -32,9 +32,6 @@ const Footer = () => (
                    </div>
                    <div className="footer-gmap">
                        <a href="#gmap-popup" className="open-popup-link">Google Map</a>
-                       {/* <div id="gmap-popup" className="mfp-hide">
-                           <iframe id="gmap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3412.0554760559626!2d151.42366529037852!3d-32.80714560754794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b73360bf7441cf9%3A0x7d18a93f0244f271!2s14+Goulburn+St%2C+Abermain+NSW+2326%2C+Australia!5e0!3m2!1sen!2s!4v1482743874873" width="600" height="450" allowfullscreen></iframe>
-                       </div> */}
                    </div>
                </div>
            </div>

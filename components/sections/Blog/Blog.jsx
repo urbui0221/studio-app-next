@@ -47,7 +47,7 @@ const Container = styled.div`
 		margin-top: 50px;
 	}
 	.blog-item.style-2 .blog-item-inner {
-		box-shadow: 5px 5px 20px #eee;
+		box-shadow: 5px 5px 20px var(--lightGray);
 		padding: 0;
 	}
 	.blog-item.style-2 .blog-thumbnail {
@@ -89,7 +89,7 @@ const Container = styled.div`
 	.blog-item.style-2 .blog-thumbnail > a:before {
 		z-index: 98;
 		content: '\f489';
-		font-family: Ionicons;
+		font-family: var(--icon);
 		font-size: 40px;
 		width: 40px;
 		height: 40px;
@@ -164,7 +164,7 @@ const Container = styled.div`
 	}
 	.blog-list-item {
 		margin-bottom: 50px;
-		border-bottom: 1px solid #f4f4f4;
+		border-bottom: 1px solid var(--whiteSmoke);
 		padding-bottom: 50px;
 	}
 `;

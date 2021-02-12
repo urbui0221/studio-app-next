@@ -36,7 +36,7 @@ const CopyrightContainer = styled.div`
     display: block;
     width: 100%;
     position: relative;
-	background: #333;
+	background: var(--tertiary2);
 }
 .copyright .copyright-container {
     padding-top: 40px;
@@ -47,16 +47,16 @@ const CopyrightContainer = styled.div`
 }
 .copyright .copyright-left {
     font-size: 14px;
-    color: #696969;
+    color: var(--dimGray);
     font-family: Lato;
     font-style: italic;
     line-height: 25px;
 }
 .copyright .copyright-left a {
-    color: #fff;
+    color: var(--baseBg);
 }
 .copyright .copyright-left a:hover {
-    color: #da0e2b;
+    color: var(--primary);
 }
 .copyright .copyright-right {
     text-align: right;
@@ -72,14 +72,14 @@ const CopyrightContainer = styled.div`
 }
 .copyright .copyright-right ul li a {
     text-transform: uppercase;
-    font-family: Montserrat;
-    color: #696969;
+    font-family: var(--display);
+    color: var(--dimGray);
     font-size: 12px;
     font-weight: 400;
     line-height: 1;
 }
 .copyright .copyright-right ul li a:hover {
-    color: #da0e2b;
+    color: var(--primary);
 }
 .copyright.style-2 .copyright-container {
     border-top: 0;

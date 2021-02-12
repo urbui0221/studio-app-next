@@ -10,10 +10,6 @@ const Form = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log("Name: ",name.value)
-        console.log("Subject: ",subject.value)
-        console.log("Email: ",email.value)
-        console.log("Message: ",message.value)
     }
     return (
         <Container>
@@ -115,7 +111,7 @@ const Container = styled.div`
 .contact-info .icon-boxes {
     margin-bottom: 30px;
 	padding-bottom: 30px;
-	border-bottom: 1px solid #f4f4f4;
+	border-bottom: 1px solid var(--whiteSmoke);
 }
 .contact-info .icon-boxes .icon-boxes-inner {
     display: table-cell;
@@ -133,7 +129,7 @@ const Container = styled.div`
 }
 .contact-info .icon-boxes .icon-boxes-content {
     font-family: var(--font3);
-    color: #696969;
+    color: var(--dimGray);
 }
 
 .film-social li {
@@ -147,10 +143,10 @@ const Container = styled.div`
     height: 40px;
     line-height: 38px;
     text-align: center;
-    border: 1px solid #f4f4f4;
+    border: 1px solid var(--whiteSmoke);
     border-radius: 20px;
     font-size: 14px;
-    color: #696969;
+    color: var(--dimGray);
 }
 .film-social li:hover > a {
     background-color: var(--primary);

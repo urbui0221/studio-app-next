@@ -48,7 +48,7 @@ const Container = styled.div`
     position: relative;
     height: 48px;
     line-height: 48px;
-    background-color: #f7f7f7;
+    background-color: var(--lynxWhite);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -89,7 +89,7 @@ const Container = styled.div`
     color: var(--baseBg);
 }
 .footer-newsletter.style-1 .footer-newsletter-right p {
-    color: #ababab;
+    color: var(--gray67);
     font-size: 14px;
     font-style: italic;
     margin-bottom: 0;

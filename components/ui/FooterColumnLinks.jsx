@@ -4,7 +4,7 @@ import FooterWidgetTitle from "./FooterWidgetTitle"
 
 const FooterColumnLinks = ({arr, title}) => (
     <FooterColumnLinksContainer>
-    <div className="col-md-2 mb-3">
+    <div className="col-md-3 mb-3">
     <div className="widget">
     <FooterWidgetTitle title={title} />
     <ul>
@@ -34,15 +34,15 @@ const FooterColumnLinksContainer = styled.div`
 }
  .widget ul li a:hover {
     padding-left: 15px;
-    color: #da0e2b;
+    color: var(--primary);
 }
  .widget ul li a:hover:before {
     position: absolute;
     content: '\f462';
-    font-family: 'Ionicons';
+    font-family: var(--icon);
     left: 0;
     top: 0;
-    color: #da0e2b;
+    color: var(--primary);
     line-height: 18px;
 }
 `
