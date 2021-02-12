@@ -10,7 +10,7 @@ const Header = (props) => {
 
   const checkPath = path => path === router.pathname ? 'active' : '';
 
-  console.log(router.pathname);
+  console.log(router);
 
   const [hasScrolled, setHasScrolled] = useState(false)
   const [topSearch, setTopSearch] = useState(false)
@@ -133,7 +133,6 @@ const Header = (props) => {
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
                             <Link 
-                            as={`/${blog.id}`}
                             href={{
                               pathname : '/[service]',
                               query: { service : blog.id }

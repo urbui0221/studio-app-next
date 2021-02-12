@@ -2,7 +2,9 @@ import { AnimatePresence,motion } from 'framer-motion';
 import Image from 'next/image';
 import React, { useState,useRef,useEffect } from 'react'
 import { BsChevronLeft,BsChevronRight } from 'react-icons/bs'
+import fetcher from '../../../utils/fetcher'
 import styled from 'styled-components';
+import useSWR from 'swr';
 import Button from '../../ui/Button.component'
 
 const CarouselHead = () => {
@@ -16,12 +18,6 @@ const CarouselHead = () => {
         setSlide(slide === 2 ? 0 : slide + 1) 
         :  setSlide(slide === 0 ? 2 : slide - 1) 
     }
-
-    useEffect(() => {
-        console.log(contentItemRef.firstElementChild)
-        //                <p> We are a <span className="white">creative film</span> and <span className="white">video</span> production company based in Berlin &amp; Hamburg</p>
-
-    },[])
       const durTime = 0.3;
 
       const HirebtnVariants = {
@@ -59,11 +55,11 @@ const CarouselHead = () => {
         }
     }
 
-const carouselImgs = [
-        "https://images.unsplash.com/photo-1542296375-b4c0e4a878fd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-        "https://images.unsplash.com/photo-1602342629825-3caac6e02785?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-        "https://images.unsplash.com/photo-1510582029005-689cfc56b48c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-    ]
+    const { data,error } = useSWR('/api/home',fetcher)
+    
+    if(!data){
+        return <div>Loading...</div>
+    }
 
     return (
       <HeaderSlider  
@@ -74,7 +70,14 @@ const carouselImgs = [
                 {/*<h1>
                     { slide < 10 ? "0" + (slide + 1) : (slide + 1) }&nbsp;<sup><span>/0{carouselImgs.length}</span></sup>
                 </h1> */}
-                <p> We are a <span className="white">creative film</span> and <span className="white">video</span> production company based in Berlin &amp; Hamburg</p>
+                {
+                    data.headerText.map((text,id) => {
+                        if(slide === id){
+                            return <p dangerouslySetInnerHTML={{ __html : text }}/>
+
+                        }
+                    })
+                }
                 <AnimatePresence>
                            {
                             <HireButton 
@@ -112,14 +115,20 @@ const carouselImgs = [
                 </AnimatePresence>
             </ButtonFlex>
           <div className="image">
-            <Image 
-                className="img"
-                src={carouselImgs[0]} 
-                layout="fill" 
-                quality={100} 
-                priority 
-                alt="image" 
-            />
+            {
+                data.images.map((image,id) => {
+                    if(slide === id){
+                        return <Image 
+                        className="img"
+                        src={image} 
+                        layout="fill" 
+                        quality={100} 
+                        priority 
+                        alt="image" 
+                    />
+                    }
+                })
+            }
           </div>
       </HeaderSlider>
     )

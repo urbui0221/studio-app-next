@@ -6,25 +6,29 @@ import "react-multi-carousel/lib/styles.css";
 import Image from 'next/image'
 
 const MeetOurTeam = ({team}) => {
-
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1200 },
-          items: 3,
-          slidesToSlide: 3 // optional, default to 1.
+          items: 4,
+          slidesToSlide: 0 // optional, default to 1.
         },
         tablet: {
-          breakpoint: { max: 1200, min: 995 },
-          items: 2,
-          slidesToSlide: 2 // optional, default to 1.
+          breakpoint: { max: 1200, min: 980 },
+          items: 3,
+          slidesToSlide: 1 // optional, default to 1.
         },
+        tablet2: {
+            breakpoint: { max: 980, min: 620 },
+            items: 2,
+            slidesToSlide: 2 // optional, default to 1.
+          },
         mobile: {
-          breakpoint: { max: 995, min: 0 },
+          breakpoint: { max: 620, min: 0 },
           items: 1,
           slidesToSlide: 1 // optional, default to 1.
         }
       };
-
+  
     return (
         <Container>
         <div className="section section-bg-5 section-cover pt-11 pb-11">
@@ -38,17 +42,17 @@ const MeetOurTeam = ({team}) => {
                     </div>
                 </div>
             </div>
-            {/*<Carousel 
-                    swipeable={false}
-                    draggable={true}
-                    showDots={true}
-                    responsive={responsive}
-                    arrows={false}
-                    centerMode={true}
-                    partialVisible={false}
-                    keyBoardControl={true}
-                    ssr={true}
-                    responsive={responsive}>
+            <Carousel 
+                     swipeable={false}
+                     draggable={true}
+                     showDots={false}
+                     responsive={responsive}
+                     arrows={false}
+                     centerMode={false}
+                     partialVisible={false}
+                     keyBoardControl={true}
+                     ssr={true}
+                     responsive={responsive}>
                             {
                                 team.map(mem => {
                                     return <Members
@@ -57,8 +61,8 @@ const MeetOurTeam = ({team}) => {
                                     />
                                 })
                             }
-                        </Carousel> */}
-            <Swipe>
+            </Carousel> 
+         {/*   <Swipe>
                 {
                     team.map(mem => {
                         return <Members
@@ -67,7 +71,7 @@ const MeetOurTeam = ({team}) => {
                         />
                     })
                 }
-            </Swipe>
+            </Swipe> */}
         </div>
         </div>   
         </Container>
