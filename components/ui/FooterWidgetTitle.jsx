@@ -12,8 +12,8 @@ export default FooterWidgetTitle
 const FooterWidgetTitleContainer = styled.h3`
     margin-bottom: 30px;
     padding-bottom: 10px;
-    color: #fff;
-    font-family: Merriweather;
+    color: var(--baseBg);
+    font-family: var(--head);
     font-weight: 400;
     font-size: 18px;
     letter-spacing: 0;
@@ -22,7 +22,7 @@ const FooterWidgetTitleContainer = styled.h3`
     content: '';
     width: 30px;
     height: 1px;
-    background-color: #da0e2b;
+    background-color: var(--primary);
     display: block;
     position: absolute;
     bottom: 0;

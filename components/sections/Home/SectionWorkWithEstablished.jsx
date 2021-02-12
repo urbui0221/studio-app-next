@@ -95,12 +95,12 @@ const Container = styled.div`
 .film-single-testimonial .item .info .author .name {
     font-size: 14px;
     text-transform: uppercase;
-    color: #696969;
+    color: var(--dimGray);
     font-weight: 700;
 }
 .film-single-testimonial .item .info .author .tagline {
     font-size: 14px;
-    color: #ccc;
+    color: var(--gray80);
 }
 .film-single-testimonial .item .info .author .tagline:before {
     content: '/';
@@ -113,6 +113,6 @@ const Container = styled.div`
 }
 .film-single-testimonial.small .item .text {
     font-size: 16px;
-    color: #696969;
+    color: var(--dimGray);
 }
 `

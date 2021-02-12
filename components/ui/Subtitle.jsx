@@ -8,10 +8,10 @@ const Subtitle = ({text, className}) => {
 }
 
 const Container = styled.h3`
-    color: #da0e2b;
+    color: var(--primary);
     font-size: 14px;
     letter-spacing: .1em;
-    font-family: Montserrat;
+    font-family: var(--display);
     font-weight: 400;
     line-height: 1.2;
     text-transform: uppercase;

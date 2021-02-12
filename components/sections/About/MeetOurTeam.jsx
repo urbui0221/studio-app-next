@@ -128,7 +128,7 @@ justify-content :center;
         width: 5rem;
         left: 50%;
         transform: rotate(90deg);
-        background: #000;
+        background: var(--baseCol);
         text-align : center;
         margin: 0 auto;
 }
@@ -161,7 +161,7 @@ justify-content :center;
 }
 .section-title {
     font-size: 34px;
-    color: #333;
+    color: var(--tertiary2);
     line-height: 1.4em;
     font-family: var(--head);
     font-weight: 400;

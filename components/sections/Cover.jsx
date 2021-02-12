@@ -41,17 +41,17 @@ const Container = styled.div`
   .page-title {
     padding-top: 145px;
     padding-bottom: 125px;
-    color: #333;
+    color: var(--tertiary2);
     text-align: left;
     display: block;
     .title {
-      font-family: Merriweather, Georgia, serif;
+      font-family: var(--head);
       font-weight: 400;
       font-style: normal;
       font-size: 56px;
       line-height: 1;
       letter-spacing: 0;
-      color: #333;
+      color: var(--tertiary2);
       display: block;
       position: relative;
       z-index: 97;
@@ -64,7 +64,7 @@ const Container = styled.div`
     padding: 0;
     margin-top: 30px;
     font-size: 14px;
-    font-family: Montserrat;
+    font-family: var(--display);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -84,13 +84,13 @@ const Container = styled.div`
 
         :after {
           content: "/";
-          color: #ababab;
+          color: var(--gray67);
           margin-left: 10px;
         }
 
         :last-child {
-          color: #da0e2b;
-          border-bottom: 1px solid #da0e2b;
+          color: var(--primary);
+          border-bottom: 1px solid var(--primary);
           margin-left: 6px;
 
           :after {
@@ -100,7 +100,7 @@ const Container = styled.div`
         }
 
         a {
-          color: #ababab;
+          color: var(--gray67);
         }
       }
     }
@@ -113,7 +113,7 @@ const Container = styled.div`
     .page-title.big-style {
       padding-top: 145px;
       padding-bottom: 125px;
-      background-color: #f6f7f7;
+      background-color: var(--lynxWhite1);
     }
   }
 `

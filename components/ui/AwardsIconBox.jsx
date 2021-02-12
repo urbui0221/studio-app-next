@@ -36,7 +36,7 @@ const Container = styled.div`
 
 .icon-boxes-small .icon-boxes-icon {
     font-size: 14px;
-    color: #da0e2b;
+    color: var(--primary);
 	display: inline-block;
 	padding-top: 0;
 }

@@ -5,14 +5,23 @@ export const GlobalStyles = createGlobalStyle`
   --head: 'Merriweather', serif; 
   --display: 'Montserrat', sans-serif;
   --font3 : 'Lato', sans-serif;
+  --icon: 'Ionicons';
   
   //colors
   --baseBg : #FFFFFF;
   --secondary : #a5a5a5;
   --primary : #da0e2b;
-  --baseCol : #000;
+  --baseCol : #000000;
   --tertiary : #869791;
   --tertiary2 : #333333;
+  --dimGray : #696969;
+  --whiteSmoke : #f4f4f4;
+  --gray94 : #f0f0f0;
+  --gray80 : #cccccc;
+  --gray67 : #ababab;
+  --lightGray : #eeeeee;
+  --lynxWhite : #f7f7f7;
+  --lynxWhite1 : #f6f7f7;
 }
 html{
   font-size : 62.5%;
@@ -31,7 +40,7 @@ body {
   font-style: normal;
   line-height: 1.8;
   letter-spacing: 0;
-  color: #696969;
+  color: var(--dimGray);
   font-size: 15px;
 }
 

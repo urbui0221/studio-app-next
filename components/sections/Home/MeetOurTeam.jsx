@@ -148,7 +148,7 @@ background-color : #f6f7f7;
 }
 .section-title {
     font-size: 34px;
-    color: #333;
+    color: var(--tertiary2);
     line-height: 1.4em;
     font-family: var(--head);
     font-weight: 400;

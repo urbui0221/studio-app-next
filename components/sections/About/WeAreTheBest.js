@@ -98,48 +98,48 @@ const Container = styled.div`
 
   .section-title {
     font-size: 34px;
-    color: #333333;
+    color: var(--tertiary2);
     line-height: 1.4em;
-    font-family: Merriweather;
+    font-family: var(--head);
     font-weight: 400;
     font-style: normal;
     text-transform: none;
   }
 
   .film-our-services-list .big-title {
-    font-family: Merriweather;
+    font-family: var(--head);
     font-size: 40px;
     font-weight: 400;
-    color: #333;
+    color: var(--tertiary2);
   }
   .film-our-services-list .big-title a {
-    font-family: Merriweather;
+    font-family: var(--head);
     font-size: 40px;
     font-weight: 400;
-    color: #333;
+    color: var(--tertiary2);
     position: relative;
   }
   .film-our-services-list .big-title a:hover {
-    color: #da0e2b;
+    color: var(--primary);
   }
   .film-our-services-list .big-title a:after {
     position: absolute;
     right: -130px;
     top: 50%;
     content: "\f30f";
-    font-family: Ionicons;
+    font-family: var(--icon);
     width: 40px;
     height: 40px;
     text-align: center;
     line-height: 36px;
     font-size: 18px;
     font-weight: 400;
-    color: #da0e2b;
+    color: var(--primary);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
     display: inline-block;
-    border: 2px solid #f0f0f0;
+    border: 2px solid var(--gray94);
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -ms-transition: all 0.5s;
@@ -148,14 +148,14 @@ const Container = styled.div`
     transform: translateY(-50%);
   }
   .film-our-services-list .big-title a:hover:after {
-    border-color: #da0e2b;
-    background-color: #da0e2b;
-    color: #fff;
+    border-color: var(--primary);
+    background-color: var(--primary);
+    color: var(--baseBg);
   }
 
   .image-shadow {
     display: inline-block;
-    background-color: #f0f0f0;
+    background-color: var(--gray94);
   }
 
   .image-shadow,

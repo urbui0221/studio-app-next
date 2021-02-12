@@ -50,7 +50,7 @@ const ListItem = ({
 const Container = styled.div`
 #color---white {
   i{
-    color: #ffffff;
+    color: var(baseBg);
   }
 }
   .film-our-services.type-icon .col-icon {
@@ -83,7 +83,7 @@ const Container = styled.div`
   }
 
   .film-our-services.type-icon .col-text .text {
-    background-color: #f6f7f7;
+    background-color: var(--lynxWhite1);
     padding: 40px 70px;
     min-height: 270px;
     position: relative;
@@ -97,7 +97,7 @@ const Container = styled.div`
     position: absolute;
     top: 0;
     left: -100px;
-    background-color: #f6f7f7;
+    background-color: var(--lynxWhite1);
   }
 
   .film-our-services.type-icon .col-text .text .title {
@@ -119,7 +119,7 @@ const Container = styled.div`
   .film-our-services.type-icon .col-text .text .content {
     font-family: var(--font3);
     font-size: 15px;
-    color: #696969;
+    color: var(--dimGray);
     line-height: 1.7;
     display: block;
     margin-top: 20px;

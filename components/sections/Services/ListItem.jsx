@@ -33,8 +33,6 @@ const ListItem = ({ alternate, title, description, src }) => {
 }
 
 const Container = styled.div`
-
-
   .film-our-services {
     display: block;
   }
@@ -73,14 +71,14 @@ const Container = styled.div`
     z-index: 97;
   }
   .film-our-services.type-image .col-text .text {
-    background-color: #fff;
+    background-color: var(--baseBg);
     padding: 40px;
   }
   .film-our-services.type-image .col-text .text .title {
-    font-family: Merriweather;
+    font-family: var(--head);
     font-weight: 400;
     font-size: 24px;
-    color: #333;
+    color: var(--tertiary2);
     position: relative;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -104,7 +102,7 @@ const Container = styled.div`
   .film-our-services.type-image .col-text .text .content {
     font-family: var(--font3);
     font-size: 15px;
-    color: #696969;
+    color: var(--dimGray);
     line-height: 1.7;
     display: block;
     margin-top: 20px;

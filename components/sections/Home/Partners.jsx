@@ -198,7 +198,7 @@ const Container = styled.div`
     color: #ababab;
 }
 .film-links-cloud.dark ul li a {
-    color: #696969;
+    color: var(--dimGray);
 }
 .film-links-cloud ul li a:hover {
     color: var(--tertiary2);
@@ -224,7 +224,7 @@ const Container = styled.div`
     margin-right: 0px;
 }
 .film-links-cloud.dark ul li a:before {
-    color: #696969;
+    color: var(--dimGray);
 }
 `
 

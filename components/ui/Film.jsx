@@ -7,9 +7,6 @@ const Film = ({
   url,
   description,
   category,
-  views,
-  likes,
-  comments,
   alternate,
 }) => {
   return (
@@ -39,19 +36,6 @@ const Film = ({
               ))}
             </div>
             <div className='excerpt'>{description}</div>
-            <div className='meta'>
-              <span className='view'>
-                {views} {views === 1 ? "view" : "views"}
-              </span>
-              <span className='like'>
-                <a href='#' className='like-btn'>
-                  {likes} {likes === 1 ? "view" : "views"}
-                </a>
-              </span>
-              <span className='comment'>
-                {comments} {comments === 1 ? "view" : "views"}
-              </span>
-            </div>
           </Info>
         </div>
       </div>
@@ -66,7 +50,7 @@ const Info = styled.div`
     font-size: 24px;
     font-weight: 400;
     font-family: var(--head);
-    color: #333;
+    color: var(--tertiary2);
     display: block;
     position: relative;
     :before {
@@ -74,7 +58,7 @@ const Info = styled.div`
       width: 60px;
       height: 1px;
       display: ${(props) => (!props.alternate ? "block" : "none")};
-      background-color: #da0e2b;
+      background-color: var(--primary);
       position: absolute;
       top: 50%;
       left: ${(props) => (!props.alternate ? "-80px" : null)};
@@ -84,64 +68,27 @@ const Info = styled.div`
       width: 60px;
       height: 1px;
       display: ${(props) => (props.alternate ? "block" : "none")};
-      background-color: #da0e2b;
+      background-color: var(--primary);
       position: absolute;
       top: 50%;
       right: ${(props) => (props.alternate ? "-80px" : null)};
     }
     a {
-      color: #333;
+      color: var(--tertiary2);
 
       :hover {
-        color: #da0e2b;
+        color: var(----primary);
       }
     }
   }
   .excerpt{
     font-family: var(--font3)
   }
-  .meta {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #696969;
-  }
-  .meta > span a {
-    color: #696969;
-  }
-  .meta > span {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  .meta > span:last-child {
-    margin-right: 0;
-  }
-  .meta > span.view:before {
-    content: "\f133";
-    font-family: Ionicons;
-    font-size: 16px;
-    color: #da0e2b;
-    margin-right: 10px;
-  }
-  .meta > span.like a:before {
-    content: "\f387";
-    font-family: Ionicons;
-    font-size: 16px;
-    color: #da0e2b;
-    margin-right: 10px;
-    display: inline-block;
-  }
-  .meta > span.comment:before {
-    content: "\f11a";
-    font-family: Ionicons;
-    font-size: 16px;
-    color: #da0e2b;
-    margin-right: 10px;
-  }
   .title {
     font-size: 24px;
     font-weight: 400;
-    font-family: Merriweather;
-    color: #333;
+    font-family: var(--head);
+    color: var(--tertiary2);
     display: block;
     position: relative;
   }
@@ -149,7 +96,7 @@ const Info = styled.div`
   .category a {
     font-size: 12px;
     font-weight: 400;
-    font-family: Montserrat;
+    font-family: var(--display);
     text-transform: uppercase;
     color: #ccc;
     display: inline-block;
@@ -159,7 +106,7 @@ const Info = styled.div`
     }
   }
   .category a:hover {
-    color: #da0e2b;
+    color: var(--primary);
   }
   .excerpt {
     display: block;
@@ -191,9 +138,13 @@ const Container = styled.div`
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
   }
   .film-list-item:hover .col-thumb .thumb img {
     transform: scale(1.1);
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
   }
 `
 

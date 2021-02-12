@@ -130,13 +130,13 @@ const Container = styled.div`
     position: absolute;
     right: 20px;
     bottom: 20px;
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    font-family: var(--display);
   }
   .blog-detail .single-post-thumbnail .list-categories a {
     font-size: 12px;
-    color: #fff;
+    color: var(--baseBg);
     letter-spacing: 0.1em;
-    background-color: #da0e2b;
+    background-color: var(--primary);
     display: inline-block;
     width: auto;
     padding: 5px 10px;
@@ -146,11 +146,11 @@ const Container = styled.div`
   }
   .blog-detail .entry-title {
     margin-bottom: 15px;
-    color: #333;
+    color: var(--tertiary2);
     letter-spacing: 0;
     font-weight: 400;
     font-size: 24px;
-    font-family: Merriweather, Georgia, serif;
+    font-family: var(--head);
   }
   .blog-detail .meta {
     margin-bottom: 15px;
@@ -162,34 +162,34 @@ const Container = styled.div`
   }
   .blog-detail .meta > span.view:before {
     content: "\f133";
-    font-family: Ionicons;
+    font-family: var(--icon);
     font-size: 16px;
-    color: #da0e2b;
+    color: var(--primary);
     margin-right: 10px;
   }
   .blog-detail .meta > span.like a:before {
     content: "\f387";
-    font-family: Ionicons;
+    font-family: var(--icon);
     font-size: 16px;
-    color: #da0e2b;
+    color: var(--primary);
     margin-right: 10px;
     display: inline-block;
   }
   .blog-detail .meta > span.comment:before {
     content: "\f11a";
-    font-family: Ionicons;
+    font-family: var(--icon);
     font-size: 16px;
-    color: #da0e2b;
+    color: var(--primary);
     margin-right: 10px;
   }
   .blog-detail .entry-footer {
     margin-bottom: 20px;
   }
   .blog-detail .tags {
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    font-family: var(--display);
   }
   .blog-detail .tags .tag-icon {
-    color: #ababab;
+    color: var(--gray67);
     font-size: 16px;
     margin-right: 15px;
   }
@@ -198,20 +198,20 @@ const Container = styled.div`
     -moz-border-radius: 2px;
     border-radius: 2px;
     font-size: 14px;
-    color: #ababab;
+    color: var(--gray67);
     margin-right: 5px;
     margin-bottom: 8px;
     display: inline-block;
   }
   .blog-detail .entry-footer .tags a:hover {
-    color: #da0e2b;
+    color: var(--primary);
   }
   .blog-detail .entry-footer .entry-share {
     text-align: right;
   }
   .blog-detail .entry-author {
     padding: 40px 0;
-    border-top: 1px solid #f4f4f4;
+    border-top: 1px solid var(--whiteSmoke);
   }
   .blog-detail .entry-author img {
     border-radius: 50%;
@@ -219,7 +219,7 @@ const Container = styled.div`
   }
   .blog-detail .entry-author .name {
     font-size: 14px;
-    color: #333;
+    color: var(--tertiary2);
     letter-spacing: 0.05em;
     margin-bottom: 10px;
   }
@@ -227,15 +227,15 @@ const Container = styled.div`
     font-family: var(--font3);
     font-size: 15px;
     line-height: 1.6em;
-    color: #696969;
+    color: var(--dimGray);
   }
   .blog-detail .entry-nav {
     padding: 40px 30px;
     background: #f8f7f7;
-    border: 1px solid #f4f4f4;
+    border: 1px solid var(--whiteSmoke);
     font-size: 18px;
     font-weight: 700;
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    font-family: var(--display);
   }
   .blog-detail .entry-nav .left i,
   .blog-detail .entry-nav .right i {
@@ -244,15 +244,15 @@ const Container = styled.div`
     -ms-transition: all 0.5s;
     -o-transition: all 0.5s;
     transition: all 0.5s;
-    color: #ababab;
+    color: var(--gray67);
   }
   .blog-detail .entry-nav .left:hover i,
   .blog-detail .entry-nav .right:hover i {
-    color: #da0e2b;
+    color: var(--primary);
   }
   .blog-detail .entry-nav a {
     text-transform: none;
-    color: #ababab;
+    color: var(--gray67);
     outline: 0;
     white-space: nowrap;
     overflow: hidden;
@@ -282,19 +282,19 @@ const Container = styled.div`
     height: 40px;
     line-height: 38px;
     text-align: center;
-    border: 1px solid #f4f4f4;
+    border: 1px solid var(--whiteSmoke);
     border-radius: 20px;
     font-size: 14px;
-    color: #696969;
+    color: var(--dimGray);
   }
   .film-social li:hover > a {
-    background-color: #da0e2b;
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--baseBg);
   }
   .film-social .tooltip.top .tooltip-arrow {
-    border-top-color: #da0e2b;
+    border-top-color: var(--primary);
   }
   .film-social .tooltip-inner {
-    background-color: #da0e2b;
+    background-color: var(--primary);
   }
 `
