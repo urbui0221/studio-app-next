@@ -106,7 +106,6 @@ const Members = ({image,name,occupation}) => {
                             <a href="#">Youtube</a>
                         </div>
                         : <div className="tagline">{occupation}</div>
-                        
                     }
                 </div>
             </div>
