@@ -2,6 +2,7 @@ import React from 'react'
 import useSWR from 'swr'
 import BlogContainer from '../components/sections/Blog/BlogContainer'
 import Cover from '../components/sections/Cover'
+import Loader from '../components/ui/Loader.component'
 import fetcher from '../utils/fetcher'
 
 
@@ -10,7 +11,7 @@ const Blog = () => {
     const { data,error } = useSWR('/api/blogData',fetcher);
 
     if(!data){
-        return <div>Loading....</div>
+        return <Loader />
     }
     return (
         <>

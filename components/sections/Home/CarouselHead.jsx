@@ -6,6 +6,7 @@ import fetcher from '../../../utils/fetcher'
 import styled from 'styled-components';
 import useSWR from 'swr';
 import Button from '../../ui/Button.component'
+import Loader from '../../ui/Loader.component';
 
 const CarouselHead = () => {
     const [slide,setSlide] = useState(0);
@@ -58,7 +59,7 @@ const CarouselHead = () => {
     const { data,error } = useSWR('/api/home',fetcher)
     
     if(!data){
-        return <div>Loading...</div>
+        return <Loader />
     }
 
     return (
