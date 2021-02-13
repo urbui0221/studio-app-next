@@ -70,14 +70,15 @@ const CarouselHead = () => {
                 {/*<h1>
                     { slide < 10 ? "0" + (slide + 1) : (slide + 1) }&nbsp;<sup><span>/0{carouselImgs.length}</span></sup>
                 </h1> */}
-                {
-                    data.headerText.map((text,id) => {
-                        if(slide === id){
-                            return <p dangerouslySetInnerHTML={{ __html : text }}/>
-
-                        }
-                    })
-                }
+                <AnimatePresence>
+                    {
+                        data.headerText.map((text,id) => {
+                            if(slide === id){
+                                return <p dangerouslySetInnerHTML={{ __html : text }}/>
+                            }
+                        })
+                    }
+                </AnimatePresence>
                 <AnimatePresence>
                            {
                             <HireButton 
@@ -140,7 +141,7 @@ const HireButton = styled(Button)`
 padding : 1.5rem 3rem;
 align-self: flex-start;
 position : absolute;
-bottom: -15rem;
+bottom: -7rem;
 left: 0;
 `
 
@@ -154,9 +155,28 @@ position : relative;
 .content{
     background-color : var(--tertiary2);
     flex : 0.4;
+    position : relative;
+    @media only screen and (max-width: 1400px){
+        flex : 0.5;  
+        padding : 0 2rem           
+    }
+    @media only screen and (max-width: 900px){
+        position : absolute;
+        z-index : 1;
+        top: 50%;
+        left: 50%;
+        transform : translate(-50%, -50%);
+        height : 100%;
+        background-color : #33333350;
+        width : 100%;
+    }
     &-items{
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform : translate(-50%, -50%);
+        max-width : 50rem;
         display : flex;
-        margin : 4rem 6vw;
         flex-direction: column;
         position : relative;
         h1{
@@ -179,6 +199,12 @@ position : relative;
             margin-top : 10rem;
             color : #ABABAB;
         }
+        @media only screen and (max-width: 550px){
+                max-width : 100%;
+                p{
+                    font-size : 3rem;
+                }
+            }
     }
 }
 .image{
@@ -188,6 +214,12 @@ position : relative;
     overflow : hidden;
     .img{
         object-fit : cover;
+    }
+    @media only screen and (max-width: 1400px){
+        flex : 0.5;            
+    }
+    @media only screen and (max-width: 900px){
+       flex : 1;
     }
 }
 `

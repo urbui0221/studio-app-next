@@ -3,12 +3,18 @@ import React, { useState, useEffect, useRef } from "react"
 import styled from "styled-components"
 import Button from "../ui/Button.component";
 import { useRouter } from 'next/router'
+import useMediaQuery  from 'use-media-query-hook'
+import MobileNav from "./MobileNav";
+import { AnimatePresence } from "framer-motion";
+
 const Header = (props) => {
   const pageDropdownRef = useRef(null);
 
   const router = useRouter();
 
   const checkPath = path => path === router.pathname ? 'active' : '';
+
+  const isTablet = useMediaQuery(`(max-width: 992px)`);
 
   console.log(router);
 
@@ -55,11 +61,15 @@ const Header = (props) => {
   }
 
 
+  const navRef = useRef(null);
+
 
   useEffect(() => {
 
     // pageDropdownRef.current.style.maxHeight = pagesDropdown ? `${pageDropdownRef.current.scrollHeight}px` : '0px'
-    pageDropdownRef.current.style.maxHeight = pagesDropdown ? `577px` : '0px'
+    /*if(isTablet){
+      console.log(navRef.current.offsetWidth)
+    }*/
     
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -67,9 +77,28 @@ const Header = (props) => {
     }
   }, [handleScroll, pagesDropdown, pageDropdownRef])
 
+
+  const NavbarVariants = {
+    from : {
+        width : 0
+    },
+    to : {
+        width : '25rem',
+        transition : {
+            duration : 0.3
+        } 
+    },
+    exit : {
+        width : 0,
+        transition : {
+            duration : 0.3
+        } 
+    }
+}
+
   return (
     <HeaderContainer>
-      <div id="menu-slideout" className={`${mobileNav ? 'slideout-menu.open' : 'slideout-menu'} hidden-md-up`}>
+      {/* isTablet && <div id="menu-slideout" className={`${mobileNav ? 'slideout-menu.open' : 'slideout-menu'} hidden-md-up`}>
         <div className="mobile-menu">
           <ul id="mobile-menu" className="menu">
 
@@ -87,8 +116,6 @@ const Header = (props) => {
                 <li><a href="404.html">404</a></li>
               </ul>
             </li>
-            {/* <DropDowns arr={Pages} title={'Pages'} active={pagesDropdown} onClick={handleMobilePagesClick} /> */}
-
             <DropDowns arr={ProductionList} title={'Production'} url={"#"} active={productionDropdown} onClick={handleMobileProductionClick} />
             <DropDowns arr={BlogsList} title={'Blogs'} url={"#"} active={blogDropdown} onClick={handleMobileBlogClick} />
             <li>
@@ -96,9 +123,23 @@ const Header = (props) => {
             </li>
           </ul>
         </div>
-      </div>
-      
-
+  </div> */}
+      {
+        isTablet && 
+        <AnimatePresence>
+          {
+            mobileNav && <>
+            <MobileNav 
+            variants={NavbarVariants}
+            initial={"from"}
+            animate={"to"}
+            exit="exit"
+            />
+            <Backdrop  onClick={_ => setMobileNav(false)}/>
+            </>
+          }
+        </AnimatePresence>
+      }
       <header id='header' className={`header ${hasScrolled ? "scrolling-menu" : ""} header-desktop header-1`}>
         <div className='container-fluid'>
           <div className='row'>
@@ -162,31 +203,32 @@ const Header = (props) => {
           </div>
         </div>
       </header>
-      <header className='header header-mobile'>
-        <div className='container'>
-          <div className='row'>
-            <div className='col-xs-2'>
-              <div className='header-left'>
-                <div id='open-left'>
-                  <i onClick={handleHamburgerClick} className='ion-navicon'></i>
-                </div>
-              </div>
-            </div>
-            <div className='col-xs-8'>
-              <div className='header-center'>
-                <a href='./' id='logo-2'>
-                  <img
-                    className='logo-image'
-                    src='/images/logo_alt.png'
-                    alt='Nine Studio Logo'
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
+     {
+       isTablet &&  <header className='header header-mobile'>
+       <div className='container'>
+         <div className='row'>
+           <div className='col-xs-2'>
+             <div className='header-left'>
+               <div id='open-left'>
+                 <i onClick={handleHamburgerClick} className='ion-navicon'></i>
+               </div>
+             </div>
+           </div>
+           <div className='col-xs-8'>
+             <div className='header-center'>
+               <Link href='/' id='logo-2'>
+                 <img
+                   className='logo-image'
+                   src='/images/logo_alt.png'
+                   alt='Nine Studio Logo'
+                 />
+               </Link>
+             </div>
+           </div>
+         </div>
+       </div>
+     </header>
+     }
     </HeaderContainer>
   )
 }
@@ -211,6 +253,16 @@ const DropDowns = ({ arr, title, url, active, onClick }) => {
     </li>
   )
 }
+
+const Backdrop =styled.div`
+position :fixed;
+top: 0;
+left : 0;
+width : 100%;
+height : 100%;
+background-color : rgba(0,0,0,0.5);
+z-index : 50; 
+`
 
 const HeaderContainer = styled.div`
 position: relative;
