@@ -80,16 +80,16 @@ const Header = (props) => {
 
   const NavbarVariants = {
     from : {
-        width : 0
+      x : '-25rem'
     },
     to : {
-        width : '25rem',
+        x : '0rem',
         transition : {
             duration : 0.3
         } 
     },
     exit : {
-        width : 0,
+        x : '-25rem',
         transition : {
             duration : 0.3
         } 
