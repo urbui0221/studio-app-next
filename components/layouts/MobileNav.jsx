@@ -18,6 +18,27 @@ const MobileNav = ({...otherProps },ref) => {
                         </span>
                         <i className="sub-menu-toggle fa fa-angle-down"></i>
                     </div>
+                    <div className="service-links">
+                        {
+                       
+                            [
+                                {
+                                children: "Video Editing",
+                                href: "video-editing",
+                                },
+                                {
+                                children: "3D Product Visualization",
+                                href: "3d-product-visualization",
+                                },
+                                {
+                                children: "Image Editing",
+                                href: "image-editing",
+                                },
+                            ].map(link => (
+                                <Link key={link.children} {...link}/>
+                            ))
+                        }    
+                    </div>
                 </Dropdown>
             </Link>
             <Link href="/contact">Contact Us</Link>
@@ -49,15 +70,25 @@ a{
 }
 `
 const Dropdown = styled.div`
-padding : 1rem 2rem;
 border-bottom : 1px solid rgba(0,0,0,0.1);
 .service-dropdown{
     display :flex;
     justify-content : space-between;
     align-items : center;
+    padding : 1rem 2rem;
+
 }
-&:hover span i {
+&:hover .service-dropdown{
     color : var(--primary);
+    cursor: pointer;
+}
+.service-links{
+    display : flex;
+    flex-direction:column;
+    a{
+        border-bottom : none;
+        background-color : var(--lightGray);
+    }
 }
 `
 
