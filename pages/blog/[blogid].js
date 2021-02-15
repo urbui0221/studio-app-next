@@ -1,40 +1,58 @@
-import React from 'react'
-import styled from 'styled-components'
-import useSWR from 'swr'
+import { route } from 'next/dist/next-server/server/router';
+import React from 'react';
+import Head from "next/head"
+import styled from 'styled-components';
+import useSWR from 'swr';
 import Layout from '../../components/layouts/Layout.component';
-import Cover from '../../components/sections/Cover'
-import SingalBlog from '../../components/sections/SingalBlog/Blog'
-import Loader from '../../components/ui/Loader.component'
-import fetcher from '../../utils/fetcher'
+import Cover from '../../components/sections/Cover';
+import SingalBlog from '../../components/sections/SingalBlog/Blog';
+import Loader from '../../components/ui/Loader.component';
+import fetcher from '../../utils/fetcher';
 
-export const getServerSideProps = async({query}) => {
-   return {
-       props : { query}
-   }
-}
+export const getServerSideProps = async ({ query }) => {
+	return {
+		props: { query },
+	};
+};
 
 const Blog = ({ query }) => {
-    console.log(query.blogid)
-    const { data,error } = useSWR('/api/blogData',fetcher);
+	console.log(query.blogid);
+	const { data, error } = useSWR('/api/blogData', fetcher);
 
-    if(!data){
-        return <Loader />
-    }
+	if (!data) {
+		return <Loader />;
+	}
 
-    const routeData = data?.find(blog => blog.id == query.blogid);
-    console.log(routeData.pageData);
+	const routeData = data?.find((blog) => blog.id == query.blogid);
+	console.log(routeData.pageData);
 
-    return (
-        <Layout route={routeData.pageData.title}>
-            <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Blog'} route={'Blog'} />
-            <SingalBlog BlogData={routeData.pageData}/>
-        </Layout>
-    )
-}
+	return (
+		<>
+			<Head>
+				<meta
+					name='description'
+					content={
+						`${routeData.cardData.description}`
+					}
+				/>
+				<meta
+					name='og:title'
+					content={routeData.pageData.title}
+				/>
+			</Head>
+			<Layout route={routeData.pageData.title}>
+				<Cover
+					background='/images/background/bg_11.jpg'
+					big_style={false}
+					title={'Blog'}
+					route={'Blog'}
+				/>
+				<SingalBlog BlogData={routeData.pageData} />
+			</Layout>
+		</>
+	);
+};
 
-const Container = styled.div`
+const Container = styled.div``;
 
-`
-
-export default Blog
-
+export default Blog;

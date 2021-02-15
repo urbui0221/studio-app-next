@@ -8,7 +8,7 @@ export default (req, res) => {
 				alt: 'Image-1',
 				date: 'January 25, 2017',
 				description:
-					'The Story of Ferguson through the Eyes of the People Who Lived it',
+					'Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Indemon strunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus.',
 			},
 			pageData: {
 				image: '/images/blog/blog_detail.jpg',
