@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import useInput from '../../../custom/hooks/useInput'
+import firebaseClient from '../../../firebase/firebaseClient'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
+firebaseClient();
 
 const Form = () => {
     const name = useInput("")
@@ -10,6 +15,17 @@ const Form = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        firebase.firestore().collection('reviews').doc(name.value).set({
+            name : name.value,
+            email : email.value,
+            subject : subject.value,
+            message : message.value,
+        }).then(res => prompt(`${name.value}, thanks for connecting with us!`))
+        .catch(err => console.log(err));
+        name.setValue('');
+        subject.setValue('');
+        email.setValue('');
+        message.setValue('');
     }
     return (
         <Container>

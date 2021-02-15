@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
+    "firebase": "^8.2.7",
     "framer-motion": "^3.2.1",
     "next": "10.0.5",
     "next-absolute-url": "^1.2.2",

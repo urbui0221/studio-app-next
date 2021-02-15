@@ -11,7 +11,7 @@ import absoluteUrl from 'next-absolute-url'
 import CarouselHead from '../components/sections/Home/CarouselHead'
 
 export default function Home({ resp }) {
-  console.log(resp);
+  console.log(process.env.TEST_NUMBER);
   return (
     <Layout route="Home">
       { /*<HeaderCarousel /> */}
