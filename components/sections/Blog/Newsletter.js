@@ -16,8 +16,10 @@ const Newsletter = props => {
         firebase.firestore().collection('email-subscribe').doc(email.value).set({
             email: email.value
         })
-        .then(_ => console.log("Your response have been submitted"))
+        .then(_ => prompt("Your response have been submitted"))
         .catch(err => console.log(err));
+
+        email.setValue("");
     }
 
     return (
