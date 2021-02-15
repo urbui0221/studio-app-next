@@ -10,18 +10,16 @@ firebaseClient();
 const Newsletter = (props) => {
 	const email = useInput('');
 
-	const onSubmit = (eve) => {
-		eve.preventDefault();
-		firebase
-			.firestore()
-			.collection('email-subscribe')
-			.doc(email.value)
-			.set({
-				email: email.value,
-			})
-			.then((_) => console.log('Your response have been submitted'))
-			.catch((err) => console.log(err));
-	};
+    const onSubmit = eve => {
+        eve.preventDefault();
+        firebase.firestore().collection('email-subscribe').doc(email.value).set({
+            email: email.value
+        })
+        .then(_ => prompt("Your response have been submitted"))
+        .catch(err => console.log(err));
+
+        email.setValue("");
+    }
 
 	return (
 		<Container>

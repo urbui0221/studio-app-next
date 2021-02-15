@@ -1,14 +1,13 @@
 import firebase from 'firebase/app'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDriBmSHVMQIXAPqVAmHgnUg0rlkmgbqfE",
-    authDomain: "website-form-8cd47.firebaseapp.com",
-    projectId: "website-form-8cd47",
-    storageBucket: "website-form-8cd47.appspot.com",
-    messagingSenderId: "813297583460",
-    appId: "1:813297583460:web:fe4c098f0cf6ebf14ee671",
-    measurementId: "G-FZD5324SPS"
-  };
+    apiKey: "AIzaSyAVQIwfajtvjWKQF1Tbm7s_f7KFMs2JM-E",
+    authDomain: "studio-9946d.firebaseapp.com",
+    projectId: "studio-9946d",
+    storageBucket: "studio-9946d.appspot.com",
+    messagingSenderId: "282819877923",
+    appId: "1:282819877923:web:e11cf946e6c01e3a096596"
+  }; 
 
 export default () => {
     if(!firebase.apps.length){
