@@ -1,0 +1,57 @@
+Steps to create a markdown blog.
+
+1. Create a markdown file ( a file ending with .md extension) in blogs folder (which is available in the Root if the project). 
+2. Write your blog inside the file you just created.
+3. Now that you've written you blog. Move to the blogData.js file (Located at /pages/api/blogData.js),
+4. The below is the amount of details you neet to add. 
+
+    Syntax: 
+         {
+			id: [Blog ID], [Blog ID has to be unique from the rest of the blogs.]
+			cardData: {
+				img: '[path of image of Blog Card from the public folder]',
+				url: '/',
+				alt: '[The Alt text that need to go with the image of blog card]',
+				date: '[Date of the Blog]',
+				description:
+					'[Short Description of your blog that will appear on Blog Card Page]',
+			},
+			pageData: {
+				image: '[path of image of Blog from the public folder]',
+				altImageText: '[The Alt text that need to go with the image of blog]',
+				title: `[Title of the Blog]`,
+				fileName: `[Filename of the blog]`,
+				author: {
+                    img: '[path of Image of Author from the public folder]',
+					name: '[Name of Author]',
+					description: `[Description of Author]`,
+				},
+			},
+		},
+        
+    Example:
+        {
+			id: 12,
+			cardData: {
+				img: '/images/blog/blog9.jpg',
+				url: '/',
+				alt: 'Image-1',
+				date: 'January 25, 2017',
+				description:
+					'I Want the Viewer to Feel Totally Immersed in My World',
+			},
+			pageData: {
+				image: '/images/blog/blog_detail.jpg',
+				altImageText: 'blog--image--text',
+				title: `The Story of Ferguson through the Eyes of the People Who Livedit`,
+				description: `react.md`,
+				author: {
+                    img: '/images/avatar/1.jpg',
+					name: 'Alicia Vergara',
+					description: `Typi non habent claritatem insitam; est usus legentis in
+                        iis qui facit eorum claritatem. Indemon strunt lectores
+                        legere me lius quod ii legunt saepius. Claritas est
+                        etiam processus dynamicus.`,
+				},
+			},
+		},

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import useSWR from 'swr'
+import Layout from '../../components/layouts/Layout.component';
 import Cover from '../../components/sections/Cover'
 import SingalBlog from '../../components/sections/SingalBlog/Blog'
 import Loader from '../../components/ui/Loader.component'
@@ -24,10 +25,10 @@ const Blog = ({ query }) => {
     console.log(routeData.pageData);
 
     return (
-        <>
+        <Layout route={routeData.pageData.title}>
             <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Blog'} route={'Blog'} />
             <SingalBlog BlogData={routeData.pageData}/>
-        </>
+        </Layout>
     )
 }
 
