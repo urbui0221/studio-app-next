@@ -87,57 +87,6 @@ const BlogContainer = ({ state }) => {
 		console.log('mdcol2', xmdcol2);
 	}, [isMedium]);
 
-	// const data = Data
-	// const col1 = []
-	// const col2 = []
-	// const col3 = []
-
-	// const mdcol1 = []
-	// const mdcol2 = []
-
-	// if (data.length % 3 === 0) {
-	//   // 3N
-	//   for (let i = 0; i < data.length; i += 3) {
-	//     col1.push(data[i])
-	//     col2.push(data[i + 1])
-	//     col3.push(data[i + 2])
-	//   }
-	// } else if (data.length % 3 === 1) {
-	//   // 3N+1
-	//   for (let i = 0; i < data.length; i += 3) {
-	//     col1.push(data[i])
-	//     if (!(data[i + 1] === undefined)) {
-	//       col2.push(data[i + 1])
-	//     }
-	//     if (!(data[i + 2] === undefined)) {
-	//       col3.push(data[i + 2])
-	//     }
-	//   }
-	// } else if (data.length % 3 === 2) {
-	//   // 3N+2
-	//   for (let i = 0; i < data.length; i += 3) {
-	//     col1.push(data[i])
-	//     col2.push(data[i + 1])
-	//     if (!(data[i + 2] === undefined)) {
-	//       col3.push(data[i + 2])
-	//     }
-	//   }
-	// }
-
-	// if (data.length % 2 === 0) {
-	//   for (let i = 0; i < data.length; i += 2) {
-	//     mdcol1.push(data[i])
-	//     mdcol2.push(data[i + 1])
-	//   }
-	// } else {
-	//   for (let i = 0; i < data.length; i += 2) {
-	//     mdcol1.push(data[i])
-	//     if (!(data[i + 1] === undefined)) {
-	//       mdcol2.push(data[i + 1])
-	//     }
-	//   }
-	// }
-
 	return (
 		<Container>
 			<div className='container pt-12 pb-12'>

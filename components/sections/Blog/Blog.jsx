@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const Blog = ({ img, url, alt, tag, tagUrl, date, description, link }) => {
+const Blog = ({ img, url, alt, date, description, link }) => {
 	return (
 		<Container>
 			<Link href={link}>
@@ -11,9 +11,6 @@ const Blog = ({ img, url, alt, tag, tagUrl, date, description, link }) => {
 							<a href={url}>
 								<img src={img} alt={alt} />
 							</a>
-							<div className='film-list-categories'>
-								<a href={tagUrl}>{tag}</a>
-							</div>
 						</div>
 						<div className='blog-info'>
 							<div className='blog-info-date'>

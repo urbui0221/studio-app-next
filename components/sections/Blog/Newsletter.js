@@ -68,6 +68,7 @@ const Container = styled.div`
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: cover;
+    background-color: var(--whiteSmoke);
 	.footer-newsletter.style-1 .footer-newsletter-left {
 		font-size: 34px;
 		font-weight: 400;
