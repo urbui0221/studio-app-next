@@ -19,6 +19,7 @@ export default Map
 const GoogleMap = styled.div`
 max-width : 120rem;
 margin: 0 auto;
+margin-bottom : 10rem;
 iframe{
     padding : 0 3rem;
 }

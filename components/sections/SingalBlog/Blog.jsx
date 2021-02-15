@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
+import Newsletter from '../Blog/Newsletter';
 
 const SingalBlog = ({ BlogData }) => {
 	const [blog, setBlog] = useState('');
@@ -173,6 +174,7 @@ const SingalBlog = ({ BlogData }) => {
 					</div>
 				</div>
 			</div>
+			<Newsletter />
 		</Container>
 	);
 };

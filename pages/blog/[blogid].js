@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import useSWR from 'swr'
 import Cover from '../../components/sections/Cover'
 import SingalBlog from '../../components/sections/SingalBlog/Blog'
+import Loader from '../../components/ui/Loader.component'
 import fetcher from '../../utils/fetcher'
 
 export const getServerSideProps = async({query}) => {
@@ -16,10 +17,10 @@ const Blog = ({ query }) => {
     const { data,error } = useSWR('/api/blogData',fetcher);
 
     if(!data){
-        return <div>Loading...</div>
+        return <Loader />
     }
 
-    const routeData = data?.find(blog => blog.id.toString() === query.blogid);
+    const routeData = data?.find(blog => blog.id == query.blogid);
     console.log(routeData.pageData);
 
     return (

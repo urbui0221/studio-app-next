@@ -1,8 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
+import useInput from '../../../custom/hooks/useInput'
+import firebaseClient from '../../../firebase/firebaseClient'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
+
+firebaseClient();
 
 const Newsletter = props => {
+    const email = useInput('');
+
+    const onSubmit = eve => {
+        eve.preventDefault();
+        firebase.firestore().collection('email-subscribe').doc(email.value).set({
+            email: email.value
+        })
+        .then(_ => console.log("Your response have been submitted"))
+        .catch(err => console.log(err));
+    }
+
     return (
         <Container>
         <div className="section section-bg-3 section-cover footer-newsletter style-1 pt-11 pb-8">
@@ -14,10 +31,15 @@ const Newsletter = props => {
                 </div>
                 <div className="col-md-6">
                     <div className="footer-newsletter-right">
-                        <form method="post">
+                        <form onSubmit={onSubmit}>
                             <div className="form-fields">
                                 <div className="form">
-                                    <input type="email" name="email" placeholder="Enter your e-mail" /> 
+                                    <input 
+                                    value={email.value}
+                                    onChange={email.onChange}
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Enter your e-mail" /> 
                                     <input type="submit" value="Submit" />
                                 </div>
                                 <p className="note">Note* : Spectators are our passion. Creation is our core.</p>
@@ -37,12 +59,14 @@ const Container = styled.div`
     font-weight: 400;
     font-family: var(--head);
     color: var(--tertiary2);
-    line-height: 46px;
     text-transform: capitalize;
     margin-bottom: 30px;
 }
 .footer-newsletter.style-1 .footer-newsletter-right {
     margin-bottom: 30px;
+}
+.footer-newsletter.style-1 .footer-newsletter-left {
+  
 }
 .footer-newsletter.style-1 .footer-newsletter-right .form {
     position: relative;
