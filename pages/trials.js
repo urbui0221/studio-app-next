@@ -3,6 +3,7 @@ import Layout from "../components/layouts/Layout.component"
 import Section from "../components/sections/Trials/Section.component"
 import { Gifts, Upload,Relax,Download, Discount } from "../components/utils/Icons"
 import { FaChevronDown } from 'react-icons/fa'
+import { useEffect, useRef, useState } from "react"
 
 const Trials = () => {
     return (
@@ -157,15 +158,36 @@ const Feature = ({ Icon,type,desc }) => {
 }
 
 const AccordionItem = ({ name,desc }) => 
-<Accordion>
-    <div className="header">
+{
+    const [isOpen,setOpen] = useState(false);
+    const [height,setHeight] = useState(0);
+
+    const contentRef = useRef(null);
+
+    useEffect(() => {
+        if(isOpen){
+            setHeight(contentRef.current.scrollHeight);
+        }
+    },[isOpen])
+    const dropDownToggler = _ => {
+        setOpen(!isOpen);
+    }
+    
+    return(<Accordion
+    maxHeight={height} 
+    active={isOpen}>
+    <button onClick={dropDownToggler}>
         <h2>
             {name}
         </h2>
         <FaChevronDown />
+    </button>
+    <div className="content" ref={contentRef}>
+        <p>
+            {desc}
+        </p>
     </div>
-    <p>{desc}</p>
-</Accordion>
+</Accordion>)}
 
 const FeatureFig = styled.div`
 text-align : center;
@@ -195,23 +217,35 @@ p{
 const Accordion = styled.div`
 max-width: 80rem;
 border-bottom : 1px solid #D0D0D0;
-padding: 2rem 0;
 margin: 0 auto;
+button{
+    display: flex;;
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 2.5rem 2rem;
+    background-color: var(--baseBg);
+    h2{
+        font-size : 2rem;
+        margin: 0;
+    }
+    svg{
+        transition : 0.3s all;
+        transform : ${props => props.active ? 'rotate(180deg)' : 'rotate(0deg)'};
+    }
+}
+.content{
+    text-align : left;
+    overflow : hidden;
+    max-height: ${props => props.active ? `${props.maxHeight}px` : '0px'};
+    transition : 0.3s all;
+    p{
+        margin: 0rem 2rem 3rem 2rem;
+    }
+}
 &:first-child{
     border-top : 1px solid #D0D0D0;
-}
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 1.5rem 2rem;
-   h2{
-    font-size : 2rem;
-    margin: 0;
-   }
-}
-p{
-    text-align: left;
-    margin: 1.5rem 2rem;
 }
 `
