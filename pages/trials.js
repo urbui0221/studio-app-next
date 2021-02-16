@@ -9,7 +9,7 @@ const Trials = () => {
        <Layout route="Trials">
             <Section 
              Icon={Gifts}
-             bgColor="#D0D0D0"
+             bgColor="#E7E7E7"
              heading="Get your first 10 images free"
              description="Sign up today and get 10 free edits — no credit card required."
              btnTxt="upload free trial photos"
@@ -27,7 +27,7 @@ const Trials = () => {
                  </FeatureWrapper>
              </Section>
              <Section 
-             bgColor="#D0D0D0"
+             bgColor="#E7E7E7"
              heading="Outsourced image editing benefits"
              description="Cost-efficient outsourcing, exceptional support, and perfect results for thousands of images per day, delivered within 24 hours by highly trained professionals."
              >
@@ -54,6 +54,7 @@ const Trials = () => {
              heading="Find the support you need"
              description="Do you need help getting started? Our team is happy to answer all your questions."
              btnTxt="Get in touch"
+             margin="12rem 0"
              />
        </Layout>
     )
@@ -62,8 +63,9 @@ const Trials = () => {
 export default Trials
 
 const FeatureWrapper = styled.div`
-margin-top: 2rem;
-
+max-width : 120rem;
+margin : 0 auto;
+margin-top: 5rem;
 `
 
 const AccordionData = [
@@ -174,6 +176,7 @@ justify-content: center;
 align-items: center;
 float: left;
 margin-top: 4rem;
+padding : 2.5rem;
 h2{
     font-size : 2rem;
     margin-top: 1.5rem;
