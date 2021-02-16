@@ -3,39 +3,36 @@ import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 
+const OurServicesList = [
+    {
+      children: "Video Editing",
+      href: "video-editing",
+    },
+    {
+      children: "3D Product Visualization",
+      href: "3d-product-visualization",
+    },
+    {
+      children: "Image Editing",
+      href: "image-editing",
+    },
+  ]
+
 const MobileNav = ({...otherProps },ref) => {
 
     const [isOpen,setOpen] = useState(false);
     const [height,setHeight] = useState(0);
 
-    let DropdownRef = useRef(null);
+    const contentRef = useRef(null);
 
     useEffect(() => {
-      if(isOpen){
-        setHeight(DropdownRef.children[1].offsetHeight);
-        console.log(DropdownRef.children[1].offsetHeight)
-      }
-    },[isOpen])
-
-    const DropDownVariants = {
-        from : {
-            display : 'none',  
-            height : 0
-        },
-        to : {
-            display : 'flex',
-            height : height,
-            transition : {
-                duration : 0.3
-            } 
-        },
-        exit : {
-            display : 'none', 
-            height : 0,
-            transition : {
-                duration : 0.3
-            } 
+        if(isOpen){
+            setHeight(contentRef.current.scrollHeight);
         }
+    },[isOpen])
+    const dropDownToggler = _ => {
+        console.log(contentRef.current)
+        setOpen(!isOpen);
     }
 
     return (
@@ -45,40 +42,21 @@ const MobileNav = ({...otherProps },ref) => {
             <Link href="/about">About</Link>
             <Link href="/pricing">Pricing</Link>
             <Dropdown 
-            ref={ele => DropdownRef = ele}>
-                    <div className="service-dropdown" onClick={_ => setOpen(!isOpen)}>
-                        <span>
-                            Services
-                        </span>
-                        <i className="sub-menu-toggle fa fa-angle-down"></i>
-                    </div>
-                       {isOpen && <AnimatingDropdown 
-                           variants={DropDownVariants}
-                           initial={"from"}
-                           animate={"to"}
-                           exit="exit">
-                               <AnimatePresence>
-                               {
-                                    
-                                    [
-                                        {
-                                        children: "Video Editing",
-                                        href: "video-editing",
-                                        },
-                                        {
-                                        children: "3D Product Visualization",
-                                        href: "3d-product-visualization",
-                                        },
-                                        {
-                                        children: "Image Editing",
-                                        href: "image-editing",
-                                        },
-                                    ].map(link => (
-                                        <Link key={link.children} {...link}/>
-                                    ))
-                                }    
-                               </AnimatePresence>
-                        </AnimatingDropdown>}
+            active={isOpen}
+            maxHeight={height}>
+                <button onClick={dropDownToggler}>
+                    <span className="accordion-title">
+                        Services
+                    </span>
+                    <i className="sub-menu-toggle fa fa-angle-down"></i>
+                </button>
+                <div className="accordion-content" ref={contentRef}>
+                    {
+                        OurServicesList.map(link => {
+                            return <Link key={link.children} {...link} />
+                        })
+                    }
+                </div>
             </Dropdown>
             <Link href="/contact">Contact Us</Link>
             <Link href="/blog">Blog</Link>
@@ -110,34 +88,33 @@ a{
 `
 const Dropdown = styled.div`
 border-bottom : 1px solid rgba(0,0,0,0.1);
-.service-dropdown{
-    display :flex;
+button {
+    display : flex;
+    width : 100%;
     justify-content : space-between;
     align-items : center;
     padding : 1rem 2rem;
+    border:none;
+    outline : none;
+    font-family : var(--font3);
+}
+i{  
+    transition : 0.3s all;
+    transform : ${props => props.active ? 'rotate(180deg)' : 'rotate(0deg)'};
+}
 
-}
-&:hover .service-dropdown{
-    color : var(--primary);
-    cursor: pointer;
-}
-.service-links{
-    display : flex;
-    flex-direction:column;
-    a{
-        border-bottom : none;
-        background-color : var(--lightGray);
-        padding : 1rem 4rem;
+.accordion
+{
+    &-content{
+        display : flex;
+        flex-direction : column;
+        overflow : hidden;
+        max-height: ${props => props.active ? `${props.maxHeight}px`: '0px'};
+        transition : 0.3s all;
+        a{
+            border-bottom : none;
+            padding: 1rem 3rem;
+        }
     }
-}
-`
-const AnimatingDropdown = styled.div`
-display : flex;
-flex-direction:column;
-transition: 0.3s all;
-a{
-    border-bottom : none;
-    background-color : var(--lightGray);
-    padding : 1rem 4rem;
 }
 `

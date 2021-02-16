@@ -9,7 +9,7 @@ const Trials = () => {
        <Layout route="Trials">
             <Section 
              Icon={Gifts}
-             bgColor="#E7E7E7"
+             bgColor="#f5f5f5"
              heading="Get your first 10 images free"
              description="Sign up today and get 10 free edits — no credit card required."
              btnTxt="upload free trial photos"
@@ -27,7 +27,7 @@ const Trials = () => {
                  </FeatureWrapper>
              </Section>
              <Section 
-             bgColor="#E7E7E7"
+             bgColor="#f5f5f5"
              heading="Outsourced image editing benefits"
              description="Cost-efficient outsourcing, exceptional support, and perfect results for thousands of images per day, delivered within 24 hours by highly trained professionals."
              >
@@ -176,7 +176,7 @@ justify-content: center;
 align-items: center;
 float: left;
 margin-top: 4rem;
-padding : 2.5rem;
+padding : 4rem;
 h2{
     font-size : 2rem;
     margin-top: 1.5rem;
