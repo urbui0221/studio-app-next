@@ -98,32 +98,6 @@ const Header = (props) => {
 
   return (
     <HeaderContainer>
-      {/* isTablet && <div id="menu-slideout" className={`${mobileNav ? 'slideout-menu.open' : 'slideout-menu'} hidden-md-up`}>
-        <div className="mobile-menu">
-          <ul id="mobile-menu" className="menu">
-
-            <DropDowns arr={Home} title={'Home'} url={"#"} active={homeDropdown} onClick={handleMobileHomeClick} />
-
-            <li className={`${pagesDropdown ? 'dropdown expand' : 'dropdown'}`}>
-              <a href="#" onClick={handleMobilePagesClick}>Pages</a>
-              <i className="sub-menu-toggle fa fa-angle-down" onClick={handleMobilePagesClick}></i>
-              <ul ref={pageDropdownRef} className="sub-menu submenu-animate">
-
-                <DropDowns arr={About} title={'About'} url={"#"} active={aboutDropdown} onClick={handleMobileAboutClick} />
-                <DropDowns arr={OurTeam} title={'Our Team'} url={"#"} active={ourTeamDropdown} onClick={handleMobileOurTeamClick} />
-                <DropDowns arr={OurServicesList} title={'Our Services'} url={"#"} active={ourServicesDropdown} onClick={handleMobileOurServicesClick} />
-                <DropDowns arr={GalleryList} title={'Gallery'} url={"#"} active={galleryDropdown} onClick={handleMobileGalleryClick} />
-                <li><a href="404.html">404</a></li>
-              </ul>
-            </li>
-            <DropDowns arr={ProductionList} title={'Production'} url={"#"} active={productionDropdown} onClick={handleMobileProductionClick} />
-            <DropDowns arr={BlogsList} title={'Blogs'} url={"#"} active={blogDropdown} onClick={handleMobileBlogClick} />
-            <li>
-              <a href="contact-us.html">Contact Us</a>
-            </li>
-          </ul>
-        </div>
-  </div> */}
       {
         isTablet && 
         <AnimatePresence>
@@ -233,27 +207,6 @@ const Header = (props) => {
   )
 }
 
-const DropDowns = ({ arr, title, url, active, onClick }) => {
-  const contentRef = useRef(null)
-  useEffect(() => {
-    contentRef.current.style.maxHeight = active ? `${contentRef.current.scrollHeight}px` : '0px'
-  }, [contentRef, active])
-
-  return (
-    <li className={`${active ? 'dropdown expand' : 'dropdown'}`} onClick={onClick}>
-      <a href={url}>{title}</a>
-      <i className="sub-menu-toggle fa fa-angle-down"></i>
-      <ul ref={contentRef} className="sub-menu submenu-animate">
-        {arr.map((item, index) => (
-          <li key={index}>
-            <a href={item.url}>{item.name}</a>
-          </li>
-        ))}
-      </ul>
-    </li>
-  )
-}
-
 const Backdrop =styled.div`
 position :fixed;
 top: 0;
@@ -311,14 +264,14 @@ z-index : 4000;
     line-height: 1;
     margin-left: 20px;
     cursor: pointer;
-    color: #333;
+    color: var(--tertiary2);
 }
 .header.header-overlay .header-right .open-search {
-    color: #fff;
+    color: var(--baseBg);
 }
 .header.header-overlay.scrolling-menu .menu-primary > ul > li > a,
 .header.header-overlay.scrolling-menu .header-right .open-search {
-    color: #333;
+    color: var(--tertiary2);
 }
 
 .header.header-2 {
@@ -332,12 +285,12 @@ z-index : 4000;
 .header.header-2 .hamburger-menu {
     display: inline-block;
     font-size: 32px;
-    color: #fff;
+    color: var(--baseBg);
     cursor: pointer;
 }
 .header.scrolling-menu {
     position: fixed;
-    background: #fff;
+    background: var(--baseBg);
     top: 0;
     left: 0;
     -moz-box-shadow: 0 10px 20px rgba(0,0,0,.05);
@@ -349,13 +302,13 @@ z-index : 4000;
     padding: 0;
 }
 .header.header-2.scrolling-menu .hamburger-menu {
-    color: #696969;
+    color: var(--dimGray);
 }
 .header.header-3 {
-    background-color: #fff;
+    background-color: var(--baseBg);
 }
 .header.header-3 .hamburger-menu {
-    color: #333;
+    color: var(--tertiary2);
 	display: inline-block;
     font-size: 32px;
 	cursor: pointer;
@@ -392,7 +345,7 @@ header.header-mobile .header-right .open-search {
     position: static;
 }
 .header .menu {
-    font-family: Montserrat,Helvetica,Arial,sans-serif;
+    font-family: var(--display);
     font-weight: 400;
     font-style: normal;
     line-height: 1.5;
@@ -416,7 +369,7 @@ header.header-mobile .header-right .open-search {
     display: inline-block;
 }
 .header.header-overlay .menu-primary > ul > li > a {
-    color: #fff;
+    color: var(--baseBg);
 }
 .header .header-right .menu-primary > ul > li > a {
     text-transform: uppercase;
@@ -428,13 +381,13 @@ header.header-mobile .header-right .open-search {
     padding-right: 20px;
 }
 .header .header-right .menu-primary > ul li.active > a {
-	color: #da0e2b;
+	color: var(--primary);
 }
 .header .menu-primary > ul > li.dropdown > a:after {
     content: '\f3d0';
     margin-left: 10px;
     font-size: 12px;
-    font-family: Ionicons;
+    font-family: var(--icon);
 }
 
 .submenu-animate{
@@ -450,7 +403,7 @@ header.header-mobile .header-right .open-search {
     margin: 0;
     min-width: 230px;
     width: 100%;
-    background-color: #fff;
+    background-color: var(--baseBg);
     opacity: 0;
     transition: all .3s ease;
     padding: 20px 0;
@@ -460,7 +413,7 @@ header.header-mobile .header-right .open-search {
     -moz-box-shadow: 5px 10px 20px rgba(0,0,0,.1);
     -webkit-box-shadow: 5px 10px 20px rgba(0,0,0,.1);
     box-shadow: 5px 10px 20px rgba(0,0,0,.1);
-	border-top: 2px solid #da0e2b;
+	border-top: 2px solid var(--primary);
 }
 .header .menu-primary > ul > li:hover > .sub-menu {
     top: 100%;
@@ -475,29 +428,29 @@ header.header-mobile .header-right .open-search {
 .header .menu-primary .sub-menu li a {
     display: block;
     padding: 15px 0;
-    color: #696969;
+    color: var(--dimGray);
     text-transform: none;
     font-weight: 400;
     background: none;
     position: relative;
-    border-bottom: 1px solid #f4f4f4;
+    border-bottom: 1px solid var(--whiteSmoke);
     white-space: normal;
 }
 .header .menu-primary .sub-menu li a:hover {
-    border-bottom-color: #da0e2b;
-	color: #da0e2b;
+    border-bottom-color: var(--primary);
+	color: var(--primary);
 }
 .header .menu-primary .sub-menu li.dropdown:after {
     content: '\f363';
     font-size: 16px;
-    font-family: Ionicons;
+    font-family: var(--icon);
     position: absolute;
     right: 20px;
     top: 14px;
-    color: #696969;
+    color: var(--dimGray);
 }
 .header .menu-primary .sub-menu li.dropdown:hover:after {
-    color: #da0e2b;
+    color: var(--primary);
 }
 .header .menu-primary > ul > li > .sub-menu li > .sub-menu {
     top: 0;
@@ -510,15 +463,15 @@ header.header-mobile .header-right .open-search {
     left: 100%;
     visibility: visible;
     opacity: 1;
-    border-top: 2px solid #da0e2b;
+    border-top: 2px solid var(--primary);
 }
 .header.header-overlay.header-3 .header-right .open-search,
 .header.header-overlay.header-3 .menu-primary > ul > li > a {
-    color: #333;
+    color: var(--tertiary2);
 }
 .header.header-overlay.header-3 .header-right .open-search:hover,
 .header.header-overlay.header-3 .menu-primary > ul > li > a:hover {
-    color: #da0e2b;
+    color: var(--primary);
 }
 .open-right-content {
     -webkit-transition: all .5s;
@@ -535,7 +488,7 @@ header.header-mobile .header-right .open-search {
     padding: 40px 100px;
     z-index: 1001;
     background: #262626;
-    color: #fff;
+    color: var(--baseBg);
     text-align: left;
     overflow-y: auto;
     overflow-x: hidden;
@@ -561,10 +514,10 @@ header.header-mobile .header-right .open-search {
     padding: 20px 0;
 }
 .open-right-content ul li a {
-    color: #696969;
+    color: var(--dimGray);
     font-size: 56px;
     font-weight: 400;
-    font-family: Merriweather;
+    font-family: var(--head);
     line-height: 1;
     -webkit-transition: all .5s;
     -moz-transition: all .5s;
@@ -574,7 +527,7 @@ header.header-mobile .header-right .open-search {
 }
 .open-right-content ul li a:hover {
     opacity: 1;
-    color: #da0e2b;
+    color: var(--primary);
 }
 .open-right-content .search-form {
     display: block;
@@ -598,8 +551,8 @@ header.header-mobile .header-right .open-search {
     border: 0;
     background-color: transparent;
     font-size: 14px;
-    font-family: Montserrat;
-    color: #fff;
+    font-family: var(--display);
+    color: var(--baseBg);
 }
 .open-right-content .search-form form input[type="submit"] {
     width: 32px;
@@ -617,7 +570,7 @@ header.header-mobile .header-right .open-search {
 }
 .open-right-content .search-form form:after {
     content: '\f4a4';
-    font-family: Ionicons;
+    font-family: var(--icon);
     font-size: 24px;
     position: absolute;
     right: 0;
@@ -625,7 +578,7 @@ header.header-mobile .header-right .open-search {
     z-index: 7;
 }
 .slideout-menu {
-	background: #fff;
+	background: var(--baseBg);
     display: none;
     position: fixed;
     left: 0;
@@ -660,7 +613,7 @@ header.header-mobile .header-right .open-search {
 .mobile-menu > ul.menu li {
     position: relative;
     display: block;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--lightGray);
 }
 .mobile-menu > ul.menu li.expand {
     background-color: #ddd;
@@ -693,8 +646,8 @@ header.header-mobile .header-right .open-search {
     transition: all .5s;
 }
 .mobile-menu > ul.menu li.expand > .sub-menu-toggle {
-	background-color: #da0e2b;
-	color: #fff;
+	background-color: var(--primary);
+	color: var(--baseBg);
 }
 .mobile-menu > ul.menu li.expand > .sub-menu-toggle:before {
 	content: "\f106";
@@ -705,7 +658,7 @@ header.header-mobile .header-right .open-search {
     margin: 0;
 }
 .mobile-menu > ul.menu li .sub-menu {
-    background-color: #eee;
+    background-color: var(--lightGray);
     padding-left: 0;
     font-weight: 400;
     box-shadow: none;
@@ -743,70 +696,7 @@ header.header-mobile .header-right .open-search {
 
 
 `
-
-
-
 export default Header
-
-const BlogsList = [
-  {
-    name: "Blog List 01",
-    url: "blog-list-1.html",
-  },
-  {
-    name: "Blog List 02",
-    url: "blog-list-2.html",
-  },
-  {
-    name: "Blog List 03",
-    url: "blog-list-3.html",
-  },
-  {
-    name: "Blog Masonry",
-    url: "blog-masonry.html",
-  },
-]
-const ProductionList = [
-  {
-    name: "Production List",
-    url: "our-projects-list.html",
-  },
-  {
-    name: "Production Grid",
-    url: "our-projects-grid.html",
-  },
-]
-
-const Home = [
-  {
-    name: 'Home Production',
-    url: 'index-film-making.html'
-  },
-  {
-    name: 'Home Film Making',
-    url: 'index-film-making.html'
-  },
-  {
-    name: 'Home Studio',
-    url: 'index-studio.html'
-  },
-  {
-    name: 'Home Director',
-    url: 'index-director.html'
-  },
-  {
-    name: 'Home Agency',
-    url: 'index-agency.html'
-  },
-  {
-    name: 'Home Blogger',
-    url: 'index-blogger.html'
-  },
-  {
-    name: 'Home Showcase',
-    url: 'index-showcase.html'
-  },
-]
 
 const OurServicesList = [
   {
@@ -820,38 +710,5 @@ const OurServicesList = [
   {
     name: "Image Editing",
     id: "image-editing",
-  },
-]
-
-
-const OurTeam = [
-  {
-    name: "Our Team 01",
-    url: "our-team-1.html",
-  },
-  {
-    name: "Our Team 02",
-    url: "our-team-2.html",
-  },
-]
-const About = [
-  {
-    name: "About 01",
-    url: "about-01.html",
-  },
-  {
-    name: "About 02",
-    url: "about-02.html",
-  },
-]
-
-const GalleryList = [
-  {
-    name: "Gallery 01",
-    url: "gallery-1.html",
-  },
-  {
-    name: "Gallery 02",
-    url: "gallery-2.html",
   },
 ]
