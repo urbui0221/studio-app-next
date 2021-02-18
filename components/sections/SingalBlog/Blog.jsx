@@ -20,6 +20,7 @@ const SingalBlog = ({ BlogData }) => {
 							<div className='blog-detail'>
 								<div className='single-post-thumbnail'>
 									<img
+										draggable={false}
 										src={BlogData.image}
 										alt={BlogData.altImageText}
 									/>

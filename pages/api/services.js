@@ -3,6 +3,7 @@ export default(req,res) => {
         {
             id : "video-editing",
             name: "Video Editing",
+            image: "/images/background/bg_11.jpg",
             data : [
                 {
                     alternate: false,
@@ -34,6 +35,7 @@ export default(req,res) => {
         {
             id : "3d-product-visualization",
             name : "3D Product Visualization",
+            image: "/images/background/bg_18.jpg",
             data : [
                 {
                     alternate: false,
@@ -65,6 +67,7 @@ export default(req,res) => {
         {
             id : "image-editing",
             name : "Image Editing",
+            image: "/images/background/bg_12.jpg",
             data : [
                 {
                     alternate: false,

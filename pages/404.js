@@ -83,7 +83,7 @@ const CarouselLinks = styled.div`
       }
       &:hover {
           i{
-              color: #da0e2b;
+              color: var(--primary);
           }
       }
 
@@ -146,7 +146,7 @@ const Contact = styled.div`
     padding-top: 120px;
     padding-left: 40px;
     line-height: 1;
-    color: #da0e2b;
+    color: var(--primary);
     font-weight : 900;
     background-image: url('/images/background/404_contact_bg.png');
     overflow: hidden;

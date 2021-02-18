@@ -22,7 +22,7 @@ const Services = ({query}) => {
 
     return (
         <Layout route="Services">
-            <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Our Services'} route={'Our Services 02'} />
+            <Cover background={routeData.image} big_style={false} title={'Our Services'} route={'Our Services 02'} />
                 <List ServicesData={routeData}/>
             <Foot />
         </Layout>

@@ -51,15 +51,15 @@ const FooterColLinks = [
         arr: [
             {
                 linkName: 'Video Editing',
-                url: '/'
+                url: '/video-editing'
             },
             {
                 linkName: 'Image Editing',
-                url: '/'
+                url: '/image-editing'
             },
             {
                 linkName: '3D Product Visualization',
-                url: '/'
+                url: '/3d-product-visualization'
             },
         ]
     },
@@ -98,18 +98,18 @@ const LayoutFooter = styled.footer`
     margin-top: 0;
     margin-bottom: 0;
     font-size: 15px;
-	background-color: #333;
-    color: #ababab;
+	background-color: var(--tertiary2);
+    color: var(--gray67);
 }
 .footer .row > .col-md-4,
 .footer .row > .col-md-2 {
 	margin-bottom: 30px;
 }
 .footer a {
-    color: #ababab;
+    color: var(--gray67);
 }
 .footer a:hover {
-    color: #da0e2b;
+    color: var(--primary);
 }
 .footer .footer-social {
     margin-top: 30px;
@@ -126,18 +126,18 @@ const LayoutFooter = styled.footer`
     border-radius: 24px;
     margin-right: 9px;
     font-size: 16px;
-    color: #ababab;
+    color: var(--gray67);
 }
 .footer .footer-social a:hover {
-    background-color: #da0e2b;
-    border-color: #da0e2b;
-    color: #fff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--baseBg);
 }
 .footer .footer-social .tooltip.top .tooltip-arrow {
-    border-top-color: #da0e2b;
+    border-top-color: var(--primary);
 }
 .footer .footer-social .tooltip-inner {
-    background-color: #da0e2b;
+    background-color: var(--primary);
 }
 
 .footer .textwidget p {
@@ -162,7 +162,7 @@ const LayoutFooter = styled.footer`
     height: 40px;
     line-height: 36px;
     text-align: center;
-    color: #ababab;
+    color: var(--gray67);
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
