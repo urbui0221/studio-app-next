@@ -1,32 +1,32 @@
-import React from "react"
-import styled from "styled-components"
-import Link from "next/link"
+import React from "react";
+import styled from "styled-components";
+import Link from "next/link";
 
-const AboutCover = ({background, big_style, title, route}) => {
+const AboutCover = ({ background, big_style, title, route }) => {
   return (
     <Container background={background}>
-      <div className={`section page-title ${big_style ? 'big-style': ''}`}>
+      <div className={`section page-title ${big_style ? 'big-style' : ''}`}>
         <div className='container'>
           <div className='row'>
             <div className='col-sm-12'>
               <div className='text-center-sm'>
                 <h1 className='title'>{title}</h1>
-                <div className='breadcrumbs'>
+                {/* <div className='breadcrumbs'>
                   <ul>
                     <li>
                       <Link href='/'>Home</Link>
                     </li>
                     <li>{route}</li>
                   </ul>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>
     </Container>
-  )
-}
+  );
+};
 
 const Container = styled.div`
 
@@ -56,6 +56,15 @@ const Container = styled.div`
       position: relative;
       z-index: 97;
       margin-top: 0;
+      @media screen and (max-width: 700px) {
+        font-size: 36px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 26px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 20px;
+      }
     }
   }
   .breadcrumbs {
@@ -116,6 +125,6 @@ const Container = styled.div`
       background-color: var(--lynxWhite1);
     }
   }
-`
+`;
 
-export default AboutCover
+export default AboutCover;
