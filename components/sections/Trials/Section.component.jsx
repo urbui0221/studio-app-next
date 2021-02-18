@@ -64,5 +64,5 @@ const TrBtn = styled(Button)`
 padding : 1.5rem 3rem;
 background-color : var(--primary);
 text-transform : uppercase;
-margin-top : 1.5rem;
+margin-top : 3rem;
 `
