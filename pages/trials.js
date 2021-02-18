@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Layout from "../components/layouts/Layout.component"
 import Section from "../components/sections/Trials/Section.component"
 import { Gifts, Upload,Relax,Download, Discount } from "../components/utils/Icons"
@@ -22,7 +22,10 @@ const Trials = () => {
                  <FeatureWrapper>
                     {
                         Data.map(sec => {
-                            return <Feature key={sec.type} {...sec} />
+                            return <Feature 
+                            sec={2}
+                            key={sec.type} 
+                            {...sec} />
                         })
                     }
                  </FeatureWrapper>
@@ -35,7 +38,10 @@ const Trials = () => {
                  <FeatureWrapper>
                     {
                         OutSurgedImg.map(sec => {
-                            return <Feature key={sec.type} {...sec} />
+                            return <Feature 
+                            sec={3}
+                            key={sec.type} 
+                            {...sec} />
                         })
                     }
                  </FeatureWrapper>
@@ -67,6 +73,7 @@ const FeatureWrapper = styled.div`
 max-width : 120rem;
 margin : 0 auto;
 margin-top: 5rem;
+padding : 0rem 3rem;
 `
 
 const AccordionData = [
@@ -128,7 +135,7 @@ const OutSurgedImg = [
 const Data = [
     {
         Icon : Upload,
-        type : '1. Upload.',
+        type : '1. Upload',
         desc: 'Create an account, upload your images, and start using our services.'
     },
     {
@@ -138,14 +145,14 @@ const Data = [
     },
     {
         Icon : Download,
-        type : '3. Download.',
+        type : '3. Download',
         desc: 'Perfect results, time, and time again. Just by the press of a button.'
     }
 ]
 
-const Feature = ({ Icon,type,desc }) => {
+const Feature = ({ Icon,type,desc,...otherProps }) => {
     return(
-        <FeatureFig>
+        <FeatureFig {...otherProps}>
             <Icon />
             <h2 className="feature-head">
                 {type}
@@ -202,9 +209,10 @@ padding : 4rem;
 h2{
     font-size : 2rem;
     margin-top: 1.5rem;
+    width: max-content;
 }
 svg{
-    width: 15rem;
+    width: 12rem;
     height: max-content;
 }
 p{
@@ -212,6 +220,37 @@ p{
     margin: 0;
     max-width: 35rem;
 }
+
+@media only screen and (max-width : 775px){
+    padding : 2rem;
+    p{
+    text-align: center;
+    margin: 0;
+    max-width: 100%;
+}
+}
+
+${props => props.sec === 3 && css`
+    @media only screen and (max-width : 1000px){
+        width : 50%;
+    }
+    @media only screen and (max-width : 775px){
+        width : 100%;
+        p{
+            max-width : 100%;
+        }
+    }
+`}
+
+${props => props.sec === 2 && css`
+    @media only screen and (max-width : 1000px){
+        width : 100%;
+        p{
+            max-width : 100%;
+        }
+    }
+    
+`}
 `
 
 const Accordion = styled.div`
@@ -234,6 +273,14 @@ button{
     svg{
         transition : 0.3s all;
         transform : ${props => props.active ? 'rotate(180deg)' : 'rotate(0deg)'};
+        margin-left : 1rem;
+    }
+    @media only screen and (max-width : 680px){
+        width : 100%;
+        h2{
+            font-size : 1.5rem;
+            text-align: left;
+        }
     }
 }
 .content{

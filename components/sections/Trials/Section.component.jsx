@@ -34,14 +34,23 @@ width: 100%;
 background-color : ${props => props.bgColor || "#fff"};
 display :flex;
 flex-direction: column;
+padding : 3rem 2rem;
 h1{
-    font-size : 5rem;
+    font-size : 4.5rem;
     font-weight : 800;
 }
 p{
     margin-top : 1.5rem;
     max-width: 80rem;
     margin: 0 auto;
+}
+@media only screen and (max-width : 775px){
+   h1{
+    font-size : 3rem;
+   }
+   p{
+       max-width : 100%;
+   }
 }
 .content-container{
     &--icon{
@@ -55,5 +64,5 @@ const TrBtn = styled(Button)`
 padding : 1.5rem 3rem;
 background-color : var(--primary);
 text-transform : uppercase;
-margin-top : 1.5rem;
+margin-top : 3rem;
 `
