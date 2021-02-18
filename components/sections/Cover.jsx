@@ -11,14 +11,14 @@ const AboutCover = ({ background, big_style, title, route }) => {
             <div className='col-sm-12'>
               <div className='text-center-sm'>
                 <h1 className='title'>{title}</h1>
-                {/* <div className='breadcrumbs'>
+                <div className='breadcrumbs'>
                   <ul>
                     <li>
                       <Link href='/'>Home</Link>
                     </li>
                     <li>{route}</li>
                   </ul>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
