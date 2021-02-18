@@ -24,7 +24,7 @@ const Footer = () => (
            ))}
            <div className="col-md-3 mb-4">
                <div className="widget">
-                   <FooterWidgetTitle title={'Conect With Us'} />
+                   <FooterWidgetTitle title={'Connect With Us'} />
                    <div className="textwidget">
                        <p>A: 14 L.E Goulburn St, Berlin 2000Wm</p>
                        <p>P: (+88) 1990 6886</p>

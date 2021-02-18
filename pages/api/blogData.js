@@ -1,7 +1,7 @@
 export default (req, res) => {
 	res.status(200).json([
 		{
-			id: 1,
+			id: "Rahul",
 			cardData: {
 				img: '/images/blog/blog1sm.jpg',
 				url: '/',
@@ -26,7 +26,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 2,
+			id: "Rohit",
 			cardData: {
 				img: '/images/blog/blog2.jpg',
 				url: '/',
@@ -51,7 +51,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 3,
+			id: "Shakib",
 			cardData: {
 				img: '/images/blog/blog3sm.jpg',
 				url: '/',
@@ -76,7 +76,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 4,
+			id: "Ravi",
 			cardData: {
 				img: '/images/blog/blog4.jpg',
 				url: '/',
@@ -101,7 +101,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 5,
+			id: "Aamir",
 			cardData: {
 				img: '/images/blog/blog5.jpg',
 				url: '/',
@@ -126,7 +126,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 6,
+			id: "Sayan",
 			cardData: {
 				img: '/images/blog/blog6.jpg',
 				url: '/',
@@ -151,7 +151,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 7,
+			id: "Christin",
 			cardData: {
 				img: '/images/blog/blog7.jpg',
 				url: '/',
@@ -176,7 +176,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 8,
+			id: "Oliver",
 			cardData: {
 				img: '/images/blog/blog8.jpg',
 				url: '/',
@@ -201,7 +201,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 9,
+			id: "Spain",
 			cardData: {
 				img: '/images/blog/blog9smm.jpg',
 				url: '/',
@@ -226,7 +226,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 10,
+			id: "Macedonia",
 			cardData: {
 				img: '/images/blog/blog10.jpg',
 				url: '/',
@@ -251,7 +251,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 11,
+			id: "Alex",
 			cardData: {
 				img: '/images/blog/blog11sm.jpg',
 				url: '/',
@@ -276,7 +276,7 @@ export default (req, res) => {
 			},
 		},
 		{
-			id: 12,
+			id: "Bingo",
 			cardData: {
 				img: '/images/blog/blog9.jpg',
 				url: '/',
