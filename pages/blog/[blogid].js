@@ -29,10 +29,17 @@ const Blog = ({ query }) => {
 	return (
 		<>
 			<Head>
-				<meta name='og:title' content={routeData.pageData.title} />
-				<meta property='og:image' content={`https://${window.location.origin}${routeData.pageData.image}`} />
 				<meta property='og:url' content={`${window.location.href}`} />
-				<meta name='description' content={`${routeData.cardData.description}`} />
+				<meta property='og:type' content='website' />
+				<meta name='og:title' content={routeData.pageData.title} />
+				<meta
+				name='description'
+				content={`${routeData.cardData.description}`}
+				/>
+				<meta
+				property='og:image'
+					content={`${window.location.origin}${routeData.pageData.image}`}
+				/>
 			</Head>
 			<Layout route={routeData.pageData.title}>
 				<Cover
