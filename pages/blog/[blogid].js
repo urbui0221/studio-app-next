@@ -1,6 +1,6 @@
 import { route } from 'next/dist/next-server/server/router';
 import React from 'react';
-import Head from "next/head"
+import Head from 'next/head';
 import styled from 'styled-components';
 import useSWR from 'swr';
 import Layout from '../../components/layouts/Layout.component';
@@ -29,15 +29,16 @@ const Blog = ({ query }) => {
 	return (
 		<>
 			<Head>
+				<meta property='og:url' content={`${window.location.href}`} />
+				<meta property='og:type' content='website' />
+				<meta name='og:title' content={routeData.pageData.title} />
 				<meta
-					name='description'
-					content={
-						`${routeData.cardData.description}`
-					}
+				name='description'
+				content={`${routeData.cardData.description}`}
 				/>
 				<meta
-					name='og:title'
-					content={routeData.pageData.title}
+				property='og:image'
+					content={`${window.location.origin}${routeData.pageData.image}`}
 				/>
 			</Head>
 			<Layout route={routeData.pageData.title}>
