@@ -122,11 +122,12 @@ const CarouselHead = () => {
                              exit="exit" 
                             className="image">
                                 <Image 
+                                loading="eager"
                                 className="img"
                                 src={image} 
                                 layout="fill" 
                                 quality={100} 
-                                priority 
+                                priority={true}
                                 alt="image" 
                                 />
                             </motion.div>
