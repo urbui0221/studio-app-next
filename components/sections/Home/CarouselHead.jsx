@@ -111,30 +111,25 @@ const CarouselHead = () => {
                    }
                 </AnimatePresence>
             </ButtonFlex>
-            {
-                data.images.map((image,id) => {
-                    if(slide === id){
-                        return <AnimatePresence>
-                             <motion.div 
-                             variants={Carouselvariants}
-                             initial={"from"}
-                             animate={"to"}
-                             exit="exit" 
-                            className="image">
-                                <img 
-                                loading="eager"
-                                className="img"
-                                src={image} 
-                                layout="fill" 
-                                quality={100} 
-                                priority={true}
-                                alt="image" 
-                                />
-                            </motion.div>
-                        </AnimatePresence>
-                    }
-                })
-            }
+            <div className="image">
+                {
+                    data.images.map((image,id) => {
+                        if(slide === id){
+                            return <AnimatePresence exitBeforeEnter>
+                                    <motion.img 
+                                    className="img"
+                                    src={image} 
+                                    alt="image" 
+                                    variants={Carouselvariants}
+                                    initial={"from"}
+                                    animate={"to"}
+                                    exit="exit" 
+                                    />
+                            </AnimatePresence>
+                        }
+                    })
+                }
+            </div>
       </HeaderSlider>
     )
 }
