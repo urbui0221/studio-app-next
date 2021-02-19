@@ -56,6 +56,8 @@ const CarouselHead = () => {
         }
     }
 
+    
+
     const { data,error } = useSWR('/api/home',fetcher)
     
     if(!data){
@@ -68,20 +70,20 @@ const CarouselHead = () => {
       onMouseLeave ={() => setControls(false)}>
           <div className="content">
             <div className="content-items" ref={el => contentItemRef = el}>
-                <AnimatePresence>
                     {
                         data.headerText.map((text,id) => {
                             if(slide === id){
-                                return <motion.p 
-                                variants={Carouselvariants}
-                                initial="from"
-                                animate="to"
-                                exit="exit"
-                                dangerouslySetInnerHTML={{ __html : text }}/>
+                                return <AnimatePresence key={id}>
+                                     <motion.p 
+                                        variants={Carouselvariants}
+                                        initial="from"
+                                        animate="to"
+                                        exit="exit"
+                                        dangerouslySetInnerHTML={{ __html : text }}/>
+                                </AnimatePresence>
                             }
                         })
                     }
-                </AnimatePresence>
                 <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
             </div>
           </div>
@@ -109,22 +111,29 @@ const CarouselHead = () => {
                    }
                 </AnimatePresence>
             </ButtonFlex>
-          <div className="image">
             {
                 data.images.map((image,id) => {
                     if(slide === id){
-                        return <Image 
-                        className="img"
-                        src={image} 
-                        layout="fill" 
-                        quality={100} 
-                        priority 
-                        alt="image" 
-                    />
+                        return <AnimatePresence>
+                             <motion.div 
+                             variants={Carouselvariants}
+                             initial={"from"}
+                             animate={"to"}
+                             exit="exit" 
+                            className="image">
+                                <Image 
+                                className="img"
+                                src={image} 
+                                layout="fill" 
+                                quality={100} 
+                                priority 
+                                alt="image" 
+                                />
+                            </motion.div>
+                        </AnimatePresence>
                     }
                 })
             }
-          </div>
       </HeaderSlider>
     )
 }
@@ -203,6 +212,7 @@ position : relative;
     }
 }
 .image{
+    background-color : black;
     flex : 0.6;
     position : relative;
     overflow : hidden;
