@@ -19,7 +19,7 @@ const CarouselHead = () => {
         setSlide(slide === 2 ? 0 : slide + 1) 
         :  setSlide(slide === 0 ? 2 : slide - 1) 
     }
-      const durTime = 0.3;
+      const durTime = 0.5;
 
       const HirebtnVariants = {
         from : {
@@ -68,28 +68,21 @@ const CarouselHead = () => {
       onMouseLeave ={() => setControls(false)}>
           <div className="content">
             <div className="content-items" ref={el => contentItemRef = el}>
-                {/*<h1>
-                    { slide < 10 ? "0" + (slide + 1) : (slide + 1) }&nbsp;<sup><span>/0{carouselImgs.length}</span></sup>
-                </h1> */}
                 <AnimatePresence>
                     {
                         data.headerText.map((text,id) => {
                             if(slide === id){
-                                return <p dangerouslySetInnerHTML={{ __html : text }}/>
+                                return <motion.p 
+                                variants={Carouselvariants}
+                                initial="from"
+                                animate="to"
+                                exit="exit"
+                                dangerouslySetInnerHTML={{ __html : text }}/>
                             }
                         })
                     }
                 </AnimatePresence>
-                <AnimatePresence>
-                           {
-                            <HireButton 
-                            variants={HirebtnVariants}
-                            initial={"from"}
-                            animate={"to"}
-                            exit="exit"
-                            bgcolor="var(--primary)">HIRE US NOW</HireButton>
-                           }
-                </AnimatePresence>
+                <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
             </div>
           </div>
           <ButtonFlex>
@@ -210,7 +203,6 @@ position : relative;
     }
 }
 .image{
-    background-color : black;
     flex : 0.6;
     position : relative;
     overflow : hidden;

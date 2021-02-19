@@ -31,21 +31,16 @@ const ScrollToTopbtn = () => {
     }
     const hasScrolled = useWindowScroll();
     return (
-      <>
-      {
-            hasScrolled && 
-            <AnimatePresence>
-                <Scroller 
-                variants={scrollBtnVariants}
-                initial="from"
-                animate="to"
-                exit="exit"
-                onClick={scrollToTop}>
-                    <i className="ion-android-arrow-up"></i>
-                </Scroller>
-            </AnimatePresence>
-      }
-      </>
+  <AnimatePresence>
+      {hasScrolled && <Scroller 
+        variants={scrollBtnVariants}
+        initial="from"
+        animate="to"
+        exit="exit"
+        onClick={scrollToTop}>
+            <i className="ion-android-arrow-up"></i>
+        </Scroller> }
+    </AnimatePresence>
     )
 }
 
