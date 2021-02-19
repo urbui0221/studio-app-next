@@ -19,6 +19,19 @@ const CarouselHead = () => {
         setSlide(slide === 2 ? 0 : slide + 1) 
         :  setSlide(slide === 0 ? 2 : slide - 1) 
     }
+
+    const slideIncrementer = _ => {
+       setInterval(() => {
+           setSlide(slide === 2 ? 0 : slide + 1)
+       }, 7000);
+    }
+
+    useEffect(() => {
+        slideIncrementer();
+        return _ => clearInterval(slideIncrementer) 
+    },[slide])
+
+
       const durTime = 0.5;
 
       const HirebtnVariants = {
@@ -115,7 +128,9 @@ const CarouselHead = () => {
                 {
                     data.images.map((image,id) => {
                         if(slide === id){
-                            return <AnimatePresence exitBeforeEnter>
+                            return <AnimatePresence 
+                            key={id}
+                            exitBeforeEnter>
                                     <motion.img 
                                     className="img"
                                     src={image} 
