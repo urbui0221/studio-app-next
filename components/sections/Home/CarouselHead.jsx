@@ -121,7 +121,7 @@ const CarouselHead = () => {
                              animate={"to"}
                              exit="exit" 
                             className="image">
-                                <Image 
+                                <img 
                                 loading="eager"
                                 className="img"
                                 src={image} 
@@ -218,6 +218,8 @@ position : relative;
     position : relative;
     overflow : hidden;
     .img{
+        width : 100%;
+        height : 100%;
         object-fit : cover;
     }
     @media only screen and (max-width: 1400px){
