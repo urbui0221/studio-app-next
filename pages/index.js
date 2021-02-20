@@ -11,7 +11,6 @@ import absoluteUrl from 'next-absolute-url'
 import CarouselHead from '../components/sections/Home/CarouselHead'
 
 export default function Home({ resp }) {
-  console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
   return (
     <Layout route="Home">
       { /*<HeaderCarousel /> */}

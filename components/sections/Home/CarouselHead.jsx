@@ -27,8 +27,12 @@ const CarouselHead = () => {
     }
 
     useEffect(() => {
-        slideIncrementer();
-        return _ => clearInterval(slideIncrementer) 
+        // slideIncrementer();
+        // return _ => clearInterval(slideIncrementer)
+        const timer = setTimeout(() => {
+            setSlide(slide === 2 ? 0 : slide + 1)
+        }, 7000); 
+        return () => clearTimeout(timer);
     },[slide])
 
 
