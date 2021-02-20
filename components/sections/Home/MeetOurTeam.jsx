@@ -44,7 +44,7 @@ const MeetOurTeam = ({team}) => {
                 </div>
             </div>
             <Carousel 
-                    swipeable={false}
+                    swipeable={true}
                     draggable={true}
                     showDots={false}
                     responsive={responsive}
@@ -63,16 +63,6 @@ const MeetOurTeam = ({team}) => {
                                 })
                             }
             </Carousel>
-            {/*<Swipe>
-                {
-                    team.map(mem => {
-                        return <Members
-                        key = {mem.name}
-                        {...mem}
-                        />
-                    })
-                }
-            </Swipe> */}
         </div>
         </div>   
         </Container>
