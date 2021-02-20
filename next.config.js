@@ -11,10 +11,7 @@ module.exports = {
 
     return config
   },
-    images: {
+  images: {
       domains: ['images.unsplash.com'],
-    },
-    sassOptions: {
-      includePaths: [path.join(__dirname, 'styles')],
     },
 }
