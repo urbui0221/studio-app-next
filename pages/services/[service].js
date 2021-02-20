@@ -1,10 +1,10 @@
 import useSWR from 'swr'
-import fetcher from '../utils/fetcher' 
-import Layout from '../components/layouts/Layout.component'
-import Cover from '../components/sections/Cover'
-import Foot from '../components/sections/Services/Foot'
-import List from '../components/sections/Services/List'
-import Loader from '../components/ui/Loader.component'
+import fetcher from '../../utils/fetcher' 
+import Layout from '../../components/layouts/Layout.component'
+import Cover from '../../components/sections/Cover'
+import Foot from '../../components/sections/Services/Foot'
+import List from '../../components/sections/Services/List'
+import Loader from '../../components/ui/Loader.component'
 
 export const getServerSideProps = async({query}) => {
     return {
