@@ -5,6 +5,7 @@ import Cover from '../components/sections/Cover'
 import Foot from '../components/sections/Services/Foot'
 import List from '../components/sections/Services/List'
 import Loader from '../components/ui/Loader.component'
+import  Error from './_error'
 
 export const getServerSideProps = async({query}) => {
     return {
@@ -20,11 +21,15 @@ const Services = ({query}) => {
     const routeData = data?.find(service => service.id === query.service);
     console.log(routeData)
 
+    if(routeData === undefined){
+        return <Error statusCode={404} />
+    }
+
     return (
         <Layout route="Services">
             <Cover background={routeData.image} big_style={false} title={routeData.name} route={'Our Services 02'} />
                 <List ServicesData={routeData}/>
-            <Foot />
+            <Foot />Sayantan
         </Layout>
     )
 }

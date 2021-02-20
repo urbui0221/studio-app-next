@@ -65,11 +65,6 @@ const Header = (props) => {
 
 
   useEffect(() => {
-
-    // pageDropdownRef.current.style.maxHeight = pagesDropdown ? `${pageDropdownRef.current.scrollHeight}px` : '0px'
-    /*if(isTablet){
-      console.log(navRef.current.offsetWidth)
-    }*/
     
     window.addEventListener('scroll', handleScroll);
     return () => {

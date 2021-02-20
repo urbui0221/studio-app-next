@@ -43,7 +43,7 @@ const MeetOurTeam = ({team}) => {
                 </div>
             </div>
             <Carousel 
-                     swipeable={false}
+                     swipeable={true}
                      draggable={true}
                      showDots={false}
                      responsive={responsive}

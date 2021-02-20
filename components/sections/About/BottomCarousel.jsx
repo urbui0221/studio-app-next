@@ -28,7 +28,7 @@ const BottomCarousel = () => {
            <Carousel 
             autoPlay={true}
             autoPlaySpeed={3000}
-            swipeable={false}
+            swipeable={true}
             draggable={true}
             showDots={false}
             arrows={false}
