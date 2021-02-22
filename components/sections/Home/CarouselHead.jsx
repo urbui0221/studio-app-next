@@ -162,9 +162,13 @@ display : flex;
 max-width: 95%;
 margin : 0 auto;
 position : relative;
+@media only screen and (max-width: 900px){
+      height : 100vh;
+      max-width: 90%;
+}
 .content{
     background-color : var(--tertiary2);
-    flex : 0.4;
+    flex : 0.35;
     position : relative;
     @media only screen and (max-width: 1400px){
         flex : 0.5;  
@@ -220,7 +224,7 @@ position : relative;
 }
 .image{
     background-color : black;
-    flex : 0.6;
+    flex : 0.65;
     position : relative;
     overflow : hidden;
     .img{
@@ -238,7 +242,7 @@ position : relative;
 `
 
 const CarouselTogglers = styled(Button)`
-z-index: 9999;
+z-index: 20;
 display: flex;
 justify-content: center;
 align-items: center;
