@@ -4,7 +4,7 @@ import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
 import Newsletter from '../Blog/Newsletter';
 
-const SingalBlog = ({ BlogData }) => {
+const SingalBlog = ({ BlogData, date }) => {
 	const [blog, setBlog] = useState('');
 	useEffect(() => {
 		const _blog = require(`../../../blogs/${BlogData.description}`);
@@ -27,6 +27,8 @@ const SingalBlog = ({ BlogData }) => {
 								<h4 className='entry-title'>
 									{BlogData.title}
 								</h4>
+
+								<span className='posted-on'>{date}</span>
 
 								<div className='entry-content mb-3 blog-description'>
 									<MarkdownContainer>
@@ -572,5 +574,9 @@ const Container = styled.div`
 	}
 	.film-social .tooltip-inner {
 		background-color: var(--primary);
+	}
+	.blog-item.style-2 .blog-info-date .posted-on {
+		margin-right: 20px;
+		color: #ccc;
 	}
 `;

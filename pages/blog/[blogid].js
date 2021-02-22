@@ -48,7 +48,7 @@ const Blog = ({ query }) => {
 					title={'Blog'}
 					route={'Blog'}
 				/>
-				<SingalBlog BlogData={routeData.pageData} />
+				<SingalBlog BlogData={routeData.pageData} date={routeData.cardData.date} />
 			</Layout>
 		</>
 	);
