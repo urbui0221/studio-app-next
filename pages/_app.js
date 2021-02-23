@@ -5,6 +5,7 @@ import { GlobalStyles } from '../components/utils/GlobalStyles'
 import { useRouter } from 'next/router'
 import ScrollToTopbtn from "../components/ui/ScrollToTopbtn.component"
 import styled from "styled-components"
+import ToastStateProvider from "../components/utils/ToastState"
 
 export default function App({ Component, pageProps}) {
   const Router = useRouter();
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps}) {
       <GlobalStyles />
       {Router.pathname !== '/404' && <Header />}
        <Container>
+         <ToastStateProvider>
           <Component {...pageProps} />
+         </ToastStateProvider>
        </Container>
       {Router.pathname !== '/404' && <Footer />}
       <ScrollToTopbtn />
