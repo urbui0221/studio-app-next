@@ -21,7 +21,7 @@ const Newsletter = () => {
         .then(_ => {
 			submessge('Your response have been submitted');
 			subscriber(true);
-			setTimeout(() => {
+			setTimeout(() => { 
 				subscriber(false)
 			},6000)
 		})

@@ -30,6 +30,11 @@ const MobileNav = ({...otherProps },ref) => {
             setHeight(contentRef.current.scrollHeight);
         }
     },[isOpen])
+
+    useEffect(() => {
+        
+    },[])
+
     const dropDownToggler = _ => {
         console.log(contentRef.current)
         setOpen(!isOpen);
