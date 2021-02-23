@@ -162,7 +162,7 @@ display : flex;
 max-width: 95%;
 margin : 0 auto;
 position : relative;
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 992px){
       height : 100vh;
       max-width: 90%;
 }

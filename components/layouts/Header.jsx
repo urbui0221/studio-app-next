@@ -20,7 +20,6 @@ const Header = (props) => {
 
   const [hasScrolled, setHasScrolled] = useState(false)
   const [topSearch, setTopSearch] = useState(false)
-  const [mobileNav, setMobileNav] = useState(false)
   const [homeDropdown, setHomeDropdown] = useState(false)
   const [productionDropdown, setProductionDropdown] = useState(false)
   const [blogDropdown, setBlogDropdown] = useState(false)
@@ -108,6 +107,38 @@ const BackdropVariants = {
       } 
   }
 }
+const [mobileNav, setMobileNav] = useState(false)
+
+const mobileNavRef = useRef(null);
+
+useEffect(() => {
+  const ToggleMount = clickable => {
+    return  clickable.addEventListener('click',() => {
+      setMobileNav(false);
+    })
+  }
+  const ToggleUnmount = clickable => {
+    return  clickable.removeEventListener('click',() => {
+      setMobileNav(false);
+    })
+  }
+  if(mobileNav){
+    let links = mobileNavRef.current.childNodes;
+    for(let i = 0; i<= (links.length - 1); i++){
+      if(links[i].nodeName !== 'DIV'){
+         ToggleMount(links[i]);
+         ToggleUnmount(links[i])
+      }
+      else{
+        let dropDown = links[i].lastElementChild.children
+        for(let i = 0; i<= (dropDown.length - 1); i++){
+          ToggleMount(dropDown[i]);
+          ToggleUnmount(dropDown[i])
+        }
+      }
+    }
+  }
+},[mobileNav])
 
   return (
     <HeaderContainer>
@@ -117,6 +148,7 @@ const BackdropVariants = {
           {
             mobileNav && <>
             <MobileNav 
+            ref={mobileNavRef}
             variants={NavbarVariants}
             initial={"from"}
             animate={"to"}

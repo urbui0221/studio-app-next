@@ -18,7 +18,7 @@ const OurServicesList = [
     },
   ]
 
-const MobileNav = ({...otherProps },ref) => {
+const MobileNav = ({...otherProps},ref) => {
 
     const [isOpen,setOpen] = useState(false);
     const [height,setHeight] = useState(0);
@@ -31,10 +31,6 @@ const MobileNav = ({...otherProps },ref) => {
         }
     },[isOpen])
 
-    useEffect(() => {
-        
-    },[])
-
     const dropDownToggler = _ => {
         console.log(contentRef.current)
         setOpen(!isOpen);
@@ -42,10 +38,10 @@ const MobileNav = ({...otherProps },ref) => {
 
     return (
        <>
-        <Navbar ref={ref} {...otherProps}>
+        <Navbar {...otherProps} ref={ref}>
             <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/pricing">Pricing</Link>
+            <Link href="/about" >About</Link>
+            <Link href="/pricing" >Pricing</Link>
             <Dropdown 
             active={isOpen}
             maxHeight={height}>
@@ -58,14 +54,14 @@ const MobileNav = ({...otherProps },ref) => {
                 <div className="accordion-content" ref={contentRef}>
                     {
                         OurServicesList.map(link => {
-                            return <Link key={link.children} {...link} />
+                            return <Link key={link.children} {...link}  />
                         })
                     }
                 </div>
             </Dropdown>
-            <Link href="/contact">Contact Us</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/trials">Trials</Link>
+            <Link href="/contact" >Contact Us</Link>
+            <Link href="/blog" >Blog</Link>
+            <Link href="/trials" >Trials</Link>
         </Navbar>
        </>
     )
