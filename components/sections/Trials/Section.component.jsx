@@ -53,6 +53,8 @@ p{
    }
 }
 .content-container{
+    position: relative;
+    top : ${props => props.moveTop};
     &--icon{
         margin-bottom : 1.5rem;
     }

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import Layout from "../components/layouts/Layout.component"
 import Section from "../components/sections/Trials/Section.component"
-import { Gifts, Upload,Relax,Download, Discount } from "../components/utils/Icons"
+import { Gifts, Upload,Relax,Download } from "../components/utils/Icons"
 import { FaChevronDown } from 'react-icons/fa'
 import { useEffect, useRef, useState } from "react"
 
@@ -9,11 +9,12 @@ const Trials = () => {
     return (
        <Layout route="Trials">
             <Section 
-             Icon={Gifts}
-             bgColor="#f5f5f5"
-             heading="Get your first 10 images free"
-             description="Sign up today and get 10 free edits — no credit card required."
-             btnTxt="upload free trial photos"
+                moveTop="-5rem"
+                Icon={Gifts}
+                bgColor="#f5f5f5"
+                heading="Get your first 10 images free"
+                description="Sign up today and get 10 free edits — no credit card required."
+                btnTxt="upload free trial photos"
              />
              <Section 
              heading="How it works"

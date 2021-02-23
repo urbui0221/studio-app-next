@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import useInput from '../../../custom/hooks/useInput';
 import firebaseClient from '../../../firebase/firebaseClient';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import { ToastContext } from '../../utils/ToastState';
 
 firebaseClient();
 
-const Newsletter = (props) => {
+const Newsletter = () => {
 	const email = useInput('');
+
+	const { submessge,subscriber } = useContext(ToastContext)
 
     const onSubmit = eve => {
         eve.preventDefault();
         firebase.firestore().collection('email-subscribe').doc(email.value).set({
             email: email.value
         })
-        .then(_ => prompt("Your response have been submitted"))
+        .then(_ => {
+			submessge('Your response have been submitted');
+			subscriber(true);
+			setTimeout(() => { 
+				subscriber(false)
+			},6000)
+		})
         .catch(err => console.log(err));
 
         email.setValue("");

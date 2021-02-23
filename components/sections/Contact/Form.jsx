@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import useInput from '../../../custom/hooks/useInput'
 import firebaseClient from '../../../firebase/firebaseClient'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
+import { ToastContext } from '../../utils/ToastState'
 
 firebaseClient();
+
 
 const Form = () => {
     const name = useInput("")
@@ -13,14 +15,26 @@ const Form = () => {
     const email = useInput("")
     const message = useInput("")
 
+    const { nameSetter,toaster } = useContext(ToastContext)
+
     const onSubmit = (e) => {
         e.preventDefault();
-        firebase.firestore().collection('reviews').doc(name.value).set({
+        firebase
+        .firestore()
+        .collection('reviews')
+        .doc(name.value)
+        .set({
             name : name.value,
             email : email.value,
             subject : subject.value,
             message : message.value,
-        }).then(res => prompt(`${name.value}, thanks for connecting with us!`))
+        }).then(_ => {
+            nameSetter(`${name.value}, thanks for connecting with us!`)
+            toaster(true);
+            setTimeout(() => {
+                toaster(false)
+            },6000)
+        })
         .catch(err => console.log(err));
         name.setValue('');
         subject.setValue('');

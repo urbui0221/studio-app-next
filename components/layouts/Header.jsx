@@ -5,7 +5,7 @@ import Button from "../ui/Button.component";
 import { useRouter } from 'next/router'
 import useMediaQuery  from 'use-media-query-hook'
 import MobileNav from "./MobileNav";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Header = (props) => {
   const pageDropdownRef = useRef(null);
@@ -20,7 +20,6 @@ const Header = (props) => {
 
   const [hasScrolled, setHasScrolled] = useState(false)
   const [topSearch, setTopSearch] = useState(false)
-  const [mobileNav, setMobileNav] = useState(false)
   const [homeDropdown, setHomeDropdown] = useState(false)
   const [productionDropdown, setProductionDropdown] = useState(false)
   const [blogDropdown, setBlogDropdown] = useState(false)
@@ -91,6 +90,56 @@ const Header = (props) => {
     }
 }
 
+const BackdropVariants = {
+  from : {
+    opacity : 0
+  },
+  to : {
+      opacity : 1,
+      transition : {
+          duration : 0.3
+      } 
+  },
+  exit : {
+      opacity : 0,
+      transition : {
+          duration : 0.3
+      } 
+  }
+}
+const [mobileNav, setMobileNav] = useState(false)
+
+const mobileNavRef = useRef(null);
+
+useEffect(() => {
+  const ToggleMount = clickable => {
+    return  clickable.addEventListener('click',() => {
+      setMobileNav(false);
+    })
+  }
+  const ToggleUnmount = clickable => {
+    return  clickable.removeEventListener('click',() => {
+      setMobileNav(false);
+    })
+  }
+  if(mobileNav){
+    let links = mobileNavRef.current.childNodes;
+    for(let i = 0; i<= (links.length - 1); i++){
+      if(links[i].nodeName !== 'DIV'){
+         ToggleMount(links[i]);
+         ToggleUnmount(links[i])
+      }
+      else{
+        let dropDown = links[i].lastElementChild.children
+        for(let i = 0; i<= (dropDown.length - 1); i++){
+          ToggleMount(dropDown[i]);
+          ToggleUnmount(dropDown[i])
+        }
+      }
+    }
+  }
+},[mobileNav])
+
   return (
     <HeaderContainer>
       {
@@ -99,12 +148,18 @@ const Header = (props) => {
           {
             mobileNav && <>
             <MobileNav 
+            ref={mobileNavRef}
             variants={NavbarVariants}
             initial={"from"}
             animate={"to"}
             exit="exit"
             />
-            <Backdrop  onClick={_ => setMobileNav(false)}/>
+            <Backdrop 
+             variants={BackdropVariants}
+             initial={"from"}
+             animate={"to"}
+             exit="exit" 
+            onClick={_ => setMobileNav(false)}/>
             </>
           }
         </AnimatePresence>
@@ -202,7 +257,7 @@ const Header = (props) => {
   )
 }
 
-const Backdrop =styled.div`
+const Backdrop =styled(motion.div)`
 position :fixed;
 top: 0;
 left : 0;
@@ -313,6 +368,11 @@ header.header-mobile {
     display: none;
     padding: 30px 0;
     width: 100%;
+    position : fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 40;
 }
 header.header-mobile .header-left {
     font-size: 35px;

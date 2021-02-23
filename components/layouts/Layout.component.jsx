@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react'
+import styled from 'styled-components'
 
 const Layout = ({route,children}) => (
     <>
@@ -7,10 +8,15 @@ const Layout = ({route,children}) => (
             <title>Nine Studio | {route}</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main>
+        <Main>
             {children}
-        </main>
+        </Main>
     </>
 )
 
 export default Layout
+
+
+const Main = styled.main`
+position: relative;
+`

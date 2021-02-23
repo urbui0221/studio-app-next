@@ -1,6 +1,5 @@
 import Layout from '../components/layouts/Layout.component'
 import Awards from '../components/sections/Home/Awards'
-import HeaderCarousel from '../components/sections/Home/HeaderCarousel.component'
 import Newsletter from '../components/sections/Blog/Newsletter'
 import Partners from '../components/sections/Home/Partners'
 import SectionFeatures from '../components/sections/Home/SectionFeatures'
@@ -17,7 +16,6 @@ export default function Home({ resp }) {
   const [isActive, setIsActive] = useState(true);
   return (
     <Layout route="Home">
-      { /*<HeaderCarousel /> */}
       <CarouselHead />
       <SectionWorkWithEstablished />  
       <SectionFeatures />

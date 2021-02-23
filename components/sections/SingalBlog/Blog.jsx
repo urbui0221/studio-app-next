@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReactMarkDown from 'react-markdown';
 import gfm from 'remark-gfm';
 import Newsletter from '../Blog/Newsletter';
+import Toast from '../../ui/Toast.component';
+import { AnimatePresence } from 'framer-motion';
+import { ToastContext } from '../../utils/ToastState';
 
 const SingalBlog = ({ BlogData, date }) => {
 	const [blog, setBlog] = useState('');
@@ -10,6 +13,25 @@ const SingalBlog = ({ BlogData, date }) => {
 		const _blog = require(`../../../blogs/${BlogData.description}`);
 		setBlog(_blog.default);
 	}, [blog, setBlog]);
+	const { subscribe,submsg } = useContext(ToastContext)
+
+	const ToastVariants = {
+		from : {
+		  opacity : 0
+		},
+		to : {
+			opacity : 1,
+			transition : {
+				duration : 0.3
+			} 
+		},
+		exit : {
+			opacity : 0,
+			transition : {
+				duration : 0.3
+			} 
+		}
+	  }
 	return (
 		<Container>
 			<div className='section pt-12 pb-12'>
@@ -135,6 +157,16 @@ const SingalBlog = ({ BlogData, date }) => {
 				</div>
 			</div>
 			<Newsletter />
+			<AnimatePresence>
+				{
+					subscribe && submsg && <Toast 
+					variants={ToastVariants}
+					initial={"from"}
+					animate={"to"}
+					exit="exit"
+					text={submsg}/>				
+				}
+			</AnimatePresence>
 		</Container>
 	);
 };
