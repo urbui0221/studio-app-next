@@ -45,7 +45,7 @@ export default function App({ Component, pageProps}) {
           <Component {...pageProps} />
           <CookieContainer>
             <AnimatePresence>
-            {(typeof window !== "undefined" && !localStorage.getItem('doneOnce')) &&<Cookies 
+            {isActive && (typeof window !== "undefined" && !localStorage.getItem('doneOnce')) &&<Cookies 
             variants={CookieVariants}
             initial={"from"}
             animate={"to"}
