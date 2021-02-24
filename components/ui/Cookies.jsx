@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Cookies = ({ handleClose,...animationProps }) => {
 	return (
 		<Container {...animationProps}>
-			<CloseBtn onClick={() => handleClose(false)}>&times;</CloseBtn>
+			<CloseBtn onClick={handleClose}>&times;</CloseBtn>
 			<p>
 				We use cookies to give you the best possible experience on our
 				website. By continuing to brouse this site, you give consent for

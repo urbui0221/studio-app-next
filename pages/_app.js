@@ -30,6 +30,12 @@ export default function App({ Component, pageProps}) {
         } 
     }
   }
+  const CookieAccepter = _ => {
+    setIsActive(false)
+    if(typeof window !== "undefined"){
+      localStorage.setItem('doneOnce',true)
+    }
+  }
   return (
     <>
       <GlobalStyles />
@@ -39,12 +45,12 @@ export default function App({ Component, pageProps}) {
           <Component {...pageProps} />
           <CookieContainer>
             <AnimatePresence>
-            { isActive && <Cookies 
+            {(typeof window !== "undefined" && !localStorage.getItem('doneOnce')) &&<Cookies 
             variants={CookieVariants}
             initial={"from"}
             animate={"to"}
             exit="exit"
-            handleClose={setIsActive}  />}
+            handleClose={CookieAccepter}  />}
             </AnimatePresence>
           </CookieContainer>
          </ToastStateProvider>
