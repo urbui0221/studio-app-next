@@ -30,12 +30,15 @@ export default function App({ Component, pageProps}) {
         } 
     }
   }
+  console.log(pageProps)
   const CookieAccepter = _ => {
     setIsActive(false)
     if(typeof window !== "undefined"){
       localStorage.setItem('doneOnce',true)
     }
   }
+  //blogid
+  //service
   return (
     <>
       <GlobalStyles />
@@ -63,7 +66,7 @@ export default function App({ Component, pageProps}) {
 
 const Container = styled.main`
 @media only screen and (max-width : 900px){
-  margin-top : 96px;
+  margin-top : 101px;
 }
 `
 
@@ -72,3 +75,6 @@ const CookieContainer = styled.div`
   width: 100%;
   margin: 0 auto;
 ` 
+App.getInitialProps = async ({ req }) => {
+  return { userIp: req }
+}

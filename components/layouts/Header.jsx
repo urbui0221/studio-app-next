@@ -268,13 +268,12 @@ z-index : 50;
 `
 
 const HeaderContainer = styled.div`
-position: relative;
 z-index : 4000;
 position : relative;
 &::after{
   content : '';
   height: 5px;
-  width : 10%;
+  width : 100%;
   position: absolute;
   bottom: 0;
   left: 0;
