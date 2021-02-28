@@ -5,7 +5,7 @@ import Cover from '../components/sections/Cover'
 import Foot from '../components/sections/Services/Foot'
 import List from '../components/sections/Services/List'
 import Loader from '../components/ui/Loader.component'
-import  Error from './_error'
+import  ErrorPage from './404'
 
 export const getServerSideProps = async({query}) => {
     return {
@@ -22,7 +22,7 @@ const Services = ({query}) => {
     console.log(routeData)
 
     if(routeData === undefined){
-        return <Error statusCode={404} />
+        return <ErrorPage />
     }
 
     return (

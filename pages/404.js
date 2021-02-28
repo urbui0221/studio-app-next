@@ -53,6 +53,12 @@ const CarouselLinks = styled.div`
   top: 50%;
   transform: translateY(-50%);
   z-index: 9997;
+  @media only screen and (max-width: 600px){
+        right : -15px;
+    }
+    @media only screen and (max-width: 450px){
+        right : -30px;
+    }
   p {
       font-size: 1.5rem;
       font-weight: 700;
@@ -93,13 +99,16 @@ const CarouselLinks = styled.div`
 `
 
 const PageError = styled.div`
-width : 100%;
+width : 100vw;
+z-index: 9000;
 height : 100vh;
 display : flex;
 justify-content: center;
 align-items: center;
 flex-direction:column;
-position: relative;
+position: fixed;
+background-color: var(--baseBg);
+top: 0;
 .img{
     position : absolute;
     top : 2rem;
@@ -133,6 +142,15 @@ p{
         &:hover {
             border-bottom: 1px solid var(--primary);
         }
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    h1 {
+        font-size : 25vw;
+    }
+    h2{
+        font-size : 2.5vw;
     }
 }
 `

@@ -5,6 +5,7 @@ import BlogContainer from '../components/sections/Blog/BlogContainer'
 import Cover from '../components/sections/Cover'
 import Loader from '../components/ui/Loader.component'
 import fetcher from '../utils/fetcher'
+import ErrorPage from './404';
 
 
 const Blog = () => {
@@ -13,6 +14,9 @@ const Blog = () => {
 
     if(!data){
         return <Loader />
+    }
+    if(error){
+        return <ErrorPage />
     }
     return (
         <Layout route="Blog">

@@ -8,6 +8,7 @@ import Cover from '../../components/sections/Cover';
 import SingalBlog from '../../components/sections/SingalBlog/Blog';
 import Loader from '../../components/ui/Loader.component';
 import fetcher from '../../utils/fetcher';
+import ErrorPage from '../404';
 
 export const getServerSideProps = async ({ query }) => {
 	return {
@@ -22,10 +23,11 @@ const Blog = ({ query }) => {
 	if (!data) {
 		return <Loader />;
 	}
-
 	const routeData = data?.find((blog) => blog.id == query.blogid);
-	console.log(routeData.pageData);
 
+	if(!routeData){
+		return <ErrorPage />
+	}
 	return (
 		<>
 			<Head>
