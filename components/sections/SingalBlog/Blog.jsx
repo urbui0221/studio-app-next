@@ -128,29 +128,6 @@ const SingalBlog = ({ BlogData, date }) => {
 										</div>
 									</div>
 								</div>
-								<div className='entry-nav'>
-									<div className='row'>
-										<div className='col-md-5 left'>
-											<i className='fa fa-angle-double-left'></i>
-											<a href='#' className='prev'>
-												Communication Is Where a Film
-												Lives and Dies”: Director Zoe
-												Lister-Jones
-											</a>
-										</div>
-										<div className='col-md-2 text-center'>
-											<i className='ion-grid'></i>
-										</div>
-										<div className='col-md-5 right'>
-											<a href='#'>
-												The Story of Ferguson through
-												the Eyes of the People Who Lived
-												it
-											</a>
-											<i className='fa fa-angle-double-right'></i>
-										</div>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
