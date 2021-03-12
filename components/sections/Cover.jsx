@@ -33,7 +33,7 @@ const Container = styled.div`
   background-image: url(${props => props.background});
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center bottom;
+  background-position: center;
   .page-title.big-style {
     padding-top: 230px;
     padding-bottom: 330px;
