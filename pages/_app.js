@@ -65,9 +65,7 @@ export default function App({ Component, pageProps}) {
 }
 
 const Container = styled.main`
-@media only screen and (max-width : 900px){
-  margin-top : 101px;
-}
+ margin-top : 101px;
 `
 
 const CookieContainer = styled.div`

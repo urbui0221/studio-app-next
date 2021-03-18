@@ -34,7 +34,9 @@ width: 100%;
 background-color : ${props => props.bgColor || "#fff"};
 display :flex;
 flex-direction: column;
-padding : 3rem 2rem;
+justify-content:center;
+align-items: center;
+padding : 0rem 2rem;
 h1{
     font-size : 4.5rem;
     font-weight : 800;

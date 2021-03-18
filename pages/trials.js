@@ -9,7 +9,6 @@ const Trials = () => {
     return (
        <Layout route="Trials">
             <Section 
-                moveTop="-5rem"
                 Icon={Gifts}
                 bgColor="#f5f5f5"
                 heading="Get your first 10 images free"

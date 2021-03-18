@@ -269,7 +269,18 @@ z-index : 50;
 
 const HeaderContainer = styled.div`
 z-index : 4000;
-position : relative;
+position : fixed;
+top: 0;
+width : 100%;
+&::after{
+  content: ''; 
+  width: 100%;
+  height: 5px;
+  position : absolute;
+  left: 0;
+  bottom: 5px;
+  background-color: rgba(0,0,0,0.2);
+}
 .header {
     width: 100%; 
 	  margin-top: 0;
