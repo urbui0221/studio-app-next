@@ -19,35 +19,8 @@ const Header = (props) => {
   console.log(router);
 
   const [hasScrolled, setHasScrolled] = useState(false)
-  const [topSearch, setTopSearch] = useState(false)
-  const [homeDropdown, setHomeDropdown] = useState(false)
-  const [productionDropdown, setProductionDropdown] = useState(false)
-  const [blogDropdown, setBlogDropdown] = useState(false)
   const [pagesDropdown, setPagesDropdown] = useState(false)
 
-  const [aboutDropdown, setAboutDropdown] = useState(false)
-  const [ourTeamDropdown, setOurTeamDropdown] = useState(false)
-  const [ourServicesDropdown, setOurServicesDropdown] = useState(false)
-  const [galleryDropdown, setGalleryDropdown] = useState(false)
-
-  const handleMobileHomeClick = () => { setHomeDropdown(p => !p) }
-  const handleMobileProductionClick = () => { setProductionDropdown(p => !p) }
-  const handleMobileBlogClick = () => { setBlogDropdown(p => !p) }
-  const handleMobileAboutClick = () => { setAboutDropdown(p => !p) }
-  const handleMobileOurTeamClick = () => { setOurTeamDropdown(p => !p) }
-  const handleMobileOurServicesClick = () => { setOurServicesDropdown(p => !p) }
-  const handleMobileGalleryClick = () => { setGalleryDropdown(p => !p) }
-  const handleMobilePagesClick = () => {
-    if (aboutDropdown || ourTeamDropdown || ourServicesDropdown || galleryDropdown) {
-      setAboutDropdown(false)
-      setOurTeamDropdown(false)
-      setOurServicesDropdown(false)
-      setGalleryDropdown(false)
-    }
-    setPagesDropdown(p => !p)
-  }
-
-  const handleSearchClick = () => { setTopSearch(p => !p) }
   const handleHamburgerClick = () => { setMobileNav(p => !p) }
 
   const handleScroll = () => {
@@ -141,7 +114,7 @@ useEffect(() => {
 },[mobileNav])
 
   return (
-    <HeaderContainer>
+    <HeaderContainer hasScrolled={hasScrolled}>
       {
         isTablet && 
         <AnimatePresence>
@@ -172,7 +145,7 @@ useEffect(() => {
                 <Link href='/' id='branding_logo' prefetch={false}>
                   <img
                     className='logo'
-                    src='/images/logo_alt.png'
+                    src={`${hasScrolled ? '/images/logo_alt.png' : '/images/logo.png' }`}
                     alt='Logo'
                     title='Nine Studio'
                   />
@@ -272,15 +245,7 @@ z-index : 4000;
 position : fixed;
 top: 0;
 width : 100%;
-&::after{
-  content: ''; 
-  width: 100%;
-  height: 5px;
-  position : absolute;
-  left: 0;
-  bottom: 5px;
-  background-color: rgba(0,0,0,0.2);
-}
+
 .header {
     width: 100%; 
 	  margin-top: 0;
@@ -297,29 +262,24 @@ width : 100%;
     background-color: transparent;
     position: absolute;
 }
-.header.header-1,
-.header.header-3 {
+.header.header-1 {
     display: inline-block;
     width: 100%;
 	min-height: 101px;
 }
-.header.header-1 .header-left,
-.header.header-3 .header-left {
+.header.header-1 .header-left {
     padding-left: 100px;
 }
-.header.header-1 .header-right,
-.header.header-3 .header-right {
+.header.header-1 .header-right {
     padding-right: 100px;
     text-align: right;
     position: static;
 }
-.header.header-1 .logo,
-.header.header-3 .logo {
+.header.header-1 .logo {
     margin-top: 20px;
 }
 
-.header.header-1 .header-right .open-search,
-.header.header-3 .header-right .open-search {
+.header.header-1 .header-right .open-search {
     display: inline-block;
     font-size: 18px;
     line-height: 1;
@@ -335,20 +295,7 @@ width : 100%;
     color: var(--tertiary2);
 }
 
-.header.header-2 {
-	position: absolute;
-    z-index: 999;
-	padding: 20px 0;
-	display: inline-block;
-    width: 100%;
-	background-color: transparent;
-}
-.header.header-2 .hamburger-menu {
-    display: inline-block;
-    font-size: 32px;
-    color: var(--baseBg);
-    cursor: pointer;
-}
+
 .header.scrolling-menu {
     position: fixed;
     background: var(--baseBg);
@@ -359,22 +306,7 @@ width : 100%;
     box-shadow: 0 10px 20px rgba(0,0,0,.05);
     z-index: 999;
 }
-.header.header-2.scrolling-menu {
-    padding: 0;
-}
-.header.header-2.scrolling-menu .hamburger-menu {
-    color: var(--dimGray);
-}
-.header.header-3 {
-    background-color: var(--baseBg);
-}
-.header.header-3 .hamburger-menu {
-    color: var(--tertiary2);
-	display: inline-block;
-    font-size: 32px;
-	cursor: pointer;
-	margin-top: 20px;
-}
+
 header.header-mobile {
     display: none;
     padding: 30px 0;
@@ -418,8 +350,7 @@ header.header-mobile .header-right .open-search {
     letter-spacing: 0;
     font-size: 14px;
 }
-.header.header-1 .header-right nav.menu,
-.header.header-3 .header-right nav.menu {
+.header.header-1 .header-right nav.menu {
     display: inline-block;
     text-align: right;
 }
@@ -440,6 +371,7 @@ header.header-mobile .header-right .open-search {
 .header .header-right .menu-primary > ul > li > a {
     text-transform: uppercase;
     position: relative;
+    color: ${props => props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' };
 	display: inline-block;
 	padding-top: 40px;
     padding-bottom: 40px;
@@ -530,14 +462,6 @@ header.header-mobile .header-right .open-search {
     visibility: visible;
     opacity: 1;
     border-top: 2px solid var(--primary);
-}
-.header.header-overlay.header-3 .header-right .open-search,
-.header.header-overlay.header-3 .menu-primary > ul > li > a {
-    color: var(--tertiary2);
-}
-.header.header-overlay.header-3 .header-right .open-search:hover,
-.header.header-overlay.header-3 .menu-primary > ul > li > a:hover {
-    color: var(--primary);
 }
 .open-right-content {
     -webkit-transition: all .5s;
