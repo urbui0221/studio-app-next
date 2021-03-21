@@ -114,7 +114,7 @@ useEffect(() => {
 },[mobileNav])
 
   return (
-    <HeaderContainer hasScrolled={hasScrolled}>
+    <HeaderContainer router={router.pathname} hasScrolled={hasScrolled}>
       {
         isTablet && 
         <AnimatePresence>
@@ -145,7 +145,8 @@ useEffect(() => {
                 <Link href='/' id='branding_logo' prefetch={false}>
                   <img
                     className='logo'
-                    src={`${hasScrolled ? '/images/logo_alt.png' : '/images/logo.png' }`}
+                    // src={`${hasScrolled && router.pathname === '/' ? '/images/logo_alt.png' : '/images/logo.png' }`}
+                    src={`${ !(router.pathname === '/') ? '/images/logo_alt.png' : hasScrolled ? '/images/logo_alt.png' : '/images/logo.png' }`}
                     alt='Logo'
                     title='Nine Studio'
                   />
@@ -371,9 +372,9 @@ header.header-mobile .header-right .open-search {
 .header .header-right .menu-primary > ul > li > a {
     text-transform: uppercase;
     position: relative;
-    color: ${props => props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' };
-	display: inline-block;
-	padding-top: 40px;
+    color: ${props => !(props.router === '/') ? 'var(--tertiary2)' : props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' };
+    display: inline-block;
+	  padding-top: 40px;
     padding-bottom: 40px;
     padding-left: 20px;
     padding-right: 20px;
