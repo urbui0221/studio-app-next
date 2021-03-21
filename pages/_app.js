@@ -30,14 +30,13 @@ export default function App({ Component, pageProps }) {
       },
     },
   };
-  const CookieAccepter = (_) => {
+  const CookieAccepter = _ => {
     setIsActive(false);
     if (typeof window !== 'undefined') {
       localStorage.setItem('doneOnce', true);
     }
   };
-  //blogid
-  //service
+ 
   return (
     <>
       <GlobalStyles />
@@ -77,6 +76,4 @@ const CookieContainer = styled.div`
 	width: 100%;
 	margin: 0 auto;
 `;
-App.getInitialProps = async ({ req }) => {
-  return { userIp: req };
-};
+

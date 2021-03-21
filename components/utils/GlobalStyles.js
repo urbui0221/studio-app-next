@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+html{
+  scroll-behavior : smooth;
+}
 :root{
   --head: 'Merriweather', serif; 
   --display: 'Montserrat', sans-serif;
@@ -140,5 +143,23 @@ h6, .h6 {
   font-size: 14px;
 }
 
+::-webkit-scrollbar {
+  width: 0.8rem;
+  &-track {
+    background: var(--dimGray);
+  }
+  &-thumb{
+    background: #888;
+    border-radius: 1rem;
+    &:hover{
+      background: red;
+    }
+  }
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  
+}
 
 `

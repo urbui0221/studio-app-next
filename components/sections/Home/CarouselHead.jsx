@@ -77,25 +77,6 @@ const CarouselHead = () => {
       <HeaderSlider  
       onMouseEnter={() => setControls(true)} 
       onMouseLeave ={() => setControls(false)}>
-          <div className="content">
-            <div className="content-items" ref={el => contentItemRef = el}>
-                    {
-                        data.headerText.map((text,id) => {
-                            if(slide === id){
-                                return <AnimatePresence key={id}>
-                                     <motion.p 
-                                        variants={Carouselvariants}
-                                        initial="from"
-                                        animate="to"
-                                        exit="exit"
-                                        dangerouslySetInnerHTML={{ __html : text }}/>
-                                </AnimatePresence>
-                            }
-                        })
-                    }
-                <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
-            </div>
-          </div>
           <ButtonFlex>
                 <AnimatePresence>
                    {
@@ -141,6 +122,18 @@ const CarouselHead = () => {
                     })
                 }
             </div>
+            <div className="content">
+                    <div className="content-wrapper">
+                        <h1>
+                        film <br />+ video<br />productions
+                        </h1>
+                        <p>
+                            We are a creative film and photo production company based in Berlin.<br />                    
+                            Working with a network of diverse professionals,<br /> we believe in the importance of strong visual communication.
+                        </p>
+                    </div>
+                    <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
+            </div>
       </HeaderSlider>
     )
 }
@@ -149,82 +142,18 @@ export default CarouselHead
 
 const HireButton = styled(Button)`
 padding : 1.5rem 3rem;
-align-self: flex-start;
-position : absolute;
-bottom: -7rem;
-left: 0;
+margin-top : 3rem;
 `
 
 const HeaderSlider = styled.div`
 width : 100%;
-height : calc(100vh - 101px);
+height : 100vh;
 display : flex;
-max-width: 95%;
 margin : 0 auto;
 position : relative;
-@media only screen and (max-width: 992px){
-      height : 100vh;
-      max-width: 90%;
-}
-.content{
-    background-color : var(--tertiary2);
-    flex : 0.35;
-    position : relative;
-    @media only screen and (max-width: 1400px){
-        flex : 0.5;  
-        padding : 0 2rem           
-    }
-    @media only screen and (max-width: 900px){
-        position : absolute;
-        z-index : 1;
-        top: 50%;
-        left: 50%;
-        transform : translate(-50%, -50%);
-        height : 100%;
-        background-color : #33333350;
-        width : 100%;
-    }
-    &-items{
-        position:absolute;
-        top: 45%;
-        left: 50%;
-        transform : translate(-50%, -50%);
-        max-width : 50rem;
-        display : flex;
-        flex-direction: column;
-        position : relative;
-        h1{
-            color : var(--primary);
-            font-size : 4rem;
-            margin-top : 5rem;
-            span{
-                font-size : 1.5rem;
-                padding : 0;
-                line-height : 0;
-                color : var(--baseBg);
-                font-weight : 400;
-            }
-        }
-        p{
-            font-family : var(--head);
-            font-size : 4rem;
-            text-justify :distribute;
-            word-spacing : 3px;
-            margin-top : 10rem;
-            color : #ABABAB;
-        }
-        @media only screen and (max-width: 550px){
-                max-width : 100%;
-                top: 50%;
-                p{
-                    font-size : 3rem;
-                }
-            }
-    }
-}
 .image{
     background-color : black;
-    flex : 0.65;
+    flex : 1;
     position : relative;
     overflow : hidden;
     .img{
@@ -232,12 +161,45 @@ position : relative;
         height : 100%;
         object-fit : cover;
     }
-    @media only screen and (max-width: 1400px){
-        flex : 0.5;            
+}
+.content{
+    position : absolute;
+    margin-left : 10rem;
+    left : 0;
+    transform : translate(0,50%);
+      &-wrapper{
+        overflow : hidden;
+        h1{
+            text-transform : uppercase;
+            color : var(--baseBg);
+            line-height : 1;
+            font-size : 9rem;
+            font-weight: bold;
+        }
+        p{
+            margin-top : 3rem;
+            color : var(--baseBg);
+        }
     }
-    @media only screen and (max-width: 900px){
-       flex : 1;
+    @media only screen and (max-width : 1200px){
+        &-wrapper{
+            h1{
+                font-size : 7rem;
+            }
+        }
     }
+    @media only screen and (max-width : 992px){
+        bottom : 0;
+        &-wrapper{
+            h1{
+                font-size : 5rem;
+            }
+            p{
+                font-size : 1.2rem;
+            }
+        }
+    }
+    
 }
 `
 
@@ -249,7 +211,7 @@ align-items: center;
 width: 6rem;
 height: 6rem;
 background-color: var(--baseBg);
-margin : 0 -2rem;
+margin : 0 1rem;
 `
 const ButtonFlex = styled.div`
 display: flex;
