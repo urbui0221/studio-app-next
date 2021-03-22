@@ -143,6 +143,10 @@ export default CarouselHead
 const HireButton = styled(Button)`
 padding : 1.5rem 3rem;
 margin-top : 3rem;
+@media only screen and (max-width : 600px){
+    margin-top : 1rem;
+
+}
 `
 
 const HeaderSlider = styled.div`
@@ -166,7 +170,9 @@ position : relative;
     position : absolute;
     margin-left : 10rem;
     left : 0;
-    transform : translate(0,50%);
+    top: 50%;
+    transform : translate(0%,-50%);
+    height :  max-content;
       &-wrapper{
         overflow : hidden;
         h1{
@@ -189,13 +195,32 @@ position : relative;
         }
     }
     @media only screen and (max-width : 992px){
-        bottom : 0;
+        margin-left : 5rem;
+        top: none;
+        bottom : 10%;
+        transform : translate(0%,-20%);
         &-wrapper{
             h1{
                 font-size : 5rem;
             }
             p{
                 font-size : 1.2rem;
+                max-width : 30rem;
+            }
+        }
+    }
+    @media only screen and (max-width : 600px){
+        margin-left : 3rem;
+        top: none;
+        bottom : 10%;
+        transform : translate(0%,10%);
+        &-wrapper{
+            h1{
+                font-size : 3.5rem;
+                font-weight : 800;
+            }
+            p{
+                margin-top : 2rem;
             }
         }
     }
