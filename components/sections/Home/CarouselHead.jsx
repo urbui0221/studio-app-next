@@ -134,6 +134,33 @@ const CarouselHead = () => {
                     </div>
                     <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
             </div>
+            <CarouselLinks>
+                <p>follow us</p>
+                <div className='line'>&nbsp;</div>
+                <div className='icons-container'>
+                <a href='#'>
+                    <i className='fa fa-facebook'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-twitter'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-instagram'></i>
+                </a>
+                <a href='#'>
+                    <i className='fa fa-pinterest'></i>
+                </a>
+            </div>
+          </CarouselLinks>
+          <PrivacyPolicy>
+           {
+               ['privacy policy','terms and conditions', `let's chat`].map((policy,id) => (
+                   <span key={id}>
+                       {policy}
+                   </span>
+               ))
+           }
+          </PrivacyPolicy>
       </HeaderSlider>
     )
 }
@@ -147,6 +174,72 @@ margin-top : 3rem;
     margin-top : 1rem;
 
 }
+`
+const PrivacyPolicy = styled.div`
+    position: absolute;
+    right: 3rem;
+    bottom: 3rem;
+    display: flex;
+    text-transform : uppercase;
+    font-size : 1.2rem;
+    span{
+        &:not(:first-child){
+            margin-left : 1rem;
+        }
+    }
+`
+
+const CarouselLinks = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  @media only screen and (max-width: 600px){
+        right : -15px;
+    }
+    @media only screen and (max-width: 450px){
+        right : -30px;
+    }
+  p {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+        color: var(--baseBg);
+        transform: rotate(270deg);
+        text-transform: uppercase;
+  }
+  .line {
+    background-color: var(--baseBg);
+    height: 1px;
+    width: 70px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    transform: rotate(90deg);
+  }
+
+  .icons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a {
+      i {
+        font-size: 2rem;
+        color: var(--baseBg);
+        transition: all 0.3s;
+      }
+      &:hover {
+          i{
+              color: var(--primary);
+          }
+      }
+
+      margin-bottom: 10px;
+    }
+  }
 `
 
 const HeaderSlider = styled.div`
@@ -229,7 +322,7 @@ position : relative;
 `
 
 const CarouselTogglers = styled(Button)`
-z-index: 20;
+z-index: 5000;
 display: flex;
 justify-content: center;
 align-items: center;
