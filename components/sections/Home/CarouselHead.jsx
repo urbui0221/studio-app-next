@@ -12,8 +12,6 @@ const CarouselHead = () => {
     const [slide,setSlide] = useState(0);
     const [showControllers,setControls] = useState(true);
 
-    let contentItemRef = useRef(null);
-
     const carouselController = type => {
         return type === 'increment' ? 
         setSlide(slide === 2 ? 0 : slide + 1) 
@@ -26,6 +24,24 @@ const CarouselHead = () => {
         }, 10000); 
         return () => clearTimeout(timer);
     },[slide])
+
+    const contentData = [
+        {
+            title : 'film <br>+ video<br>productions',
+            para : `We are a creative film and photo production company based in Berlin.<br>                    
+            Working with a network of diverse professionals,<br> we believe in the importance of strong visual communication.`
+        },
+        {
+            title : 'film <br>+ video<br>productions',
+            para : `We are a creative film and photo production company based in Berlin.<br>                    
+            Working with a network of diverse professionals,<br> we believe in the importance of strong visual communication.`
+        },
+        {
+            title : 'film <br>+ video<br>productions',
+            para : `We are a creative film and photo production company based in Berlin.<br>                    
+            Working with a network of diverse professionals,<br> we believe in the importance of strong visual communication.`
+        }
+    ]
 
 
       const durTime = 0.5;
@@ -61,6 +77,49 @@ const CarouselHead = () => {
             opacity : 0,
             transition : {
                 duration : durTime
+            } 
+        }
+    }
+
+    const h1Variants = {
+        from : {
+            y: -218
+        },
+        to : {
+            y : 0,
+            transition : {
+                duration : 0.8,
+                ease : 'easeOut'
+            } 
+        },
+        exit : {
+            y: -218,
+            transition : {
+                duration : 0.8,
+                ease : 'easeOut'
+            } 
+        }
+    }
+
+    const pVariants = {
+        from : {
+            y: 150,
+            opacity : 0
+        },
+        to : {
+            y : 0,
+            opacity : 1,
+            transition : {
+                duration : 0.8,
+                ease : 'easeOut'
+            } 
+        },
+        exit : {
+            y: 150,
+            opacity : 0,
+            transition : {
+                duration : 0.8,
+                ease : 'easeOut'
             } 
         }
     }
@@ -124,13 +183,28 @@ const CarouselHead = () => {
             </div>
             <div className="content">
                     <div className="content-wrapper">
-                        <h1>
-                        film <br />+ video<br />productions
-                        </h1>
-                        <p>
-                            We are a creative film and photo production company based in Berlin.<br />                    
-                            Working with a network of diverse professionals,<br /> we believe in the importance of strong visual communication.
-                        </p>
+                    {
+                              contentData.map(({ title,para },id) => {
+                                 if(slide === id){
+                                    return <AnimatePresence>
+                                          <motion.h1
+                                            dangerouslySetInnerHTML={{ __html : title }}
+                                            variants={h1Variants}
+                                            initial={"from"}
+                                            animate={"to"}
+                                            exit="exit" 
+                                        />
+                                        <motion.p
+                                            dangerouslySetInnerHTML={{ __html : para }}
+                                            variants={pVariants}
+                                            initial={"from"}
+                                            animate={"to"}
+                                            exit="exit" 
+                                            />
+                                    </AnimatePresence>
+                                 }
+                              }) 
+                           }
                     </div>
                     <HireButton bgcolor="var(--primary)">HIRE US NOW</HireButton>
             </div>
@@ -216,7 +290,7 @@ const CarouselLinks = styled.div`
     background-color: var(--baseBg);
     height: 1px;
     width: 70px;
-    margin-top: 100px;
+    margin-top: 90px;
     margin-bottom: 60px;
     transform: rotate(90deg);
   }
