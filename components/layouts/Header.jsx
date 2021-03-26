@@ -145,8 +145,8 @@ useEffect(() => {
                 <Link href='/' id='branding_logo' prefetch={false}>
                   <img
                     className='logo'
-                    src={`${hasScrolled  ? '/images/logo_alt.png' : '/images/logo.png' }`}
-                    // src={`${ !(router.pathname === '/') ? '/images/logo_alt.png' : hasScrolled ? '/images/logo_alt.png' : '/images/logo.png' }`}
+                    // src={`${hasScrolled  ? '/images/logo_alt.png' : '/images/logo.png' }`}
+                    src={`${ !(router.pathname === '/trials') ? hasScrolled ? '/images/logo_alt.png' : '/images/logo.png' : '/images/logo_alt.png' }`}
                     alt='Logo'
                     title='Nine Studio'
                   />
@@ -372,8 +372,8 @@ header.header-mobile .header-right .open-search {
 .header .header-right .menu-primary > ul > li > a {
     text-transform: uppercase;
     position: relative;
-    /* color: ${props => !(props.router === '/') ? 'var(--tertiary2)' : props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' }; */
-    color: ${props =>  props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' };
+    color: ${props => !(props.router === '/trials') ? props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' : 'var(--tertiary2)' };
+    /* color: ${props =>  props.hasScrolled ? 'var(--tertiary2)' : '#ffffff' }; */
     display: inline-block;
 	  padding-top: 40px;
     padding-bottom: 40px;
