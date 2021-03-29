@@ -69,6 +69,9 @@ export default function App({ Component, pageProps }) {
 
 const Container = styled.main`
 	margin-top: ${props => props.route === "/trials" ? "101px" : '0px'};
+  @media (max-width: 992px) {
+	margin-top: ${props => props.route === "/trials" ? "151px" : '0px'};
+  }
 `;
 
 const CookieContainer = styled.div`
