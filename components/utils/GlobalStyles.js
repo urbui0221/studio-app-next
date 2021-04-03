@@ -33,7 +33,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  overflow-x : hidden;
   position : relative;
 }
 
@@ -45,6 +44,10 @@ body {
   letter-spacing: 0;
   color: var(--dimGray);
   font-size: 15px;
+  overflow-x : hidden;
+  #__next{
+    overflow-x : hidden;
+  }
 }
 
 ul, ol {
