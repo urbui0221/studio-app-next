@@ -7,7 +7,7 @@ import useMediaQuery  from 'use-media-query-hook'
 import MobileNav from "./MobileNav";
 import { AnimatePresence, motion } from "framer-motion";
 
-const Header = (props) => {
+const Header = () => {
   const pageDropdownRef = useRef(null);
 
   const router = useRouter();
@@ -16,10 +16,8 @@ const Header = (props) => {
 
   const isTablet = useMediaQuery(`(max-width: 992px)`);
 
-  console.log(router);
-
   const [hasScrolled, setHasScrolled] = useState(false)
-  const [pagesDropdown, setPagesDropdown] = useState(false)
+  const [pagesDropdown, setPagesDropdown] = useState(false);
 
   const handleHamburgerClick = () => { setMobileNav(p => !p) }
 
@@ -167,7 +165,7 @@ useEffect(() => {
                       <Link href='/pricing'>Pricing</Link>
                     </li>
                     <li className={`dropdown ${checkPath('/[service]')}`}>
-                      <Link href='#'>Services</Link>
+                      <Link href='/#'>Services</Link>
                       <ul className='sub-menu'>
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
@@ -310,7 +308,7 @@ width : 100%;
 
 header.header-mobile {
     display: none;
-    padding: 30px 0;
+    padding: 15px 0;
     width: 100%;
     position : fixed;
     top: 0;

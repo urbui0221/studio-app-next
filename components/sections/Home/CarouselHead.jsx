@@ -1,4 +1,4 @@
-import { AnimatePresence,motion } from 'framer-motion';
+import { AnimatePresence,motion, useMotionValue, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import React, { useState,useRef,useEffect } from 'react'
 import { BsChevronLeft,BsChevronRight } from 'react-icons/bs'
@@ -11,6 +11,8 @@ import Loader from '../../ui/Loader.component';
 const CarouselHead = () => {
     const [slide,setSlide] = useState(0);
     const [showControllers,setControls] = useState(true);
+    const [isAnimationCompleted,setAnimation] = useState(false);
+
 
     const carouselController = type => {
         return type === 'increment' ? 
@@ -65,18 +67,18 @@ const CarouselHead = () => {
     }
     const Carouselvariants = {
         from : {
-            opacity : 0
+            opacity : 0,
         },
         to : {
             opacity : 1,
             transition : {
-                duration : durTime
+                duration : 0.3
             } 
         },
         exit : {
             opacity : 0,
             transition : {
-                duration : durTime
+                duration : 0.3
             } 
         }
     }
@@ -124,9 +126,10 @@ const CarouselHead = () => {
         }
     }
 
-    
-
     const { data,error } = useSWR('/api/home',fetcher)
+
+    const scale = useMotionValue(1)
+    const y = useTransform(scale, value => value * 1.2)
     
     if(!data){
         return <Loader />
@@ -168,6 +171,7 @@ const CarouselHead = () => {
                             key={id}
                             exitBeforeEnter>
                                     <motion.img 
+                                    onAnimationComplete={() => setAnimation(true)}
                                     className="img"
                                     src={image} 
                                     alt="image" 
@@ -186,8 +190,8 @@ const CarouselHead = () => {
                     {
                               contentData.map(({ title,para },id) => {
                                  if(slide === id){
-                                    return <AnimatePresence>
-                                          <motion.h1
+                                    return <AnimatePresence key={id}>
+                                        <motion.h1
                                             dangerouslySetInnerHTML={{ __html : title }}
                                             variants={h1Variants}
                                             initial={"from"}
@@ -200,7 +204,7 @@ const CarouselHead = () => {
                                             initial={"from"}
                                             animate={"to"}
                                             exit="exit" 
-                                            />
+                                        />
                                     </AnimatePresence>
                                  }
                               }) 
@@ -227,13 +231,15 @@ const CarouselHead = () => {
             </div>
           </CarouselLinks>
           <PrivacyPolicy>
-           {
-               ['privacy policy','terms and conditions', `let's chat`].map((policy,id) => (
-                   <span key={id}>
-                       {policy}
-                   </span>
-               ))
-           }
+           <div className="links">
+                {
+                    ['privacy policy','terms and conditions', `let's chat`].map((policy,id) => (
+                        <span key={id}>
+                            {policy}
+                        </span>
+                    ))
+                }
+           </div>
           </PrivacyPolicy>
       </HeaderSlider>
     )
@@ -253,12 +259,24 @@ const PrivacyPolicy = styled.div`
     position: absolute;
     right: 3rem;
     bottom: 3rem;
-    display: flex;
-    text-transform : uppercase;
-    font-size : 1.2rem;
-    span{
-        &:not(:first-child){
-            margin-left : 1rem;
+    @media only screen and (max-width : 700px){
+        width: 100%;
+        right: 0;
+    }
+    .links{
+        display: flex;
+        text-transform : uppercase;
+        font-size : 1.2rem;
+        span{
+            &:not(:first-child){
+                margin-left : 1rem;
+            }
+        }
+        @media only screen and (max-width : 700px){
+            font-size : 0.8rem;
+            text-align: center;
+            width: max-content;
+            margin: 0 auto;
         }
     }
 `
@@ -274,6 +292,7 @@ const CarouselLinks = styled.div`
   z-index: 99;
   @media only screen and (max-width: 600px){
         right : -15px;
+        top: 60%;
     }
     @media only screen and (max-width: 450px){
         right : -30px;
@@ -285,6 +304,9 @@ const CarouselLinks = styled.div`
         color: var(--baseBg);
         transform: rotate(270deg);
         text-transform: uppercase;
+        @media only screen and (max-width : 500px){
+            font-size: 1.3rem;
+        }
   }
   .line {
     background-color: var(--baseBg);
@@ -312,6 +334,13 @@ const CarouselLinks = styled.div`
       }
 
       margin-bottom: 10px;
+    }
+    @media only screen and (max-width : 500px){
+        a{
+            i{
+                font-size: 1.5rem;
+            }
+        }
     }
   }
 `
@@ -341,7 +370,7 @@ position : relative;
     transform : translate(0%,-50%);
     height :  max-content;
       &-wrapper{
-        overflow : hidden;
+        //overflow : hidden;
         h1{
             text-transform : uppercase;
             color : var(--baseBg);
@@ -411,5 +440,5 @@ justify-content : space-between;
 align-content:center;
 position:absolute;
 width: 100%;
-top: 50%
+top: 45%
 `;
