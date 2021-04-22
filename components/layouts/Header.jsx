@@ -165,7 +165,7 @@ useEffect(() => {
                       <Link href='/pricing'>Pricing</Link>
                     </li>
                     <li className={`dropdown ${checkPath('/[service]')}`}>
-                      <Link href='/#'>Services</Link>
+                      <Link href='#'>Services</Link>
                       <ul className='sub-menu'>
                         {OurServicesList.map((blog, index) => (
                           <li key={index}>
