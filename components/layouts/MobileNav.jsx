@@ -32,7 +32,6 @@ const MobileNav = ({...otherProps},ref) => {
     },[isOpen])
 
     const dropDownToggler = _ => {
-        console.log(contentRef.current)
         setOpen(!isOpen);
     }
 

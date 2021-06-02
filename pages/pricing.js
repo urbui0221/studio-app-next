@@ -6,7 +6,6 @@ import List from '../components/sections/Pricing/List'
 import Foot from '../components/sections/Services/Foot'
 
 const Pricing = ({resp}) => {
-    console.log(resp)
     return (
         <Layout route="Pricing">
             <Cover background="/images/background/bg_11.jpg" big_style={false} title={'Pricing'} route={'Pricing'} />

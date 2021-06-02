@@ -19,7 +19,6 @@ const Services = ({query}) => {
         return <Loader />
     }
     const routeData = data?.find(service => service.id === query.service);
-    console.log(routeData)
 
     if(routeData === undefined){
         return <ErrorPage />

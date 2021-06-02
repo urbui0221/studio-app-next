@@ -17,7 +17,6 @@ export const getServerSideProps = async ({ query }) => {
 };
 
 const Blog = ({ query }) => {
-	console.log(query.blogid);
 	const { data, error } = useSWR('/api/blogData', fetcher);
 
 	if (!data) {

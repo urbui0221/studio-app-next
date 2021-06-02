@@ -15,15 +15,6 @@ const BlogContainer = ({ state }) => {
 
 	const [xdata, xsetData] = useState(state);
 
-	console.log(state);
-
-	// console.log(xdata)
-	// console.log(xcol1)
-	// console.log(xcol2)
-	// console.log(xcol3)
-	// console.log(xmdcol1)
-	// console.log(xmdcol2)
-
 	useEffect(() => {
 		let col1 = [];
 		let col2 = [];
@@ -79,12 +70,6 @@ const BlogContainer = ({ state }) => {
 		}
 		xsetmdCol2(mdcol2);
 		xsetmdCol1(mdcol1);
-
-		console.log('col1', xcol1);
-		console.log('col2', xcol2);
-		console.log('col3', xcol3);
-		console.log('mdcol1', xmdcol1);
-		console.log('mdcol2', xmdcol2);
 	}, [isMedium]);
 
 	return (
