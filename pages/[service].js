@@ -28,7 +28,7 @@ const Services = ({query}) => {
         <Layout route="Services">
             <Cover background={routeData.image} big_style={false} title={routeData.name} route={'Our Services 02'} />
                 <List ServicesData={routeData}/>
-            <Foot />Sayantan
+            <Foot />
         </Layout>
     )
 }

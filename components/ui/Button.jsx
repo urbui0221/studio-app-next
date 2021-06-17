@@ -20,7 +20,7 @@ const Container = styled.a`
   line-height: 46px;
   height: 48px;
   border: 1px solid var(--primary);
-  padding: ${props => props.padding ? props.padding : '0 40px'};
+  padding: ${props => props.padding || '0 40px'};
   :hover {
     background-color: ${props => props.color ? props.color : 'var(--primary)'};
     color: ${props => props.backgroundColor ? props.backgroundColor : '#ffffff'};

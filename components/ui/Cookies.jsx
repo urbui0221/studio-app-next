@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import styled from 'styled-components';
-
+import Button from './Button.component';
 const Cookies = ({ handleClose,...animationProps }) => {
 	return (
 		<Container {...animationProps}>
@@ -11,9 +11,20 @@ const Cookies = ({ handleClose,...animationProps }) => {
 				website. By continuing to brouse this site, you give consent for
 				cookies to be used.
 			</p>
+			<CookieBtn onClick={handleClose}> I accept </CookieBtn>
 		</Container>
 	);
 };
+
+
+const CookieBtn = styled(Button)`
+border : 1px solid white;
+border-radius: 1rem;
+padding : 0.8rem 1rem;
+font-weight: 500;
+margin-top : 1rem;
+width : 100%;
+`
 
 const Container = styled(motion.div)`
 	color: var(--baseBg);
@@ -22,7 +33,7 @@ const Container = styled(motion.div)`
 	position: fixed;
 	bottom: 10px;
 	left : 10px;
-	z-index: 2;
+	z-index: 10000;
 	border-radius: 1rem;
 	box-shadow : 1px 3px 5px rgba(0, 0, 0, 0.2);
 	p {
